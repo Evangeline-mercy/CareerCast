@@ -24,7 +24,7 @@ streamlit run app.py
 
 Shows the CareerCast landing page with the structured profile input form.
 
-![Home](images/home.png)
+![Home](images/1_home.png)
 
 ---
 
@@ -32,7 +32,7 @@ Shows the CareerCast landing page with the structured profile input form.
 
 Shows the completed profile form before prediction.
 
-![Form](images/form.png)
+![Form](images/2_form.png)
 
 ---
 
@@ -40,7 +40,7 @@ Shows the completed profile form before prediction.
 
 Displays the extracted skills, education tags and institutions using spaCy NER.
 
-![Resume](images/parsed_resume.png)
+![Resume](images/3_parsed_resume.png)
 
 ---
 
@@ -48,4 +48,4 @@ Displays the extracted skills, education tags and institutions using spaCy NER.
 
 Displays the predicted career paths with confidence scores and progress bars.
 
-![Prediction](images/prediction.png)
+![Prediction](images/4_prediction.png)
