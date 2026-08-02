@@ -17,3 +17,35 @@ python -m spacy download en_core_web_sm
 python train_model.py
 streamlit run app.py
 ```
+
+## Application Screenshots
+
+### 1. Home Page
+
+Shows the CareerCast landing page with the structured profile input form.
+
+![Home](images/home.png)
+
+---
+
+### 2. User Profile Input
+
+Shows the completed profile form before prediction.
+
+![Form](images/form.png)
+
+---
+
+### 3. Resume Parsing
+
+Displays the extracted skills, education tags and institutions using spaCy NER.
+
+![Resume](images/parsed_resume.png)
+
+---
+
+### 4. Career Prediction Report
+
+Displays the predicted career paths with confidence scores and progress bars.
+
+![Prediction](images/prediction.png)
