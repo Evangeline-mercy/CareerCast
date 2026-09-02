@@ -1,0 +1,35 @@
+=================
+CAREERCAST MILESTONE 2
+FINAL EVALUATION REPORT
+==========================================================================================
+
+[1] Loading training dataset...
+Training rows    : 48000
+Career classes   : 96
+
+[2] Loading Logistic Regression metrics...
+Metrics loaded.
+
+MODEL METRICS
+                       model  accuracy  precision_macro  recall_macro  macro_f1  training_samples  testing_samples  careers  vocabulary_size
+TF-IDF + Logistic Regression  0.999583         0.999587      0.999583  0.999583             38400             9600       96            24361
+
+[3] Loading external validation results...
+Validation candidates : 10
+Top-1 accuracy        : 0.7000
+Top-3 accuracy        : 0.9000
+
+[4] Loading career recommendations...
+Recommendation rows : 50
+Candidates           : 10
+
+[5] Generating recommendation summary...
+
+==========================================================================================
+FINAL EVALUATION REPORT GENERATED
+==========================================================================================
+
+Saved:
+C:\Users\ADMIN\Documents\New folder\CareerCast_Milestone2_NEW\results\milestone2_final\milestone2_final_evaluation_report.txt
+
+Milestone 2 reporting stage complete.

@@ -1,0 +1,11 @@
+candidate_id,skills,education,expected_careers
+C001,"Python, SQL, Machine Learning, Pandas, NumPy","B.E. Computer Science","Data Scientists|Machine Learning Engineers|Data Analysts"
+C002,"Python, SQL, Statistics, Machine Learning","B.E. Computer Science","Data Scientists|Statisticians|Operations Research Analysts"
+C003,"Verilog, VLSI, RTL Design, Digital Electronics","B.E. Electronics and Communication Engineering","VLSI Engineers|Computer Hardware Engineers|Electronics Engineers"
+C004,"Arduino, Embedded C, IoT, Microcontrollers","B.E. Electronics and Communication Engineering","Embedded Systems Engineers|IoT Engineers|Electronics Engineers"
+C005,"HTML, CSS, JavaScript, React","B.E. Computer Science","Web Developers|Software Developers|Frontend Developers"
+C006,"Python, TensorFlow, Deep Learning, Computer Vision","B.E. Computer Science","Machine Learning Engineers|Computer and Information Research Scientists|Data Scientists"
+C007,"C, C++, Embedded Systems, Microcontrollers, RTOS","B.E. Electronics and Communication Engineering","Embedded Systems Engineers|Firmware Engineers|Electronics Engineers"
+C008,"SQL, Python, Data Analysis, Excel, Statistics","B.E. Computer Science","Data Analysts|Operations Research Analysts|Statisticians"
+C009,"MATLAB, Signal Processing, Communication Systems, DSP","B.E. Electronics and Communication Engineering","Electrical Engineers|Electronics Engineers|Signal Processing Engineers"
+C010,"AWS, Linux, Cloud Computing, Python","B.E. Computer Science","Cloud Engineers|DevOps Engineers|Software Developers"

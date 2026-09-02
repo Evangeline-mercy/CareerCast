@@ -1,0 +1,2 @@
+model,accuracy,precision_macro,recall_macro,macro_f1,cv_accuracy,training_samples,testing_samples,careers,vocabulary_size,svd_components,best_params
+XGBClassifier,0.9992708333333333,0.9992976976269056,0.9992708333333334,0.9992705024004587,0.998828125,38400,9600,96,975,100,"{""max_depth"": 5, ""n_estimators"": 100}"

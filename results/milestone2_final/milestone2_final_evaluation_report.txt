@@ -1,0 +1,404 @@
+==========================================================================================
+CAREERCAST - MILESTONE 2 FINAL EVALUATION REPORT
+==========================================================================================
+
+1. MILESTONE 2 OBJECTIVE
+------------------------------------------------------------------------------------------
+Milestone 2 implements a profile-based career prediction and recommendation pipeline using TF-IDF skill representation and Logistic Regression classification.
+
+The system accepts candidate skill profiles, predicts suitable career categories, calculates skill overlap, identifies missing skills, and produces ranked career recommendations.
+
+2. TRAINING DATASET
+------------------------------------------------------------------------------------------
+Training samples       : 48000
+Career classes         : 96
+Samples per career     : 500 - 500
+Empty skill profiles   : 0
+
+3. LOGISTIC REGRESSION MODEL PERFORMANCE
+------------------------------------------------------------------------------------------
+TF-IDF + Logistic Regression: 0.9995833333333334
+
+4. EXTERNAL VALIDATION
+------------------------------------------------------------------------------------------
+Candidates tested      : 10
+Top-1 accuracy         : 0.7000 (70.00%)
+Top-3 accuracy         : 0.9000 (90.00%)
+
+5. CANDIDATE-WISE VALIDATION SUMMARY
+------------------------------------------------------------------------------------------
+
+Candidate: C001
+Top-1: 
+Top-2: 
+Top-3: 
+Top-1 Match: True
+Top-3 Match: True
+
+Candidate: C002
+Top-1: 
+Top-2: 
+Top-3: 
+Top-1 Match: True
+Top-3 Match: True
+
+Candidate: C003
+Top-1: 
+Top-2: 
+Top-3: 
+Top-1 Match: True
+Top-3 Match: True
+
+Candidate: C004
+Top-1: 
+Top-2: 
+Top-3: 
+Top-1 Match: True
+Top-3 Match: True
+
+Candidate: C005
+Top-1: 
+Top-2: 
+Top-3: 
+Top-1 Match: False
+Top-3 Match: True
+
+Candidate: C006
+Top-1: 
+Top-2: 
+Top-3: 
+Top-1 Match: False
+Top-3 Match: True
+
+Candidate: C007
+Top-1: 
+Top-2: 
+Top-3: 
+Top-1 Match: True
+Top-3 Match: True
+
+Candidate: C008
+Top-1: 
+Top-2: 
+Top-3: 
+Top-1 Match: True
+Top-3 Match: True
+
+Candidate: C009
+Top-1: 
+Top-2: 
+Top-3: 
+Top-1 Match: True
+Top-3 Match: True
+
+Candidate: C010
+Top-1: 
+Top-2: 
+Top-3: 
+Top-1 Match: False
+Top-3 Match: False
+
+
+6. CAREER RECOMMENDATION PIPELINE
+------------------------------------------------------------------------------------------
+Candidate Skills
+       |
+       v
+TF-IDF Representation
+       |
+       v
+Logistic Regression
+       |
+       v
+Career Probability
+       |
+       v
+Skill Matching
+       |
+       v
+Skill Gap Analysis
+       |
+       v
+Combined Ranking
+       |
+       v
+Top-5 Career Recommendations
+
+7. RECOMMENDATION STATISTICS
+------------------------------------------------------------------------------------------
+Candidates processed   : 10
+Recommendations generated: 50
+Recommendations per candidate: 5
+
+8. TOP-5 CAREER RECOMMENDATIONS
+------------------------------------------------------------------------------------------
+
+Candidate C001
+--------------------------------------------------
+1. Machine Learning Engineer
+   Model probability : 15.40%
+   Skill match       : 20.00%
+   Final score       : 16.78
+2. Data Scientist
+   Model probability : 9.52%
+   Skill match       : 25.00%
+   Final score       : 14.16
+3. Python Developer
+   Model probability : 8.61%
+   Skill match       : 20.00%
+   Final score       : 12.02
+4. Quantitative Analyst
+   Model probability : 6.37%
+   Skill match       : 25.00%
+   Final score       : 11.96
+5. Full Stack Machine Learning Engineer
+   Model probability : 3.21%
+   Skill match       : 15.00%
+   Final score       : 6.75
+
+Candidate C002
+--------------------------------------------------
+1. R Developer
+   Model probability : 8.56%
+   Skill match       : 20.00%
+   Final score       : 11.99
+2. Data Scientist
+   Model probability : 5.57%
+   Skill match       : 20.00%
+   Final score       : 9.90
+3. Quantitative Analyst
+   Model probability : 4.54%
+   Skill match       : 20.00%
+   Final score       : 9.18
+4. Full Stack Machine Learning Engineer
+   Model probability : 6.01%
+   Skill match       : 15.00%
+   Final score       : 8.71
+5. Machine Learning Engineer
+   Model probability : 5.86%
+   Skill match       : 15.00%
+   Final score       : 8.60
+
+Candidate C003
+--------------------------------------------------
+1. VLSI Engineer
+   Model probability : 50.89%
+   Skill match       : 15.00%
+   Final score       : 40.12
+2. Computer Hardware Engineer
+   Model probability : 8.82%
+   Skill match       : 10.00%
+   Final score       : 9.17
+3. Electronics Engineer
+   Model probability : 5.25%
+   Skill match       : 5.00%
+   Final score       : 5.18
+4. Enterprise Architect
+   Model probability : 1.03%
+   Skill match       : 0.00%
+   Final score       : 0.72
+5. Robotics Engineer
+   Model probability : 0.87%
+   Skill match       : 0.00%
+   Final score       : 0.61
+
+Candidate C004
+--------------------------------------------------
+1. IoT Engineer
+   Model probability : 20.26%
+   Skill match       : 15.00%
+   Final score       : 18.68
+2. IoT Developer
+   Model probability : 11.49%
+   Skill match       : 10.00%
+   Final score       : 11.04
+3. Firmware Engineer
+   Model probability : 3.89%
+   Skill match       : 10.00%
+   Final score       : 5.72
+4. Electronics Engineer
+   Model probability : 1.99%
+   Skill match       : 10.00%
+   Final score       : 4.40
+5. Computer Hardware Engineer
+   Model probability : 1.69%
+   Skill match       : 5.00%
+   Final score       : 2.68
+
+Candidate C005
+--------------------------------------------------
+1. Fullstack Developer
+   Model probability : 25.60%
+   Skill match       : 20.00%
+   Final score       : 23.92
+2. React Developer
+   Model probability : 13.06%
+   Skill match       : 20.00%
+   Final score       : 15.14
+3. Frontend Developer
+   Model probability : 4.89%
+   Skill match       : 20.00%
+   Final score       : 9.42
+4. Ruby Developer
+   Model probability : 4.28%
+   Skill match       : 15.00%
+   Final score       : 7.50
+5. PHP Developer
+   Model probability : 2.67%
+   Skill match       : 15.00%
+   Final score       : 6.37
+
+Candidate C006
+--------------------------------------------------
+1. Research Scientist (AI)
+   Model probability : 22.85%
+   Skill match       : 20.00%
+   Final score       : 22.00
+2. Computer Vision Engineer
+   Model probability : 16.76%
+   Skill match       : 20.00%
+   Final score       : 17.73
+3. Computer and Information Research Scientist
+   Model probability : 13.37%
+   Skill match       : 20.00%
+   Final score       : 15.36
+4. Machine Learning Engineer
+   Model probability : 5.82%
+   Skill match       : 15.00%
+   Final score       : 8.57
+5. Robotics Engineer
+   Model probability : 4.03%
+   Skill match       : 10.00%
+   Final score       : 5.82
+
+Candidate C007
+--------------------------------------------------
+1. Firmware Engineer
+   Model probability : 17.44%
+   Skill match       : 20.00%
+   Final score       : 18.21
+2. Embedded Systems Engineer
+   Model probability : 2.39%
+   Skill match       : 20.00%
+   Final score       : 7.67
+3. Electronics Engineer
+   Model probability : 6.41%
+   Skill match       : 10.00%
+   Final score       : 7.48
+4. Computer Hardware Engineer
+   Model probability : 6.09%
+   Skill match       : 10.00%
+   Final score       : 7.27
+5. Robotics Engineer
+   Model probability : 3.46%
+   Skill match       : 10.00%
+   Final score       : 5.43
+
+Candidate C008
+--------------------------------------------------
+1. R Developer
+   Model probability : 12.73%
+   Skill match       : 25.00%
+   Final score       : 16.41
+2. Operations Research Analyst
+   Model probability : 7.39%
+   Skill match       : 25.00%
+   Final score       : 12.67
+3. Data Analyst
+   Model probability : 3.45%
+   Skill match       : 20.00%
+   Final score       : 8.41
+4. Quantitative Analyst
+   Model probability : 2.73%
+   Skill match       : 20.00%
+   Final score       : 7.91
+5. Business Analyst
+   Model probability : 2.93%
+   Skill match       : 15.00%
+   Final score       : 6.55
+
+Candidate C009
+--------------------------------------------------
+1. Signal Processing Engineer
+   Model probability : 25.64%
+   Skill match       : 10.00%
+   Final score       : 20.95
+2. Electronics Engineer
+   Model probability : 12.18%
+   Skill match       : 15.00%
+   Final score       : 13.03
+3. Embedded Systems Engineer
+   Model probability : 2.33%
+   Skill match       : 5.00%
+   Final score       : 3.13
+4. Electrical Engineer
+   Model probability : 1.01%
+   Skill match       : 5.00%
+   Final score       : 2.21
+5. COBOL Developer
+   Model probability : 1.36%
+   Skill match       : 0.00%
+   Final score       : 0.95
+
+Candidate C010
+--------------------------------------------------
+1. IoT Engineer
+   Model probability : 18.86%
+   Skill match       : 15.00%
+   Final score       : 17.70
+2. AWS Solutions Architect
+   Model probability : 3.25%
+   Skill match       : 15.00%
+   Final score       : 6.78
+3. IoT Developer
+   Model probability : 3.02%
+   Skill match       : 10.00%
+   Final score       : 5.11
+4. Python Developer
+   Model probability : 2.01%
+   Skill match       : 10.00%
+   Final score       : 4.41
+5. Cloud Engineer
+   Model probability : 1.49%
+   Skill match       : 10.00%
+   Final score       : 4.04
+
+
+9. SKILL GAP ANALYSIS
+------------------------------------------------------------------------------------------
+The recommendation system compares candidate skills with the required skills associated with each recommended career.
+
+Matched skills are reported separately from missing skills, allowing the system to provide career-specific upskilling information.
+
+10. VALIDATION INTERPRETATION
+------------------------------------------------------------------------------------------
+The external validation produced a Top-1 accuracy of 70.00% and a Top-3 accuracy of 90.00%.
+
+Top-3 accuracy is particularly useful for a career recommendation system because multiple career paths can reasonably match the same candidate profile.
+
+The external validation results should be considered more representative of generalization than the internally generated synthetic profile test set.
+
+11. CURRENT LIMITATIONS
+------------------------------------------------------------------------------------------
+1. The training profiles are generated through controlled skill variations from predefined career profiles.
+2. The internal test accuracy is therefore not equivalent to real-world deployment accuracy.
+3. External validation currently contains 10 curated candidate profiles.
+4. Some careers have overlapping skill requirements, which can cause similar careers to appear in the Top-5 results.
+5. Additional real-world candidate profiles would strengthen future validation.
+
+12. MILESTONE 2 STATUS
+------------------------------------------------------------------------------------------
+Career taxonomy expansion                 : COMPLETE
+Profile-based training dataset            : COMPLETE
+TF-IDF feature representation             : COMPLETE
+Logistic Regression baseline              : COMPLETE
+External validation                       : COMPLETE
+Career recommendation engine             : COMPLETE
+Skill matching                            : COMPLETE
+Skill gap analysis                        : COMPLETE
+Top-5 recommendation generation           : COMPLETE
+Final evaluation report                   : COMPLETE
+
+==========================================================================================
+CAREERCAST MILESTONE 2 COMPLETE
+==========================================================================================

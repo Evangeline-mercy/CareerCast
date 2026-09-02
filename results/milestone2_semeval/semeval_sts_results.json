@@ -1,0 +1,22 @@
+{
+  "benchmark": "SemEval-2017 STS Shared Task, track5 (en-en)",
+  "benchmark_domain_note": "Generic SNLI-derived English sentences, not career/job-domain text. Measures general sentence-similarity quality only.",
+  "n_pairs": 250,
+  "results": [
+    {
+      "model": "pretrained_all-MiniLM-L6-v2",
+      "pearson_r": 0.8802366337554013,
+      "pearson_p_value": 2.976460426130518e-82,
+      "spearman_rho": 0.8758779089494525,
+      "spearman_p_value": 1.887817841173028e-80
+    },
+    {
+      "model": "finetuned_career_sbert",
+      "pearson_r": 0.8808883149734131,
+      "pearson_p_value": 1.578374948667685e-82,
+      "spearman_rho": 0.8793689984263057,
+      "spearman_p_value": 6.886530682167892e-82
+    }
+  ],
+  "total_time_seconds": 20.19500184059143
+}

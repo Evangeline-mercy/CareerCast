@@ -1,0 +1,2 @@
+model,accuracy,precision_macro,recall_macro,macro_f1,training_samples,testing_samples,careers,vocabulary_size
+TF-IDF + Logistic Regression,0.9995833333333334,0.9995873349339736,0.9995833333333334,0.9995832916624995,38400,9600,96,24361

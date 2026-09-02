@@ -1,0 +1,14 @@
+{
+  "dataset": "India LinkedIn career transition data",
+  "rows": 281,
+  "source_careers": 25,
+  "destination_careers": 25,
+  "transition_pairs": 281,
+  "mean_pearson_ranking_correlation": 0.8148330090462211,
+  "mean_spearman_ranking_correlation": 0.9596897098533488,
+  "top_transition": {
+    "source": "Data Scientist",
+    "destination": "Data Scientist",
+    "share": 2.92
+  }
+}

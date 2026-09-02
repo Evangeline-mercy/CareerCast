@@ -1,0 +1,856 @@
+
+======================================================================
+A. RANDOM FOREST
+======================================================================
+  FOUND: results/tree_model/metadata.json
+
+Metadata:
+{
+  "model_name": "RandomForestClassifier",
+  "n_classes": 878,
+  "n_train_samples": 14048,
+  "n_test_samples": 3512,
+  "n_features": 206,
+  "cv_strategy": "StratifiedKFold(n_splits=3)",
+  "search_n_iter": 8,
+  "best_params": {
+    "max_depth": 25,
+    "max_features": "log2",
+    "min_samples_leaf": 1,
+    "n_estimators": 132
+  },
+  "best_cv_accuracy": 0.8836137806442933,
+  "top1_accuracy": 0.9419134396355353,
+  "top3_accuracy": 0.9797835990888383,
+  "top5_accuracy": 0.9903189066059226,
+  "macro_precision": 0.9480318561468903,
+  "macro_recall": 0.9419134396355353,
+  "macro_f1": 0.9368189534026963,
+  "weighted_precision": 0.9480318561468903,
+  "weighted_recall": 0.9419134396355353,
+  "weighted_f1": 0.9368189534026963,
+  "search_time_seconds": 2520.0387811660767,
+  "final_train_time_seconds": 97.47527289390564,
+  "eval_time_seconds": 3.702061653137207,
+  "total_script_time_seconds": 2623.4974448680878,
+  "random_state": 42,
+  "job_description_excluded": true,
+  "note": "Job_Description excluded from features due to target leakage (1 unique description per career)."
+}
+  FOUND: results/tree_model/cv_results.csv  shape=(8, 15)
+
+CV columns:
+['mean_fit_time', 'std_fit_time', 'mean_score_time', 'std_score_time', 'param_max_depth', 'param_max_features', 'param_min_samples_leaf', 'param_n_estimators', 'params', 'split0_test_score', 'split1_test_score', 'split2_test_score', 'mean_test_score', 'std_test_score', 'rank_test_score']
+
+First 10 rows:
+   mean_fit_time  std_fit_time  mean_score_time  std_score_time  param_max_depth param_max_features  param_min_samples_leaf  param_n_estimators                                                                                 params  split0_test_score  split1_test_score  split2_test_score  mean_test_score  std_test_score  rank_test_score
+0     376.652816      4.209505         4.065777        0.449935               20               log2                       1                 114  {'max_depth': 20, 'max_features': 'log2', 'min_samples_leaf': 1, 'n_estimators': 114}           0.817425           0.808029           0.812260         0.812571        0.003842                6
+1     396.287959      5.372381         3.910543        0.200711               20               log2                       1                 120  {'max_depth': 20, 'max_features': 'log2', 'min_samples_leaf': 1, 'n_estimators': 120}           0.821482           0.812300           0.822512         0.818765        0.004591                5
+2     602.958657      0.610651         6.588031        0.718418               20               log2                       3                 186  {'max_depth': 20, 'max_features': 'log2', 'min_samples_leaf': 3, 'n_estimators': 186}           0.860987           0.864403           0.854763         0.860051        0.003991                4
+3    1413.495705     10.015585         6.724353        0.918489               20               sqrt                       4                 216  {'max_depth': 20, 'max_features': 'sqrt', 'min_samples_leaf': 4, 'n_estimators': 216}           0.782191           0.801409           0.795814         0.793138        0.008071                7
+4     412.023486      4.061676         3.421185        0.278250               25               log2                       4                 102  {'max_depth': 25, 'max_features': 'log2', 'min_samples_leaf': 4, 'n_estimators': 102}           0.839206           0.871877           0.876548         0.862544        0.016612                3
+5     926.023562      5.911535         6.251949        0.459471               15               sqrt                       2                 187  {'max_depth': 15, 'max_features': 'sqrt', 'min_samples_leaf': 2, 'n_estimators': 187}           0.666453           0.713432           0.693934         0.691273        0.019271                8
+6     400.032951      2.022067         2.878968        0.116949               25               log2                       2                 101  {'max_depth': 25, 'max_features': 'log2', 'min_samples_leaf': 2, 'n_estimators': 101}           0.866966           0.855648           0.881674         0.868096        0.010655                2
+7     398.835836     62.198653         2.946454        0.046325               25               log2                       1                 132  {'max_depth': 25, 'max_features': 'log2', 'min_samples_leaf': 1, 'n_estimators': 132}           0.874867           0.885971           0.890004         0.883614        0.006401                1
+
+Hyperparameters searched:
+['param_max_depth', 'param_max_features', 'param_min_samples_leaf', 'param_n_estimators']
+
+Best CV score: 0.8836137806442933
+Best parameters:
+  param_max_depth: 25
+  param_max_features: log2
+  param_min_samples_leaf: 1
+  param_n_estimators: 132
+  FOUND: results/tree_model/classification_report.json
+
+Classification report keys:
+['Actors', 'Actuaries', 'Acupuncturists', 'Acute Care Nurses', 'Adapted Physical Education Specialists', 'Adhesive Bonding Machine Operators and Tenders', 'Administrative Law Judges, Adjudicators, and Hearing Officers', 'Administrative Services Managers', 'Adult Basic Education, Adult Secondary Education, and English as a Second Language Instructors', 'Advanced Practice Psychiatric Nurses', 'Advertising Sales Agents', 'Advertising and Promotions Managers', 'Aerospace Engineering and Operations Technologists and Technicians', 'Aerospace Engineers', 'Agents and Business Managers of Artists, Performers, and Athletes', 'Agricultural Engineers', 'Agricultural Equipment Operators', 'Agricultural Inspectors', 'Agricultural Sciences Teachers, Postsecondary', 'Agricultural Technicians', 'Air Traffic Controllers', 'Aircraft Cargo Handling Supervisors', 'Aircraft Mechanics and Service Technicians', 'Aircraft Structure, Surfaces, Rigging, and Systems Assemblers', 'Airfield Operations Specialists', 'Airline Pilots, Copilots, and Flight Engineers', 'Allergists and Immunologists', 'Ambulance Drivers and Attendants, Except Emergency Medical Technicians', 'Amusement and Recreation Attendants', 'Anesthesiologist Assistants', 'Anesthesiologists', 'Animal Breeders', 'Animal Caretakers', 'Animal Control Workers', 'Animal Scientists', 'Animal Trainers', 'Anthropologists and Archeologists', 'Anthropology and Archeology Teachers, Postsecondary', 'Appraisers and Assessors of Real Estate', 'Appraisers of Personal and Business Property', 'Arbitrators, Mediators, and Conciliators', 'Architects, Except Landscape and Naval', 'Architectural and Engineering Managers', 'Architecture Teachers, Postsecondary', 'Archivists', 'Area, Ethnic, and Cultural Studies Teachers, Postsecondary', 'Art Directors', 'Art Therapists', 'Art, Drama, and Music Teachers, Postsecondary', 'Astronomers', 'Athletes and Sports Competitors', 'Athletic Trainers', 'Atmospheric and Space Scientists', 'Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary', 'Audio and Video Technicians', 'Audiologists', 'Audiovisual Equipment Installers and Repairers', 'Automotive Body and Related Repairers', 'Automotive Engineering Technicians', 'Automotive Engineers', 'Automotive Glass Installers and Repairers', 'Automotive Service Technicians and Mechanics', 'Automotive and Watercraft Service Attendants', 'Aviation Inspectors', 'Avionics Technicians', 'Baggage Porters and Bellhops', 'Bailiffs', 'Bakers', 'Barbers', 'Baristas', 'Bartenders', 'Bicycle Repairers', 'Bill and Account Collectors', 'Billing and Posting Clerks', 'Biochemists and Biophysicists', 'Bioengineers and Biomedical Engineers', 'Biofuels Processing Technicians', 'Biofuels Production Managers', 'Biofuels/Biodiesel Technology and Product Development Managers', 'Bioinformatics Scientists', 'Bioinformatics Technicians', 'Biological Science Teachers, Postsecondary', 'Biological Technicians', 'Biologists', 'Biomass Plant Technicians', 'Biomass Power Plant Managers', 'Biostatisticians', 'Boilermakers', 'Bookkeeping, Accounting, and Auditing Clerks', 'Brickmasons and Blockmasons', 'Bridge and Lock Tenders', 'Broadcast Announcers and Radio Disc Jockeys', 'Broadcast Technicians', 'Brokerage Clerks', 'Brownfield Redevelopment Specialists and Site Managers', 'Budget Analysts', 'Bus Drivers, School', 'Bus Drivers, Transit and Intercity', 'Bus and Truck Mechanics and Diesel Engine Specialists', 'Business Continuity Planners', 'Business Intelligence Analysts', 'Business Teachers, Postsecondary', 'Butchers and Meat Cutters', 'Buyers and Purchasing Agents, Farm Products', 'Cabinetmakers and Bench Carpenters', 'Camera Operators, Television, Video, and Film', 'Camera and Photographic Equipment Repairers', 'Captains, Mates, and Pilots of Water Vessels', 'Cardiovascular Technologists and Technicians', 'Career/Technical Education Teachers, Middle School', 'Career/Technical Education Teachers, Postsecondary', 'Career/Technical Education Teachers, Secondary School', 'Cargo and Freight Agents', 'Carpenters', 'Carpet Installers', 'Cartographers and Photogrammetrists', 'Cashiers', 'Cement Masons and Concrete Finishers', 'Chefs and Head Cooks', 'Chemical Engineers', 'Chemical Equipment Operators and Tenders', 'Chemical Plant and System Operators', 'Chemical Technicians', 'Chemistry Teachers, Postsecondary', 'Chemists', 'Chief Executives', 'Chief Sustainability Officers', 'Child, Family, and School Social Workers', 'Childcare Workers', 'Chiropractors', 'Choreographers', 'Civil Engineering Technologists and Technicians', 'Civil Engineers', 'Claims Adjusters, Examiners, and Investigators', 'Cleaners of Vehicles and Equipment', 'Cleaning, Washing, and Metal Pickling Equipment Operators and Tenders', 'Clergy', 'Climate Change Policy Analysts', 'Clinical Data Managers', 'Clinical Neuropsychologists', 'Clinical Nurse Specialists', 'Clinical Research Coordinators', 'Clinical and Counseling Psychologists', 'Coaches and Scouts', 'Coating, Painting, and Spraying Machine Setters, Operators, and Tenders', 'Coil Winders, Tapers, and Finishers', 'Coin, Vending, and Amusement Machine Servicers and Repairers', 'Commercial Divers', 'Commercial Pilots', 'Commercial and Industrial Designers', 'Communications Teachers, Postsecondary', 'Community Health Workers', 'Compensation and Benefits Managers', 'Compensation, Benefits, and Job Analysis Specialists', 'Compliance Managers', 'Computer Hardware Engineers', 'Computer Network Architects', 'Computer Network Support Specialists', 'Computer Numerically Controlled Tool Operators', 'Computer Numerically Controlled Tool Programmers', 'Computer Programmers', 'Computer Science Teachers, Postsecondary', 'Computer Systems Analysts', 'Computer Systems Engineers/Architects', 'Computer User Support Specialists', 'Computer and Information Research Scientists', 'Computer and Information Systems Managers', 'Computer, Automated Teller, and Office Machine Repairers', 'Concierges', 'Conservation Scientists', 'Construction Laborers', 'Construction Managers', 'Construction and Building Inspectors', 'Continuous Mining Machine Operators', 'Control and Valve Installers and Repairers, Except Mechanical Door', 'Conveyor Operators and Tenders', 'Cooks, Fast Food', 'Cooks, Institution and Cafeteria', 'Cooks, Private Household', 'Cooks, Restaurant', 'Cooks, Short Order', 'Cooling and Freezing Equipment Operators and Tenders', 'Coroners', 'Correctional Officers and Jailers', 'Correspondence Clerks', 'Cost Estimators', 'Costume Attendants', 'Counter and Rental Clerks', 'Couriers and Messengers', 'Court Reporters and Simultaneous Captioners', 'Court, Municipal, and License Clerks', 'Craft Artists', 'Crane and Tower Operators', 'Credit Analysts', 'Credit Counselors', 'Criminal Justice and Law Enforcement Teachers, Postsecondary', 'Critical Care Nurses', 'Crossing Guards and Flaggers', 'Crushing, Grinding, and Polishing Machine Setters, Operators, and Tenders', 'Curators', 'Customer Service Representatives', 'Customs Brokers', 'Customs and Border Protection Officers', 'Cutters and Trimmers, Hand', 'Cutting and Slicing Machine Setters, Operators, and Tenders', 'Cutting, Punching, and Press Machine Setters, Operators, and Tenders, Metal and Plastic', 'Cytogenetic Technologists', 'Cytotechnologists', 'Dancers', 'Data Entry Keyers', 'Data Warehousing Specialists', 'Database Administrators', 'Database Architects', 'Demonstrators and Product Promoters', 'Dental Assistants', 'Dental Hygienists', 'Dental Laboratory Technicians', 'Dentists, General', 'Dermatologists', 'Derrick Operators, Oil and Gas', 'Desktop Publishers', 'Detectives and Criminal Investigators', 'Diagnostic Medical Sonographers', 'Dietetic Technicians', 'Dietitians and Nutritionists', 'Dining Room and Cafeteria Attendants and Bartender Helpers', 'Directors, Religious Activities and Education', 'Dishwashers', 'Dispatchers, Except Police, Fire, and Ambulance', 'Document Management Specialists', 'Door-to-Door Sales Workers, News and Street Vendors, and Related Workers', 'Dredge Operators', 'Drilling and Boring Machine Tool Setters, Operators, and Tenders, Metal and Plastic', 'Driver/Sales Workers', 'Drywall and Ceiling Tile Installers', 'Earth Drillers, Except Oil and Gas', 'Economics Teachers, Postsecondary', 'Economists', 'Editors', 'Education Administrators, Kindergarten through Secondary', 'Education Administrators, Postsecondary', 'Education Teachers, Postsecondary', 'Education and Childcare Administrators, Preschool and Daycare', 'Educational, Guidance, and Career Counselors and Advisors', 'Electric Motor, Power Tool, and Related Repairers', 'Electrical Engineers', 'Electrical Power-Line Installers and Repairers', 'Electrical and Electronic Equipment Assemblers', 'Electrical and Electronics Drafters', 'Electrical and Electronics Installers and Repairers, Transportation Equipment', 'Electrical and Electronics Repairers, Commercial and Industrial Equipment', 'Electrical and Electronics Repairers, Powerhouse, Substation, and Relay', 'Electricians', 'Electro-Mechanical and Mechatronics Technologists and Technicians', 'Electromechanical Equipment Assemblers', 'Electronic Equipment Installers and Repairers, Motor Vehicles', 'Electronics Engineers, Except Computer', 'Elementary School Teachers, Except Special Education', 'Elevator and Escalator Installers and Repairers', 'Eligibility Interviewers, Government Programs', 'Embalmers', 'Emergency Management Directors', 'Emergency Medicine Physicians', 'Endoscopy Technicians', 'Energy Auditors', 'Energy Engineers, Except Wind and Solar', 'Engine and Other Machine Assemblers', 'Engineering Teachers, Postsecondary', 'English Language and Literature Teachers, Postsecondary', 'Entertainment and Recreation Managers, Except Gambling', 'Environmental Compliance Inspectors', 'Environmental Economists', 'Environmental Engineering Technologists and Technicians', 'Environmental Engineers', 'Environmental Restoration Planners', 'Environmental Science Teachers, Postsecondary', 'Environmental Science and Protection Technicians, Including Health', 'Environmental Scientists and Specialists, Including Health', 'Epidemiologists', 'Equal Opportunity Representatives and Officers', 'Etchers and Engravers', 'Excavating and Loading Machine and Dragline Operators, Surface Mining', 'Executive Secretaries and Executive Administrative Assistants', 'Exercise Physiologists', 'Exercise Trainers and Group Fitness Instructors', 'Explosives Workers, Ordnance Handling Experts, and Blasters', 'Extruding and Drawing Machine Setters, Operators, and Tenders, Metal and Plastic', 'Extruding and Forming Machine Setters, Operators, and Tenders, Synthetic and Glass Fibers', 'Extruding, Forming, Pressing, and Compacting Machine Setters, Operators, and Tenders', 'Fabric and Apparel Patternmakers', 'Facilities Managers', 'Fallers', 'Family Medicine Physicians', 'Family and Consumer Sciences Teachers, Postsecondary', 'Farm Equipment Mechanics and Service Technicians', 'Farm Labor Contractors', 'Farm and Home Management Educators', 'Farmworkers and Laborers, Crop, Nursery, and Greenhouse', 'Farmworkers, Farm, Ranch, and Aquacultural Animals', 'Fashion Designers', 'Fast Food and Counter Workers', 'Fence Erectors', 'Fiberglass Laminators and Fabricators', 'File Clerks', 'Film and Video Editors', 'Financial Examiners', 'Financial Managers', 'Financial Quantitative Analysts', 'Fine Artists, Including Painters, Sculptors, and Illustrators', 'Fire Inspectors and Investigators', 'Fire-Prevention and Protection Engineers', 'Firefighters', 'First-Line Supervisors of Construction Trades and Extraction Workers', 'First-Line Supervisors of Correctional Officers', 'First-Line Supervisors of Farming, Fishing, and Forestry Workers', 'First-Line Supervisors of Firefighting and Prevention Workers', 'First-Line Supervisors of Food Preparation and Serving Workers', 'First-Line Supervisors of Gambling Services Workers', 'First-Line Supervisors of Helpers, Laborers, and Material Movers, Hand', 'First-Line Supervisors of Housekeeping and Janitorial Workers', 'First-Line Supervisors of Landscaping, Lawn Service, and Groundskeeping Workers', 'First-Line Supervisors of Material-Moving Machine and Vehicle Operators', 'First-Line Supervisors of Mechanics, Installers, and Repairers', 'First-Line Supervisors of Non-Retail Sales Workers', 'First-Line Supervisors of Office and Administrative Support Workers', 'First-Line Supervisors of Personal Service Workers', 'First-Line Supervisors of Police and Detectives', 'First-Line Supervisors of Production and Operating Workers', 'First-Line Supervisors of Retail Sales Workers', 'First-Line Supervisors of Security Workers', 'Fish and Game Wardens', 'Fishing and Hunting Workers', 'Fitness and Wellness Coordinators', 'Flight Attendants', 'Floor Layers, Except Carpet, Wood, and Hard Tiles', 'Floor Sanders and Finishers', 'Floral Designers', 'Food Batchmakers', 'Food Cooking Machine Operators and Tenders', 'Food Preparation Workers', 'Food Science Technicians', 'Food Scientists and Technologists', 'Food Servers, Nonrestaurant', 'Food Service Managers', 'Food and Tobacco Roasting, Baking, and Drying Machine Operators and Tenders', 'Foreign Language and Literature Teachers, Postsecondary', 'Forensic Science Technicians', 'Forest Fire Inspectors and Prevention Specialists', 'Forest and Conservation Technicians', 'Forest and Conservation Workers', 'Foresters', 'Forestry and Conservation Science Teachers, Postsecondary', 'Forging Machine Setters, Operators, and Tenders, Metal and Plastic', 'Foundry Mold and Coremakers', 'Fraud Examiners, Investigators and Analysts', 'Freight Forwarders', 'Fuel Cell Engineers', 'Fundraisers', 'Fundraising Managers', 'Funeral Attendants', 'Funeral Home Managers', 'Furnace, Kiln, Oven, Drier, and Kettle Operators and Tenders', 'Furniture Finishers', 'Gambling Cage Workers', 'Gambling Change Persons and Booth Cashiers', 'Gambling Dealers', 'Gambling Managers', 'Gambling Surveillance Officers and Gambling Investigators', 'Gambling and Sports Book Writers and Runners', 'Gas Compressor and Gas Pumping Station Operators', 'Gas Plant Operators', 'Gem and Diamond Workers', 'General Internal Medicine Physicians', 'General and Operations Managers', 'Genetic Counselors', 'Geneticists', 'Geodetic Surveyors', 'Geographers', 'Geography Teachers, Postsecondary', 'Geoscientists, Except Hydrologists and Geographers', 'Geothermal Production Managers', 'Geothermal Technicians', 'Glass Blowers, Molders, Benders, and Finishers', 'Glaziers', 'Government Property Inspectors and Investigators', 'Graders and Sorters, Agricultural Products', 'Graphic Designers', 'Grinding and Polishing Workers, Hand', 'Grinding, Lapping, Polishing, and Buffing Machine Tool Setters, Operators, and Tenders, Metal and Plastic', 'Hairdressers, Hairstylists, and Cosmetologists', 'Hazardous Materials Removal Workers', 'Health Education Specialists', 'Health Informatics Specialists', 'Health Specialties Teachers, Postsecondary', 'Healthcare Social Workers', 'Hearing Aid Specialists', 'Heat Treating Equipment Setters, Operators, and Tenders, Metal and Plastic', 'Heating, Air Conditioning, and Refrigeration Mechanics and Installers', 'Heavy and Tractor-Trailer Truck Drivers', 'Helpers--Brickmasons, Blockmasons, Stonemasons, and Tile and Marble Setters', 'Helpers--Carpenters', 'Helpers--Electricians', 'Helpers--Extraction Workers', 'Helpers--Installation, Maintenance, and Repair Workers', 'Helpers--Painters, Paperhangers, Plasterers, and Stucco Masons', 'Helpers--Pipelayers, Plumbers, Pipefitters, and Steamfitters', 'Helpers--Production Workers', 'Helpers--Roofers', 'Highway Maintenance Workers', 'Histology Technicians', 'Historians', 'History Teachers, Postsecondary', 'Histotechnologists', 'Hoist and Winch Operators', 'Home Appliance Repairers', 'Home Health Aides', 'Hospitalists', 'Hosts and Hostesses, Restaurant, Lounge, and Coffee Shop', 'Hotel, Motel, and Resort Desk Clerks', 'Human Factors Engineers and Ergonomists', 'Human Resources Assistants, Except Payroll and Timekeeping', 'Human Resources Managers', 'Human Resources Specialists', 'Hydroelectric Plant Technicians', 'Hydroelectric Production Managers', 'Hydrologists', 'Industrial Ecologists', 'Industrial Engineering Technologists and Technicians', 'Industrial Engineers', 'Industrial Machinery Mechanics', 'Industrial Production Managers', 'Industrial Truck and Tractor Operators', 'Industrial-Organizational Psychologists', 'Information Security Analysts', 'Information Security Engineers', 'Information Technology Project Managers', 'Inspectors, Testers, Sorters, Samplers, and Weighers', 'Instructional Coordinators', 'Insulation Workers, Floor, Ceiling, and Wall', 'Insulation Workers, Mechanical', 'Insurance Appraisers, Auto Damage', 'Insurance Claims and Policy Processing Clerks', 'Insurance Sales Agents', 'Insurance Underwriters', 'Intelligence Analysts', 'Interior Designers', 'Interpreters and Translators', 'Interviewers, Except Eligibility and Loan', 'Investment Fund Managers', 'Janitors and Cleaners, Except Maids and Housekeeping Cleaners', 'Jewelers and Precious Stone and Metal Workers', 'Judges, Magistrate Judges, and Magistrates', 'Judicial Law Clerks', 'Kindergarten Teachers, Except Special Education', 'Labor Relations Specialists', 'Laborers and Freight, Stock, and Material Movers, Hand', 'Landscape Architects', 'Landscaping and Groundskeeping Workers', 'Lathe and Turning Machine Tool Setters, Operators, and Tenders, Metal and Plastic', 'Laundry and Dry-Cleaning Workers', 'Law Teachers, Postsecondary', 'Lawyers', 'Layout Workers, Metal and Plastic', 'Legal Secretaries and Administrative Assistants', 'Librarians and Media Collections Specialists', 'Library Assistants, Clerical', 'Library Science Teachers, Postsecondary', 'Library Technicians', 'Licensed Practical and Licensed Vocational Nurses', 'Lifeguards, Ski Patrol, and Other Recreational Protective Service Workers', 'Light Truck Drivers', 'Loading and Moving Machine Operators, Underground Mining', 'Loan Interviewers and Clerks', 'Loan Officers', 'Locker Room, Coatroom, and Dressing Room Attendants', 'Locksmiths and Safe Repairers', 'Locomotive Engineers', 'Lodging Managers', 'Log Graders and Scalers', 'Logging Equipment Operators', 'Logisticians', 'Logistics Analysts', 'Logistics Engineers', 'Loss Prevention Managers', 'Low Vision Therapists, Orientation and Mobility Specialists, and Vision Rehabilitation Therapists', 'Machine Feeders and Offbearers', 'Machinists', 'Magnetic Resonance Imaging Technologists', 'Maids and Housekeeping Cleaners', 'Mail Clerks and Mail Machine Operators, Except Postal Service', 'Maintenance Workers, Machinery', 'Maintenance and Repair Workers, General', 'Makeup Artists, Theatrical and Performance', 'Management Analysts', 'Manicurists and Pedicurists', 'Manufactured Building and Mobile Home Installers', 'Manufacturing Engineers', 'Marine Engineers and Naval Architects', 'Market Research Analysts and Marketing Specialists', 'Marketing Managers', 'Marriage and Family Therapists', 'Massage Therapists', 'Materials Engineers', 'Materials Scientists', 'Mathematical Science Teachers, Postsecondary', 'Mathematicians', 'Meat, Poultry, and Fish Cutters and Trimmers', 'Mechanical Door Repairers', 'Mechanical Drafters', 'Mechanical Engineering Technologists and Technicians', 'Mechanical Engineers', 'Mechatronics Engineers', 'Media Programming Directors', 'Media Technical Directors/Managers', 'Medical Appliance Technicians', 'Medical Assistants', 'Medical Dosimetrists', 'Medical Equipment Preparers', 'Medical Equipment Repairers', 'Medical Scientists, Except Epidemiologists', 'Medical Secretaries and Administrative Assistants', 'Medical Transcriptionists', 'Medical and Clinical Laboratory Technicians', 'Medical and Clinical Laboratory Technologists', 'Medical and Health Services Managers', 'Meeting, Convention, and Event Planners', 'Mental Health Counselors', 'Mental Health and Substance Abuse Social Workers', 'Merchandise Displayers and Window Trimmers', 'Metal-Refining Furnace Operators and Tenders', 'Meter Readers, Utilities', 'Microbiologists', 'Microsystems Engineers', 'Middle School Teachers, Except Special and Career/Technical Education', 'Midwives', 'Milling and Planing Machine Setters, Operators, and Tenders, Metal and Plastic', 'Millwrights', 'Mining and Geological Engineers, Including Mining Safety Engineers', 'Mixing and Blending Machine Setters, Operators, and Tenders', 'Mobile Heavy Equipment Mechanics, Except Engines', 'Model Makers, Metal and Plastic', 'Model Makers, Wood', 'Models', 'Molding, Coremaking, and Casting Machine Setters, Operators, and Tenders, Metal and Plastic', 'Molecular and Cellular Biologists', 'Morticians, Undertakers, and Funeral Arrangers', 'Motion Picture Projectionists', 'Motorboat Mechanics and Service Technicians', 'Motorboat Operators', 'Motorcycle Mechanics', 'Multiple Machine Tool Setters, Operators, and Tenders, Metal and Plastic', 'Museum Technicians and Conservators', 'Music Directors and Composers', 'Music Therapists', 'Musical Instrument Repairers and Tuners', 'Musicians and Singers', 'Nannies', 'Nanosystems Engineers', 'Nanotechnology Engineering Technologists and Technicians', 'Natural Sciences Managers', 'Naturopathic Physicians', 'Network and Computer Systems Administrators', 'Neurodiagnostic Technologists', 'Neurologists', 'Neuropsychologists', 'New Accounts Clerks', 'Non-Destructive Testing Specialists', 'Nuclear Engineers', 'Nuclear Medicine Technologists', 'Nuclear Monitoring Technicians', 'Nuclear Power Reactor Operators', 'Nurse Anesthetists', 'Nurse Midwives', 'Nurse Practitioners', 'Nursing Assistants', 'Nursing Instructors and Teachers, Postsecondary', 'Obstetricians and Gynecologists', 'Occupational Health and Safety Specialists', 'Occupational Health and Safety Technicians', 'Occupational Therapists', 'Occupational Therapy Aides', 'Occupational Therapy Assistants', 'Office Clerks, General', 'Office Machine Operators, Except Computer', 'Online Merchants', 'Operating Engineers and Other Construction Equipment Operators', 'Operations Research Analysts', 'Ophthalmic Laboratory Technicians', 'Ophthalmic Medical Technicians', 'Ophthalmic Medical Technologists', 'Ophthalmologists, Except Pediatric', 'Opticians, Dispensing', 'Optometrists', 'Oral and Maxillofacial Surgeons', 'Order Clerks', 'Orderlies', 'Orthodontists', 'Orthoptists', 'Orthotists and Prosthetists', 'Outdoor Power Equipment and Other Small Engine Mechanics', 'Packaging and Filling Machine Operators and Tenders', 'Packers and Packagers, Hand', 'Painters, Construction and Maintenance', 'Painting, Coating, and Decorating Workers', 'Paper Goods Machine Setters, Operators, and Tenders', 'Paperhangers', 'Paralegals and Legal Assistants', 'Park Naturalists', 'Parking Attendants', 'Parking Enforcement Workers', 'Parts Salespersons', 'Passenger Attendants', 'Patient Representatives', 'Patternmakers, Metal and Plastic', 'Patternmakers, Wood', 'Paving, Surfacing, and Tamping Equipment Operators', 'Payroll and Timekeeping Clerks', 'Pediatricians, General', 'Personal Care Aides', 'Personal Financial Advisors', 'Pest Control Workers', 'Pesticide Handlers, Sprayers, and Applicators, Vegetation', 'Petroleum Engineers', 'Petroleum Pump System Operators, Refinery Operators, and Gaugers', 'Pharmacists', 'Pharmacy Aides', 'Pharmacy Technicians', 'Philosophy and Religion Teachers, Postsecondary', 'Phlebotomists', 'Photographers', 'Photographic Process Workers and Processing Machine Operators', 'Photonics Engineers', 'Photonics Technicians', 'Physical Medicine and Rehabilitation Physicians', 'Physical Therapist Aides', 'Physical Therapist Assistants', 'Physical Therapists', 'Physician Assistants', 'Physicians, Pathologists', 'Physicists', 'Physics Teachers, Postsecondary', 'Pile Driver Operators', 'Pipelayers', 'Plasterers and Stucco Masons', 'Plating Machine Setters, Operators, and Tenders, Metal and Plastic', 'Plumbers, Pipefitters, and Steamfitters', 'Podiatrists', 'Poets, Lyricists and Creative Writers', 'Police Identification and Records Officers', "Police and Sheriff's Patrol Officers", 'Political Science Teachers, Postsecondary', 'Political Scientists', 'Postal Service Clerks', 'Postal Service Mail Carriers', 'Postal Service Mail Sorters, Processors, and Processing Machine Operators', 'Postmasters and Mail Superintendents', 'Potters, Manufacturing', 'Pourers and Casters, Metal', 'Power Distributors and Dispatchers', 'Power Plant Operators', 'Precision Agriculture Technicians', 'Prepress Technicians and Workers', 'Preschool Teachers, Except Special Education', 'Pressers, Textile, Garment, and Related Materials', 'Preventive Medicine Physicians', 'Print Binding and Finishing Workers', 'Printing Press Operators', 'Private Detectives and Investigators', 'Probation Officers and Correctional Treatment Specialists', 'Procurement Clerks', 'Producers and Directors', 'Production, Planning, and Expediting Clerks', 'Proofreaders and Copy Markers', 'Property, Real Estate, and Community Association Managers', 'Prosthodontists', 'Psychiatric Aides', 'Psychiatric Technicians', 'Psychiatrists', 'Psychology Teachers, Postsecondary', 'Public Relations Specialists', 'Public Safety Telecommunicators', 'Pump Operators, Except Wellhead Pumpers', 'Purchasing Agents, Except Wholesale, Retail, and Farm Products', 'Purchasing Managers', 'Quality Control Analysts', 'Quality Control Systems Managers', 'Radiation Therapists', 'Radio Frequency Identification Device Specialists', 'Radio, Cellular, and Tower Equipment Installers and Repairers', 'Radiologic Technologists and Technicians', 'Radiologists', 'Rail Car Repairers', 'Rail Yard Engineers, Dinkey Operators, and Hostlers', 'Rail-Track Laying and Maintenance Equipment Operators', 'Railroad Conductors and Yardmasters', 'Range Managers', 'Real Estate Brokers', 'Real Estate Sales Agents', 'Receptionists and Information Clerks', 'Recreation Workers', 'Recreation and Fitness Studies Teachers, Postsecondary', 'Recreational Therapists', 'Recreational Vehicle Service Technicians', 'Recycling Coordinators', 'Recycling and Reclamation Workers', 'Refractory Materials Repairers, Except Brickmasons', 'Refuse and Recyclable Material Collectors', 'Registered Nurses', 'Regulatory Affairs Managers', 'Regulatory Affairs Specialists', 'Rehabilitation Counselors', 'Reinforcing Iron and Rebar Workers', 'Remote Sensing Scientists and Technologists', 'Remote Sensing Technicians', 'Reservation and Transportation Ticket Agents and Travel Clerks', 'Residential Advisors', 'Respiratory Therapists', 'Retail Loss Prevention Specialists', 'Retail Salespersons', 'Riggers', 'Robotics Engineers', 'Robotics Technicians', 'Rock Splitters, Quarry', 'Rolling Machine Setters, Operators, and Tenders, Metal and Plastic', 'Roof Bolters, Mining', 'Roofers', 'Rotary Drill Operators, Oil and Gas', 'Roustabouts, Oil and Gas', 'Sailors and Marine Oilers', 'Sales Engineers', 'Sales Managers', 'Sales Representatives, Wholesale and Manufacturing, Except Technical and Scientific Products', 'Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products', 'Sawing Machine Setters, Operators, and Tenders, Wood', 'School Psychologists', 'Search Marketing Strategists', 'Secondary School Teachers, Except Special and Career/Technical Education', 'Secretaries and Administrative Assistants, Except Legal, Medical, and Executive', 'Securities, Commodities, and Financial Services Sales Agents', 'Security Guards', 'Security Management Specialists', 'Security Managers', 'Security and Fire Alarm Systems Installers', 'Segmental Pavers', 'Self-Enrichment Teachers', 'Semiconductor Processing Technicians', 'Separating, Filtering, Clarifying, Precipitating, and Still Machine Setters, Operators, and Tenders', 'Septic Tank Servicers and Sewer Pipe Cleaners', 'Service Unit Operators, Oil and Gas', 'Set and Exhibit Designers', 'Sewers, Hand', 'Sewing Machine Operators', 'Shampooers', 'Sheet Metal Workers', 'Ship Engineers', 'Shipping, Receiving, and Inventory Clerks', 'Shoe Machine Operators and Tenders', 'Shoe and Leather Workers and Repairers', 'Shuttle Drivers and Chauffeurs', 'Signal and Track Switch Repairers', 'Skincare Specialists', 'Slaughterers and Meat Packers', 'Social Science Research Assistants', 'Social Work Teachers, Postsecondary', 'Social and Community Service Managers', 'Social and Human Service Assistants', 'Sociologists', 'Sociology Teachers, Postsecondary', 'Software Developers', 'Software Quality Assurance Analysts and Testers', 'Soil and Plant Scientists', 'Solar Energy Installation Managers', 'Solar Energy Systems Engineers', 'Solar Photovoltaic Installers', 'Solar Sales Representatives and Assessors', 'Solar Thermal Installers and Technicians', 'Sound Engineering Technicians', 'Spa Managers', 'Special Education Teachers, Elementary School', 'Special Education Teachers, Middle School', 'Special Education Teachers, Preschool', 'Special Education Teachers, Secondary School', 'Special Effects Artists and Animators', 'Speech-Language Pathologists', 'Speech-Language Pathology Assistants', 'Sports Medicine Physicians', 'Stationary Engineers and Boiler Operators', 'Statistical Assistants', 'Statisticians', 'Stockers and Order Fillers', 'Stone Cutters and Carvers, Manufacturing', 'Stonemasons', 'Structural Iron and Steel Workers', 'Structural Metal Fabricators and Fitters', 'Substance Abuse and Behavioral Disorder Counselors', 'Substitute Teachers, Short-Term', 'Subway and Streetcar Operators', 'Supply Chain Managers', 'Surgical Assistants', 'Surgical Technologists', 'Survey Researchers', 'Surveyors', 'Sustainability Specialists', 'Switchboard Operators, Including Answering Service', 'Tailors, Dressmakers, and Custom Sewers', 'Talent Directors', 'Tank Car, Truck, and Ship Loaders', 'Tapers', 'Tax Examiners and Collectors, and Revenue Agents', 'Tax Preparers', 'Teaching Assistants, Postsecondary', 'Teaching Assistants, Preschool, Elementary, Middle, and Secondary School, Except Special Education', 'Teaching Assistants, Special Education', 'Team Assemblers', 'Technical Writers', 'Telecommunications Engineering Specialists', 'Telecommunications Equipment Installers and Repairers, Except Line Installers', 'Telecommunications Line Installers and Repairers', 'Telemarketers', 'Telephone Operators', 'Tellers', 'Terrazzo Workers and Finishers', 'Textile Bleaching and Dyeing Machine Operators and Tenders', 'Textile Cutting Machine Setters, Operators, and Tenders', 'Textile Knitting and Weaving Machine Setters, Operators, and Tenders', 'Textile Winding, Twisting, and Drawing Out Machine Setters, Operators, and Tenders', 'Tile and Stone Setters', 'Timing Device Assemblers and Adjusters', 'Tire Builders', 'Tire Repairers and Changers', 'Title Examiners, Abstractors, and Searchers', 'Tool Grinders, Filers, and Sharpeners', 'Tool and Die Makers', 'Tour Guides and Escorts', 'Traffic Technicians', 'Training and Development Managers', 'Training and Development Specialists', 'Transit and Railroad Police', 'Transportation Engineers', 'Transportation Planners', 'Transportation Security Screeners', 'Transportation Vehicle, Equipment and Systems Inspectors, Except Aviation', 'Travel Agents', 'Travel Guides', 'Treasurers and Controllers', 'Tree Trimmers and Pruners', 'Tutors', 'Umpires, Referees, and Other Sports Officials', 'Upholsterers', 'Urban and Regional Planners', 'Urologists', 'Ushers, Lobby Attendants, and Ticket Takers', 'Validation Engineers', 'Veterinarians', 'Veterinary Assistants and Laboratory Animal Caretakers', 'Veterinary Technologists and Technicians', 'Video Game Designers', 'Waiters and Waitresses', 'Watch and Clock Repairers', 'Water Resource Specialists', 'Water and Wastewater Treatment Plant and System Operators', 'Water/Wastewater Engineers', 'Weatherization Installers and Technicians', 'Web Administrators', 'Web Developers', 'Weighers, Measurers, Checkers, and Samplers, Recordkeeping', 'Welders, Cutters, Solderers, and Brazers', 'Welding, Soldering, and Brazing Machine Setters, Operators, and Tenders', 'Wellhead Pumpers', 'Wholesale and Retail Buyers, Except Farm Products', 'Wind Energy Development Managers', 'Wind Energy Engineers', 'Wind Energy Operations Managers', 'Wind Turbine Service Technicians', 'Woodworking Machine Setters, Operators, and Tenders, Except Sawing', 'Word Processors and Typists', 'Writers and Authors', 'Zoologists and Wildlife Biologists', 'accuracy', 'macro avg', 'weighted avg']
+Accuracy: 0.9419134396355353
+
+RF number of classes: 878
+First 20 RF classes:
+['Actors', 'Actuaries', 'Acupuncturists', 'Acute Care Nurses', 'Adapted Physical Education Specialists', 'Adhesive Bonding Machine Operators and Tenders', 'Administrative Law Judges, Adjudicators, and Hearing Officers', 'Administrative Services Managers', 'Adult Basic Education, Adult Secondary Education, and English as a Second Language Instructors', 'Advanced Practice Psychiatric Nurses', 'Advertising Sales Agents', 'Advertising and Promotions Managers', 'Aerospace Engineering and Operations Technologists and Technicians', 'Aerospace Engineers', 'Agents and Business Managers of Artists, Performers, and Athletes', 'Agricultural Engineers', 'Agricultural Equipment Operators', 'Agricultural Inspectors', 'Agricultural Sciences Teachers, Postsecondary', 'Agricultural Technicians']
+
+======================================================================
+B. XGBOOST
+======================================================================
+  FOUND: results/xgboost_model/metadata.json
+
+Metadata:
+{
+  "xgboost_version": "3.4.0",
+  "num_classes": 878,
+  "training_samples": 14048,
+  "test_samples": 3512,
+  "num_features": 206,
+  "feature_description": "200 SVD components + 6 RIASEC features (float32)",
+  "leakage_note": "Job_Description was intentionally excluded because every career has exactly one unique job description (mean=1, min=1, max=1 per career), making it a direct target leakage feature.",
+  "cv_strategy": "RandomizedSearchCV with StratifiedKFold(n_splits=3)",
+  "n_search_iterations": 8,
+  "total_cv_fits": 24,
+  "best_cv_accuracy": 0.963055,
+  "best_parameters": {
+    "subsample": 0.7,
+    "n_estimators": 20,
+    "max_depth": 3,
+    "learning_rate": 0.15,
+    "colsample_bytree": 0.6
+  },
+  "fixed_parameters": {
+    "objective": "multi:softprob",
+    "tree_method": "hist",
+    "n_jobs": 1,
+    "random_state": 42,
+    "verbosity": 0
+  },
+  "top1_accuracy": 0.971811,
+  "top3_accuracy": 0.98918,
+  "top5_accuracy": 0.992312,
+  "macro_precision": 0.977891,
+  "macro_recall": 0.971811,
+  "macro_f1": 0.971406,
+  "weighted_precision": 0.977891,
+  "weighted_recall": 0.971811,
+  "weighted_f1": 0.971406,
+  "training_time_seconds": 2256.53,
+  "evaluation_time_seconds": 0.92,
+  "total_time_seconds": 2257.99,
+  "random_state": 42
+}
+  FOUND: results/xgboost_model/cv_results.csv  shape=(8, 16)
+
+CV columns:
+['mean_fit_time', 'std_fit_time', 'mean_score_time', 'std_score_time', 'param_subsample', 'param_n_estimators', 'param_max_depth', 'param_learning_rate', 'param_colsample_bytree', 'params', 'split0_test_score', 'split1_test_score', 'split2_test_score', 'mean_test_score', 'std_test_score', 'rank_test_score']
+
+First 10 rows:
+   mean_fit_time  std_fit_time  mean_score_time  std_score_time  param_subsample  param_n_estimators  param_max_depth  param_learning_rate  param_colsample_bytree                                                                                                  params  split0_test_score  split1_test_score  split2_test_score  mean_test_score  std_test_score  rank_test_score
+0     103.203265      1.582922         0.533898        0.004353              1.0                  15                3                 0.15                     1.0  {'subsample': 1.0, 'n_estimators': 15, 'max_depth': 3, 'learning_rate': 0.15, 'colsample_bytree': 1.0}           0.960495           0.964126           0.959205         0.961275        0.002083                2
+1      65.808021      0.268476         0.327113        0.001419              0.8                  10                2                 0.05                     1.0  {'subsample': 0.8, 'n_estimators': 10, 'max_depth': 2, 'learning_rate': 0.05, 'colsample_bytree': 1.0}           0.717062           0.741192           0.722341         0.726865        0.010357                8
+2      95.447446      0.472921         0.520612        0.007764              1.0                  15                2                 0.10                     1.0   {'subsample': 1.0, 'n_estimators': 15, 'max_depth': 2, 'learning_rate': 0.1, 'colsample_bytree': 1.0}           0.952594           0.959214           0.951516         0.954442        0.003403                4
+3      65.511819      1.224542         0.334434        0.004637              0.8                  10                2                 0.05                     0.8  {'subsample': 0.8, 'n_estimators': 10, 'max_depth': 2, 'learning_rate': 0.05, 'colsample_bytree': 0.8}           0.750374           0.735853           0.745835         0.744021        0.006065                7
+4      97.926465      1.705328         0.511620        0.003729              0.8                  15                2                 0.15                     0.8  {'subsample': 0.8, 'n_estimators': 15, 'max_depth': 2, 'learning_rate': 0.15, 'colsample_bytree': 0.8}           0.957079           0.956865           0.955575         0.956506        0.000665                3
+5      62.155791      0.401887         0.369346        0.011109              1.0                  10                3                 0.10                     0.6   {'subsample': 1.0, 'n_estimators': 10, 'max_depth': 3, 'learning_rate': 0.1, 'colsample_bytree': 0.6}           0.926116           0.924194           0.921188         0.923832        0.002028                6
+6      65.501531      0.395481         0.371337        0.006786              1.0                  10                3                 0.15                     0.8  {'subsample': 1.0, 'n_estimators': 10, 'max_depth': 3, 'learning_rate': 0.15, 'colsample_bytree': 0.8}           0.945761           0.950886           0.948313         0.948320        0.002092                5
+7     130.196156      1.040281         0.640948        0.003755              0.7                  20                3                 0.15                     0.6  {'subsample': 0.7, 'n_estimators': 20, 'max_depth': 3, 'learning_rate': 0.15, 'colsample_bytree': 0.6}           0.963698           0.963271           0.962196         0.963055        0.000632                1
+
+Hyperparameters searched:
+['param_subsample', 'param_n_estimators', 'param_max_depth', 'param_learning_rate', 'param_colsample_bytree']
+
+Best CV score: 0.9630551779943688
+Best parameters:
+  param_subsample: 0.7
+  param_n_estimators: 20
+  param_max_depth: 3
+  param_learning_rate: 0.15
+  param_colsample_bytree: 0.6
+  FOUND: results/xgboost_model/classification_report.json
+
+Classification report keys:
+['Actors', 'Actuaries', 'Acupuncturists', 'Acute Care Nurses', 'Adapted Physical Education Specialists', 'Adhesive Bonding Machine Operators and Tenders', 'Administrative Law Judges, Adjudicators, and Hearing Officers', 'Administrative Services Managers', 'Adult Basic Education, Adult Secondary Education, and English as a Second Language Instructors', 'Advanced Practice Psychiatric Nurses', 'Advertising Sales Agents', 'Advertising and Promotions Managers', 'Aerospace Engineering and Operations Technologists and Technicians', 'Aerospace Engineers', 'Agents and Business Managers of Artists, Performers, and Athletes', 'Agricultural Engineers', 'Agricultural Equipment Operators', 'Agricultural Inspectors', 'Agricultural Sciences Teachers, Postsecondary', 'Agricultural Technicians', 'Air Traffic Controllers', 'Aircraft Cargo Handling Supervisors', 'Aircraft Mechanics and Service Technicians', 'Aircraft Structure, Surfaces, Rigging, and Systems Assemblers', 'Airfield Operations Specialists', 'Airline Pilots, Copilots, and Flight Engineers', 'Allergists and Immunologists', 'Ambulance Drivers and Attendants, Except Emergency Medical Technicians', 'Amusement and Recreation Attendants', 'Anesthesiologist Assistants', 'Anesthesiologists', 'Animal Breeders', 'Animal Caretakers', 'Animal Control Workers', 'Animal Scientists', 'Animal Trainers', 'Anthropologists and Archeologists', 'Anthropology and Archeology Teachers, Postsecondary', 'Appraisers and Assessors of Real Estate', 'Appraisers of Personal and Business Property', 'Arbitrators, Mediators, and Conciliators', 'Architects, Except Landscape and Naval', 'Architectural and Engineering Managers', 'Architecture Teachers, Postsecondary', 'Archivists', 'Area, Ethnic, and Cultural Studies Teachers, Postsecondary', 'Art Directors', 'Art Therapists', 'Art, Drama, and Music Teachers, Postsecondary', 'Astronomers', 'Athletes and Sports Competitors', 'Athletic Trainers', 'Atmospheric and Space Scientists', 'Atmospheric, Earth, Marine, and Space Sciences Teachers, Postsecondary', 'Audio and Video Technicians', 'Audiologists', 'Audiovisual Equipment Installers and Repairers', 'Automotive Body and Related Repairers', 'Automotive Engineering Technicians', 'Automotive Engineers', 'Automotive Glass Installers and Repairers', 'Automotive Service Technicians and Mechanics', 'Automotive and Watercraft Service Attendants', 'Aviation Inspectors', 'Avionics Technicians', 'Baggage Porters and Bellhops', 'Bailiffs', 'Bakers', 'Barbers', 'Baristas', 'Bartenders', 'Bicycle Repairers', 'Bill and Account Collectors', 'Billing and Posting Clerks', 'Biochemists and Biophysicists', 'Bioengineers and Biomedical Engineers', 'Biofuels Processing Technicians', 'Biofuels Production Managers', 'Biofuels/Biodiesel Technology and Product Development Managers', 'Bioinformatics Scientists', 'Bioinformatics Technicians', 'Biological Science Teachers, Postsecondary', 'Biological Technicians', 'Biologists', 'Biomass Plant Technicians', 'Biomass Power Plant Managers', 'Biostatisticians', 'Boilermakers', 'Bookkeeping, Accounting, and Auditing Clerks', 'Brickmasons and Blockmasons', 'Bridge and Lock Tenders', 'Broadcast Announcers and Radio Disc Jockeys', 'Broadcast Technicians', 'Brokerage Clerks', 'Brownfield Redevelopment Specialists and Site Managers', 'Budget Analysts', 'Bus Drivers, School', 'Bus Drivers, Transit and Intercity', 'Bus and Truck Mechanics and Diesel Engine Specialists', 'Business Continuity Planners', 'Business Intelligence Analysts', 'Business Teachers, Postsecondary', 'Butchers and Meat Cutters', 'Buyers and Purchasing Agents, Farm Products', 'Cabinetmakers and Bench Carpenters', 'Camera Operators, Television, Video, and Film', 'Camera and Photographic Equipment Repairers', 'Captains, Mates, and Pilots of Water Vessels', 'Cardiovascular Technologists and Technicians', 'Career/Technical Education Teachers, Middle School', 'Career/Technical Education Teachers, Postsecondary', 'Career/Technical Education Teachers, Secondary School', 'Cargo and Freight Agents', 'Carpenters', 'Carpet Installers', 'Cartographers and Photogrammetrists', 'Cashiers', 'Cement Masons and Concrete Finishers', 'Chefs and Head Cooks', 'Chemical Engineers', 'Chemical Equipment Operators and Tenders', 'Chemical Plant and System Operators', 'Chemical Technicians', 'Chemistry Teachers, Postsecondary', 'Chemists', 'Chief Executives', 'Chief Sustainability Officers', 'Child, Family, and School Social Workers', 'Childcare Workers', 'Chiropractors', 'Choreographers', 'Civil Engineering Technologists and Technicians', 'Civil Engineers', 'Claims Adjusters, Examiners, and Investigators', 'Cleaners of Vehicles and Equipment', 'Cleaning, Washing, and Metal Pickling Equipment Operators and Tenders', 'Clergy', 'Climate Change Policy Analysts', 'Clinical Data Managers', 'Clinical Neuropsychologists', 'Clinical Nurse Specialists', 'Clinical Research Coordinators', 'Clinical and Counseling Psychologists', 'Coaches and Scouts', 'Coating, Painting, and Spraying Machine Setters, Operators, and Tenders', 'Coil Winders, Tapers, and Finishers', 'Coin, Vending, and Amusement Machine Servicers and Repairers', 'Commercial Divers', 'Commercial Pilots', 'Commercial and Industrial Designers', 'Communications Teachers, Postsecondary', 'Community Health Workers', 'Compensation and Benefits Managers', 'Compensation, Benefits, and Job Analysis Specialists', 'Compliance Managers', 'Computer Hardware Engineers', 'Computer Network Architects', 'Computer Network Support Specialists', 'Computer Numerically Controlled Tool Operators', 'Computer Numerically Controlled Tool Programmers', 'Computer Programmers', 'Computer Science Teachers, Postsecondary', 'Computer Systems Analysts', 'Computer Systems Engineers/Architects', 'Computer User Support Specialists', 'Computer and Information Research Scientists', 'Computer and Information Systems Managers', 'Computer, Automated Teller, and Office Machine Repairers', 'Concierges', 'Conservation Scientists', 'Construction Laborers', 'Construction Managers', 'Construction and Building Inspectors', 'Continuous Mining Machine Operators', 'Control and Valve Installers and Repairers, Except Mechanical Door', 'Conveyor Operators and Tenders', 'Cooks, Fast Food', 'Cooks, Institution and Cafeteria', 'Cooks, Private Household', 'Cooks, Restaurant', 'Cooks, Short Order', 'Cooling and Freezing Equipment Operators and Tenders', 'Coroners', 'Correctional Officers and Jailers', 'Correspondence Clerks', 'Cost Estimators', 'Costume Attendants', 'Counter and Rental Clerks', 'Couriers and Messengers', 'Court Reporters and Simultaneous Captioners', 'Court, Municipal, and License Clerks', 'Craft Artists', 'Crane and Tower Operators', 'Credit Analysts', 'Credit Counselors', 'Criminal Justice and Law Enforcement Teachers, Postsecondary', 'Critical Care Nurses', 'Crossing Guards and Flaggers', 'Crushing, Grinding, and Polishing Machine Setters, Operators, and Tenders', 'Curators', 'Customer Service Representatives', 'Customs Brokers', 'Customs and Border Protection Officers', 'Cutters and Trimmers, Hand', 'Cutting and Slicing Machine Setters, Operators, and Tenders', 'Cutting, Punching, and Press Machine Setters, Operators, and Tenders, Metal and Plastic', 'Cytogenetic Technologists', 'Cytotechnologists', 'Dancers', 'Data Entry Keyers', 'Data Warehousing Specialists', 'Database Administrators', 'Database Architects', 'Demonstrators and Product Promoters', 'Dental Assistants', 'Dental Hygienists', 'Dental Laboratory Technicians', 'Dentists, General', 'Dermatologists', 'Derrick Operators, Oil and Gas', 'Desktop Publishers', 'Detectives and Criminal Investigators', 'Diagnostic Medical Sonographers', 'Dietetic Technicians', 'Dietitians and Nutritionists', 'Dining Room and Cafeteria Attendants and Bartender Helpers', 'Directors, Religious Activities and Education', 'Dishwashers', 'Dispatchers, Except Police, Fire, and Ambulance', 'Document Management Specialists', 'Door-to-Door Sales Workers, News and Street Vendors, and Related Workers', 'Dredge Operators', 'Drilling and Boring Machine Tool Setters, Operators, and Tenders, Metal and Plastic', 'Driver/Sales Workers', 'Drywall and Ceiling Tile Installers', 'Earth Drillers, Except Oil and Gas', 'Economics Teachers, Postsecondary', 'Economists', 'Editors', 'Education Administrators, Kindergarten through Secondary', 'Education Administrators, Postsecondary', 'Education Teachers, Postsecondary', 'Education and Childcare Administrators, Preschool and Daycare', 'Educational, Guidance, and Career Counselors and Advisors', 'Electric Motor, Power Tool, and Related Repairers', 'Electrical Engineers', 'Electrical Power-Line Installers and Repairers', 'Electrical and Electronic Equipment Assemblers', 'Electrical and Electronics Drafters', 'Electrical and Electronics Installers and Repairers, Transportation Equipment', 'Electrical and Electronics Repairers, Commercial and Industrial Equipment', 'Electrical and Electronics Repairers, Powerhouse, Substation, and Relay', 'Electricians', 'Electro-Mechanical and Mechatronics Technologists and Technicians', 'Electromechanical Equipment Assemblers', 'Electronic Equipment Installers and Repairers, Motor Vehicles', 'Electronics Engineers, Except Computer', 'Elementary School Teachers, Except Special Education', 'Elevator and Escalator Installers and Repairers', 'Eligibility Interviewers, Government Programs', 'Embalmers', 'Emergency Management Directors', 'Emergency Medicine Physicians', 'Endoscopy Technicians', 'Energy Auditors', 'Energy Engineers, Except Wind and Solar', 'Engine and Other Machine Assemblers', 'Engineering Teachers, Postsecondary', 'English Language and Literature Teachers, Postsecondary', 'Entertainment and Recreation Managers, Except Gambling', 'Environmental Compliance Inspectors', 'Environmental Economists', 'Environmental Engineering Technologists and Technicians', 'Environmental Engineers', 'Environmental Restoration Planners', 'Environmental Science Teachers, Postsecondary', 'Environmental Science and Protection Technicians, Including Health', 'Environmental Scientists and Specialists, Including Health', 'Epidemiologists', 'Equal Opportunity Representatives and Officers', 'Etchers and Engravers', 'Excavating and Loading Machine and Dragline Operators, Surface Mining', 'Executive Secretaries and Executive Administrative Assistants', 'Exercise Physiologists', 'Exercise Trainers and Group Fitness Instructors', 'Explosives Workers, Ordnance Handling Experts, and Blasters', 'Extruding and Drawing Machine Setters, Operators, and Tenders, Metal and Plastic', 'Extruding and Forming Machine Setters, Operators, and Tenders, Synthetic and Glass Fibers', 'Extruding, Forming, Pressing, and Compacting Machine Setters, Operators, and Tenders', 'Fabric and Apparel Patternmakers', 'Facilities Managers', 'Fallers', 'Family Medicine Physicians', 'Family and Consumer Sciences Teachers, Postsecondary', 'Farm Equipment Mechanics and Service Technicians', 'Farm Labor Contractors', 'Farm and Home Management Educators', 'Farmworkers and Laborers, Crop, Nursery, and Greenhouse', 'Farmworkers, Farm, Ranch, and Aquacultural Animals', 'Fashion Designers', 'Fast Food and Counter Workers', 'Fence Erectors', 'Fiberglass Laminators and Fabricators', 'File Clerks', 'Film and Video Editors', 'Financial Examiners', 'Financial Managers', 'Financial Quantitative Analysts', 'Fine Artists, Including Painters, Sculptors, and Illustrators', 'Fire Inspectors and Investigators', 'Fire-Prevention and Protection Engineers', 'Firefighters', 'First-Line Supervisors of Construction Trades and Extraction Workers', 'First-Line Supervisors of Correctional Officers', 'First-Line Supervisors of Farming, Fishing, and Forestry Workers', 'First-Line Supervisors of Firefighting and Prevention Workers', 'First-Line Supervisors of Food Preparation and Serving Workers', 'First-Line Supervisors of Gambling Services Workers', 'First-Line Supervisors of Helpers, Laborers, and Material Movers, Hand', 'First-Line Supervisors of Housekeeping and Janitorial Workers', 'First-Line Supervisors of Landscaping, Lawn Service, and Groundskeeping Workers', 'First-Line Supervisors of Material-Moving Machine and Vehicle Operators', 'First-Line Supervisors of Mechanics, Installers, and Repairers', 'First-Line Supervisors of Non-Retail Sales Workers', 'First-Line Supervisors of Office and Administrative Support Workers', 'First-Line Supervisors of Personal Service Workers', 'First-Line Supervisors of Police and Detectives', 'First-Line Supervisors of Production and Operating Workers', 'First-Line Supervisors of Retail Sales Workers', 'First-Line Supervisors of Security Workers', 'Fish and Game Wardens', 'Fishing and Hunting Workers', 'Fitness and Wellness Coordinators', 'Flight Attendants', 'Floor Layers, Except Carpet, Wood, and Hard Tiles', 'Floor Sanders and Finishers', 'Floral Designers', 'Food Batchmakers', 'Food Cooking Machine Operators and Tenders', 'Food Preparation Workers', 'Food Science Technicians', 'Food Scientists and Technologists', 'Food Servers, Nonrestaurant', 'Food Service Managers', 'Food and Tobacco Roasting, Baking, and Drying Machine Operators and Tenders', 'Foreign Language and Literature Teachers, Postsecondary', 'Forensic Science Technicians', 'Forest Fire Inspectors and Prevention Specialists', 'Forest and Conservation Technicians', 'Forest and Conservation Workers', 'Foresters', 'Forestry and Conservation Science Teachers, Postsecondary', 'Forging Machine Setters, Operators, and Tenders, Metal and Plastic', 'Foundry Mold and Coremakers', 'Fraud Examiners, Investigators and Analysts', 'Freight Forwarders', 'Fuel Cell Engineers', 'Fundraisers', 'Fundraising Managers', 'Funeral Attendants', 'Funeral Home Managers', 'Furnace, Kiln, Oven, Drier, and Kettle Operators and Tenders', 'Furniture Finishers', 'Gambling Cage Workers', 'Gambling Change Persons and Booth Cashiers', 'Gambling Dealers', 'Gambling Managers', 'Gambling Surveillance Officers and Gambling Investigators', 'Gambling and Sports Book Writers and Runners', 'Gas Compressor and Gas Pumping Station Operators', 'Gas Plant Operators', 'Gem and Diamond Workers', 'General Internal Medicine Physicians', 'General and Operations Managers', 'Genetic Counselors', 'Geneticists', 'Geodetic Surveyors', 'Geographers', 'Geography Teachers, Postsecondary', 'Geoscientists, Except Hydrologists and Geographers', 'Geothermal Production Managers', 'Geothermal Technicians', 'Glass Blowers, Molders, Benders, and Finishers', 'Glaziers', 'Government Property Inspectors and Investigators', 'Graders and Sorters, Agricultural Products', 'Graphic Designers', 'Grinding and Polishing Workers, Hand', 'Grinding, Lapping, Polishing, and Buffing Machine Tool Setters, Operators, and Tenders, Metal and Plastic', 'Hairdressers, Hairstylists, and Cosmetologists', 'Hazardous Materials Removal Workers', 'Health Education Specialists', 'Health Informatics Specialists', 'Health Specialties Teachers, Postsecondary', 'Healthcare Social Workers', 'Hearing Aid Specialists', 'Heat Treating Equipment Setters, Operators, and Tenders, Metal and Plastic', 'Heating, Air Conditioning, and Refrigeration Mechanics and Installers', 'Heavy and Tractor-Trailer Truck Drivers', 'Helpers--Brickmasons, Blockmasons, Stonemasons, and Tile and Marble Setters', 'Helpers--Carpenters', 'Helpers--Electricians', 'Helpers--Extraction Workers', 'Helpers--Installation, Maintenance, and Repair Workers', 'Helpers--Painters, Paperhangers, Plasterers, and Stucco Masons', 'Helpers--Pipelayers, Plumbers, Pipefitters, and Steamfitters', 'Helpers--Production Workers', 'Helpers--Roofers', 'Highway Maintenance Workers', 'Histology Technicians', 'Historians', 'History Teachers, Postsecondary', 'Histotechnologists', 'Hoist and Winch Operators', 'Home Appliance Repairers', 'Home Health Aides', 'Hospitalists', 'Hosts and Hostesses, Restaurant, Lounge, and Coffee Shop', 'Hotel, Motel, and Resort Desk Clerks', 'Human Factors Engineers and Ergonomists', 'Human Resources Assistants, Except Payroll and Timekeeping', 'Human Resources Managers', 'Human Resources Specialists', 'Hydroelectric Plant Technicians', 'Hydroelectric Production Managers', 'Hydrologists', 'Industrial Ecologists', 'Industrial Engineering Technologists and Technicians', 'Industrial Engineers', 'Industrial Machinery Mechanics', 'Industrial Production Managers', 'Industrial Truck and Tractor Operators', 'Industrial-Organizational Psychologists', 'Information Security Analysts', 'Information Security Engineers', 'Information Technology Project Managers', 'Inspectors, Testers, Sorters, Samplers, and Weighers', 'Instructional Coordinators', 'Insulation Workers, Floor, Ceiling, and Wall', 'Insulation Workers, Mechanical', 'Insurance Appraisers, Auto Damage', 'Insurance Claims and Policy Processing Clerks', 'Insurance Sales Agents', 'Insurance Underwriters', 'Intelligence Analysts', 'Interior Designers', 'Interpreters and Translators', 'Interviewers, Except Eligibility and Loan', 'Investment Fund Managers', 'Janitors and Cleaners, Except Maids and Housekeeping Cleaners', 'Jewelers and Precious Stone and Metal Workers', 'Judges, Magistrate Judges, and Magistrates', 'Judicial Law Clerks', 'Kindergarten Teachers, Except Special Education', 'Labor Relations Specialists', 'Laborers and Freight, Stock, and Material Movers, Hand', 'Landscape Architects', 'Landscaping and Groundskeeping Workers', 'Lathe and Turning Machine Tool Setters, Operators, and Tenders, Metal and Plastic', 'Laundry and Dry-Cleaning Workers', 'Law Teachers, Postsecondary', 'Lawyers', 'Layout Workers, Metal and Plastic', 'Legal Secretaries and Administrative Assistants', 'Librarians and Media Collections Specialists', 'Library Assistants, Clerical', 'Library Science Teachers, Postsecondary', 'Library Technicians', 'Licensed Practical and Licensed Vocational Nurses', 'Lifeguards, Ski Patrol, and Other Recreational Protective Service Workers', 'Light Truck Drivers', 'Loading and Moving Machine Operators, Underground Mining', 'Loan Interviewers and Clerks', 'Loan Officers', 'Locker Room, Coatroom, and Dressing Room Attendants', 'Locksmiths and Safe Repairers', 'Locomotive Engineers', 'Lodging Managers', 'Log Graders and Scalers', 'Logging Equipment Operators', 'Logisticians', 'Logistics Analysts', 'Logistics Engineers', 'Loss Prevention Managers', 'Low Vision Therapists, Orientation and Mobility Specialists, and Vision Rehabilitation Therapists', 'Machine Feeders and Offbearers', 'Machinists', 'Magnetic Resonance Imaging Technologists', 'Maids and Housekeeping Cleaners', 'Mail Clerks and Mail Machine Operators, Except Postal Service', 'Maintenance Workers, Machinery', 'Maintenance and Repair Workers, General', 'Makeup Artists, Theatrical and Performance', 'Management Analysts', 'Manicurists and Pedicurists', 'Manufactured Building and Mobile Home Installers', 'Manufacturing Engineers', 'Marine Engineers and Naval Architects', 'Market Research Analysts and Marketing Specialists', 'Marketing Managers', 'Marriage and Family Therapists', 'Massage Therapists', 'Materials Engineers', 'Materials Scientists', 'Mathematical Science Teachers, Postsecondary', 'Mathematicians', 'Meat, Poultry, and Fish Cutters and Trimmers', 'Mechanical Door Repairers', 'Mechanical Drafters', 'Mechanical Engineering Technologists and Technicians', 'Mechanical Engineers', 'Mechatronics Engineers', 'Media Programming Directors', 'Media Technical Directors/Managers', 'Medical Appliance Technicians', 'Medical Assistants', 'Medical Dosimetrists', 'Medical Equipment Preparers', 'Medical Equipment Repairers', 'Medical Scientists, Except Epidemiologists', 'Medical Secretaries and Administrative Assistants', 'Medical Transcriptionists', 'Medical and Clinical Laboratory Technicians', 'Medical and Clinical Laboratory Technologists', 'Medical and Health Services Managers', 'Meeting, Convention, and Event Planners', 'Mental Health Counselors', 'Mental Health and Substance Abuse Social Workers', 'Merchandise Displayers and Window Trimmers', 'Metal-Refining Furnace Operators and Tenders', 'Meter Readers, Utilities', 'Microbiologists', 'Microsystems Engineers', 'Middle School Teachers, Except Special and Career/Technical Education', 'Midwives', 'Milling and Planing Machine Setters, Operators, and Tenders, Metal and Plastic', 'Millwrights', 'Mining and Geological Engineers, Including Mining Safety Engineers', 'Mixing and Blending Machine Setters, Operators, and Tenders', 'Mobile Heavy Equipment Mechanics, Except Engines', 'Model Makers, Metal and Plastic', 'Model Makers, Wood', 'Models', 'Molding, Coremaking, and Casting Machine Setters, Operators, and Tenders, Metal and Plastic', 'Molecular and Cellular Biologists', 'Morticians, Undertakers, and Funeral Arrangers', 'Motion Picture Projectionists', 'Motorboat Mechanics and Service Technicians', 'Motorboat Operators', 'Motorcycle Mechanics', 'Multiple Machine Tool Setters, Operators, and Tenders, Metal and Plastic', 'Museum Technicians and Conservators', 'Music Directors and Composers', 'Music Therapists', 'Musical Instrument Repairers and Tuners', 'Musicians and Singers', 'Nannies', 'Nanosystems Engineers', 'Nanotechnology Engineering Technologists and Technicians', 'Natural Sciences Managers', 'Naturopathic Physicians', 'Network and Computer Systems Administrators', 'Neurodiagnostic Technologists', 'Neurologists', 'Neuropsychologists', 'New Accounts Clerks', 'Non-Destructive Testing Specialists', 'Nuclear Engineers', 'Nuclear Medicine Technologists', 'Nuclear Monitoring Technicians', 'Nuclear Power Reactor Operators', 'Nurse Anesthetists', 'Nurse Midwives', 'Nurse Practitioners', 'Nursing Assistants', 'Nursing Instructors and Teachers, Postsecondary', 'Obstetricians and Gynecologists', 'Occupational Health and Safety Specialists', 'Occupational Health and Safety Technicians', 'Occupational Therapists', 'Occupational Therapy Aides', 'Occupational Therapy Assistants', 'Office Clerks, General', 'Office Machine Operators, Except Computer', 'Online Merchants', 'Operating Engineers and Other Construction Equipment Operators', 'Operations Research Analysts', 'Ophthalmic Laboratory Technicians', 'Ophthalmic Medical Technicians', 'Ophthalmic Medical Technologists', 'Ophthalmologists, Except Pediatric', 'Opticians, Dispensing', 'Optometrists', 'Oral and Maxillofacial Surgeons', 'Order Clerks', 'Orderlies', 'Orthodontists', 'Orthoptists', 'Orthotists and Prosthetists', 'Outdoor Power Equipment and Other Small Engine Mechanics', 'Packaging and Filling Machine Operators and Tenders', 'Packers and Packagers, Hand', 'Painters, Construction and Maintenance', 'Painting, Coating, and Decorating Workers', 'Paper Goods Machine Setters, Operators, and Tenders', 'Paperhangers', 'Paralegals and Legal Assistants', 'Park Naturalists', 'Parking Attendants', 'Parking Enforcement Workers', 'Parts Salespersons', 'Passenger Attendants', 'Patient Representatives', 'Patternmakers, Metal and Plastic', 'Patternmakers, Wood', 'Paving, Surfacing, and Tamping Equipment Operators', 'Payroll and Timekeeping Clerks', 'Pediatricians, General', 'Personal Care Aides', 'Personal Financial Advisors', 'Pest Control Workers', 'Pesticide Handlers, Sprayers, and Applicators, Vegetation', 'Petroleum Engineers', 'Petroleum Pump System Operators, Refinery Operators, and Gaugers', 'Pharmacists', 'Pharmacy Aides', 'Pharmacy Technicians', 'Philosophy and Religion Teachers, Postsecondary', 'Phlebotomists', 'Photographers', 'Photographic Process Workers and Processing Machine Operators', 'Photonics Engineers', 'Photonics Technicians', 'Physical Medicine and Rehabilitation Physicians', 'Physical Therapist Aides', 'Physical Therapist Assistants', 'Physical Therapists', 'Physician Assistants', 'Physicians, Pathologists', 'Physicists', 'Physics Teachers, Postsecondary', 'Pile Driver Operators', 'Pipelayers', 'Plasterers and Stucco Masons', 'Plating Machine Setters, Operators, and Tenders, Metal and Plastic', 'Plumbers, Pipefitters, and Steamfitters', 'Podiatrists', 'Poets, Lyricists and Creative Writers', 'Police Identification and Records Officers', "Police and Sheriff's Patrol Officers", 'Political Science Teachers, Postsecondary', 'Political Scientists', 'Postal Service Clerks', 'Postal Service Mail Carriers', 'Postal Service Mail Sorters, Processors, and Processing Machine Operators', 'Postmasters and Mail Superintendents', 'Potters, Manufacturing', 'Pourers and Casters, Metal', 'Power Distributors and Dispatchers', 'Power Plant Operators', 'Precision Agriculture Technicians', 'Prepress Technicians and Workers', 'Preschool Teachers, Except Special Education', 'Pressers, Textile, Garment, and Related Materials', 'Preventive Medicine Physicians', 'Print Binding and Finishing Workers', 'Printing Press Operators', 'Private Detectives and Investigators', 'Probation Officers and Correctional Treatment Specialists', 'Procurement Clerks', 'Producers and Directors', 'Production, Planning, and Expediting Clerks', 'Proofreaders and Copy Markers', 'Property, Real Estate, and Community Association Managers', 'Prosthodontists', 'Psychiatric Aides', 'Psychiatric Technicians', 'Psychiatrists', 'Psychology Teachers, Postsecondary', 'Public Relations Specialists', 'Public Safety Telecommunicators', 'Pump Operators, Except Wellhead Pumpers', 'Purchasing Agents, Except Wholesale, Retail, and Farm Products', 'Purchasing Managers', 'Quality Control Analysts', 'Quality Control Systems Managers', 'Radiation Therapists', 'Radio Frequency Identification Device Specialists', 'Radio, Cellular, and Tower Equipment Installers and Repairers', 'Radiologic Technologists and Technicians', 'Radiologists', 'Rail Car Repairers', 'Rail Yard Engineers, Dinkey Operators, and Hostlers', 'Rail-Track Laying and Maintenance Equipment Operators', 'Railroad Conductors and Yardmasters', 'Range Managers', 'Real Estate Brokers', 'Real Estate Sales Agents', 'Receptionists and Information Clerks', 'Recreation Workers', 'Recreation and Fitness Studies Teachers, Postsecondary', 'Recreational Therapists', 'Recreational Vehicle Service Technicians', 'Recycling Coordinators', 'Recycling and Reclamation Workers', 'Refractory Materials Repairers, Except Brickmasons', 'Refuse and Recyclable Material Collectors', 'Registered Nurses', 'Regulatory Affairs Managers', 'Regulatory Affairs Specialists', 'Rehabilitation Counselors', 'Reinforcing Iron and Rebar Workers', 'Remote Sensing Scientists and Technologists', 'Remote Sensing Technicians', 'Reservation and Transportation Ticket Agents and Travel Clerks', 'Residential Advisors', 'Respiratory Therapists', 'Retail Loss Prevention Specialists', 'Retail Salespersons', 'Riggers', 'Robotics Engineers', 'Robotics Technicians', 'Rock Splitters, Quarry', 'Rolling Machine Setters, Operators, and Tenders, Metal and Plastic', 'Roof Bolters, Mining', 'Roofers', 'Rotary Drill Operators, Oil and Gas', 'Roustabouts, Oil and Gas', 'Sailors and Marine Oilers', 'Sales Engineers', 'Sales Managers', 'Sales Representatives, Wholesale and Manufacturing, Except Technical and Scientific Products', 'Sales Representatives, Wholesale and Manufacturing, Technical and Scientific Products', 'Sawing Machine Setters, Operators, and Tenders, Wood', 'School Psychologists', 'Search Marketing Strategists', 'Secondary School Teachers, Except Special and Career/Technical Education', 'Secretaries and Administrative Assistants, Except Legal, Medical, and Executive', 'Securities, Commodities, and Financial Services Sales Agents', 'Security Guards', 'Security Management Specialists', 'Security Managers', 'Security and Fire Alarm Systems Installers', 'Segmental Pavers', 'Self-Enrichment Teachers', 'Semiconductor Processing Technicians', 'Separating, Filtering, Clarifying, Precipitating, and Still Machine Setters, Operators, and Tenders', 'Septic Tank Servicers and Sewer Pipe Cleaners', 'Service Unit Operators, Oil and Gas', 'Set and Exhibit Designers', 'Sewers, Hand', 'Sewing Machine Operators', 'Shampooers', 'Sheet Metal Workers', 'Ship Engineers', 'Shipping, Receiving, and Inventory Clerks', 'Shoe Machine Operators and Tenders', 'Shoe and Leather Workers and Repairers', 'Shuttle Drivers and Chauffeurs', 'Signal and Track Switch Repairers', 'Skincare Specialists', 'Slaughterers and Meat Packers', 'Social Science Research Assistants', 'Social Work Teachers, Postsecondary', 'Social and Community Service Managers', 'Social and Human Service Assistants', 'Sociologists', 'Sociology Teachers, Postsecondary', 'Software Developers', 'Software Quality Assurance Analysts and Testers', 'Soil and Plant Scientists', 'Solar Energy Installation Managers', 'Solar Energy Systems Engineers', 'Solar Photovoltaic Installers', 'Solar Sales Representatives and Assessors', 'Solar Thermal Installers and Technicians', 'Sound Engineering Technicians', 'Spa Managers', 'Special Education Teachers, Elementary School', 'Special Education Teachers, Middle School', 'Special Education Teachers, Preschool', 'Special Education Teachers, Secondary School', 'Special Effects Artists and Animators', 'Speech-Language Pathologists', 'Speech-Language Pathology Assistants', 'Sports Medicine Physicians', 'Stationary Engineers and Boiler Operators', 'Statistical Assistants', 'Statisticians', 'Stockers and Order Fillers', 'Stone Cutters and Carvers, Manufacturing', 'Stonemasons', 'Structural Iron and Steel Workers', 'Structural Metal Fabricators and Fitters', 'Substance Abuse and Behavioral Disorder Counselors', 'Substitute Teachers, Short-Term', 'Subway and Streetcar Operators', 'Supply Chain Managers', 'Surgical Assistants', 'Surgical Technologists', 'Survey Researchers', 'Surveyors', 'Sustainability Specialists', 'Switchboard Operators, Including Answering Service', 'Tailors, Dressmakers, and Custom Sewers', 'Talent Directors', 'Tank Car, Truck, and Ship Loaders', 'Tapers', 'Tax Examiners and Collectors, and Revenue Agents', 'Tax Preparers', 'Teaching Assistants, Postsecondary', 'Teaching Assistants, Preschool, Elementary, Middle, and Secondary School, Except Special Education', 'Teaching Assistants, Special Education', 'Team Assemblers', 'Technical Writers', 'Telecommunications Engineering Specialists', 'Telecommunications Equipment Installers and Repairers, Except Line Installers', 'Telecommunications Line Installers and Repairers', 'Telemarketers', 'Telephone Operators', 'Tellers', 'Terrazzo Workers and Finishers', 'Textile Bleaching and Dyeing Machine Operators and Tenders', 'Textile Cutting Machine Setters, Operators, and Tenders', 'Textile Knitting and Weaving Machine Setters, Operators, and Tenders', 'Textile Winding, Twisting, and Drawing Out Machine Setters, Operators, and Tenders', 'Tile and Stone Setters', 'Timing Device Assemblers and Adjusters', 'Tire Builders', 'Tire Repairers and Changers', 'Title Examiners, Abstractors, and Searchers', 'Tool Grinders, Filers, and Sharpeners', 'Tool and Die Makers', 'Tour Guides and Escorts', 'Traffic Technicians', 'Training and Development Managers', 'Training and Development Specialists', 'Transit and Railroad Police', 'Transportation Engineers', 'Transportation Planners', 'Transportation Security Screeners', 'Transportation Vehicle, Equipment and Systems Inspectors, Except Aviation', 'Travel Agents', 'Travel Guides', 'Treasurers and Controllers', 'Tree Trimmers and Pruners', 'Tutors', 'Umpires, Referees, and Other Sports Officials', 'Upholsterers', 'Urban and Regional Planners', 'Urologists', 'Ushers, Lobby Attendants, and Ticket Takers', 'Validation Engineers', 'Veterinarians', 'Veterinary Assistants and Laboratory Animal Caretakers', 'Veterinary Technologists and Technicians', 'Video Game Designers', 'Waiters and Waitresses', 'Watch and Clock Repairers', 'Water Resource Specialists', 'Water and Wastewater Treatment Plant and System Operators', 'Water/Wastewater Engineers', 'Weatherization Installers and Technicians', 'Web Administrators', 'Web Developers', 'Weighers, Measurers, Checkers, and Samplers, Recordkeeping', 'Welders, Cutters, Solderers, and Brazers', 'Welding, Soldering, and Brazing Machine Setters, Operators, and Tenders', 'Wellhead Pumpers', 'Wholesale and Retail Buyers, Except Farm Products', 'Wind Energy Development Managers', 'Wind Energy Engineers', 'Wind Energy Operations Managers', 'Wind Turbine Service Technicians', 'Woodworking Machine Setters, Operators, and Tenders, Except Sawing', 'Word Processors and Typists', 'Writers and Authors', 'Zoologists and Wildlife Biologists', 'accuracy', 'macro avg', 'weighted avg']
+Accuracy: 0.9718109339407744
+
+XGBoost number of classes: 878
+First 20 XGBoost classes:
+['Actors', 'Actuaries', 'Acupuncturists', 'Acute Care Nurses', 'Adapted Physical Education Specialists', 'Adhesive Bonding Machine Operators and Tenders', 'Administrative Law Judges, Adjudicators, and Hearing Officers', 'Administrative Services Managers', 'Adult Basic Education, Adult Secondary Education, and English as a Second Language Instructors', 'Advanced Practice Psychiatric Nurses', 'Advertising Sales Agents', 'Advertising and Promotions Managers', 'Aerospace Engineering and Operations Technologists and Technicians', 'Aerospace Engineers', 'Agents and Business Managers of Artists, Performers, and Athletes', 'Agricultural Engineers', 'Agricultural Equipment Operators', 'Agricultural Inspectors', 'Agricultural Sciences Teachers, Postsecondary', 'Agricultural Technicians']
+
+======================================================================
+C. CAREER DATASET
+======================================================================
+  FOUND: results/careercast_candidate_profiles.csv  shape=(17560, 12)
+
+Dataset columns:
+['Profile_ID', 'Career', 'Skills', 'Education', 'Experience', 'Realistic', 'Investigative', 'Artistic', 'Social', 'Enterprising', 'Conventional', 'Job_Description']
+
+Unique careers: 878
+Total rows: 17560
+
+First 20 careers:
+<ArrowStringArray>
+[                                                      'Automotive Service Technicians and Mechanics',
+                                                                                     'Web Developers',
+                                                     'Hairdressers, Hairstylists, and Cosmetologists',
+                                                                              'Photonics Technicians',
+                                                                            'Gem and Diamond Workers',
+ 'Teaching Assistants, Preschool, Elementary, Middle, and Secondary School, Except Special Education',
+                                                                               'Avionics Technicians',
+                                                                                'New Accounts Clerks',
+                                                                'Rotary Drill Operators, Oil and Gas',
+                                          'Forestry and Conservation Science Teachers, Postsecondary',
+                                                                             'Exercise Physiologists',
+                                                        'Production, Planning, and Expediting Clerks',
+                                                                  'Computer User Support Specialists',
+                                                                        'Regulatory Affairs Managers',
+                                                  'Radio Frequency Identification Device Specialists',
+                                                                                'Facilities Managers',
+                                'First-Line Supervisors of Office and Administrative Support Workers',
+                                                  'Licensed Practical and Licensed Vocational Nurses',
+                                                                        'Word Processors and Typists',
+                                                   'Farm Equipment Mechanics and Service Technicians']
+Length: 20, dtype: str
+
+RF vs XGBoost label comparison:
+  MATCH: Both models contain exactly the same career classes.
+
+======================================================================
+D. SBERT
+======================================================================
+
+SBERT directory FOUND:
+  config.json (776 bytes)
+  config_sentence_transformers.json (294 bytes)
+  model.safetensors (90864192 bytes)
+  modules.json (448 bytes)
+  README.md (22554 bytes)
+  sentence_bert_config.json (250 bytes)
+  tokenizer.json (711649 bytes)
+  tokenizer_config.json (618 bytes)
+  1_Pooling\config.json (94 bytes)
+
+SBERT config:
+{
+  "add_cross_attention": false,
+  "architectures": [
+    "BertModel"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "bos_token_id": null,
+  "classifier_dropout": null,
+  "dtype": "float32",
+  "eos_token_id": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 384,
+  "initializer_range": 0.02,
+  "intermediate_size": 1536,
+  "is_decoder": false,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 6,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "tie_word_embeddings": true,
+  "transformers_version": "5.15.0",
+  "type_vocab_size": 2,
+  "use_cache": false,
+  "vocab_size": 30522
+}
+
+Checking fine-tuning evidence:
+  FOUND: README.md
+  NOT FOUND: train_script.py
+  NOT FOUND: training_args.json
+  FOUND: modules.json
+  FOUND: sentence_bert_config.json
+  FOUND: results/semantic_embeddings/sbert_old_vs_finetuned_comparison.csv  shape=(15, 5)
+
+SBERT comparison columns:
+['rank', 'original_career', 'original_score', 'finetuned_career', 'finetuned_score']
+
+Comparison data:
+   rank                                    original_career  original_score                              finetuned_career  finetuned_score
+0     1                                    Sales Engineers        0.656060                        Statistical Assistants         0.459584
+1     2                                         Physicists        0.646078  Computer and Information Research Scientists         0.454944
+2     3                        Tire Repairers and Changers        0.633550                     Bioinformatics Scientists         0.453022
+3     4                          Bioinformatics Scientists        0.633347                  Operations Research Analysts         0.451985
+4     5                               Chemical Technicians        0.628531                                 Statisticians         0.426106
+5     6                        Computer Network Architects        0.626741                   Computer Network Architects         0.425436
+6     7       Computer and Information Research Scientists        0.626032                     Computer Systems Analysts         0.411161
+7     8  Electric Motor, Power Tool, and Related Repairers        0.624747                               Sales Engineers         0.409220
+8     9                    Financial Quantitative Analysts        0.623279              Atmospheric and Space Scientists         0.406981
+9    10                               Avionics Technicians        0.617012                            Robotics Engineers         0.405678
+
+Embedding shape: (878, 384)
+Embedding labels rows: 878
+
+======================================================================
+E. CAREER RECOMMENDER SOURCE
+======================================================================
+
+career_recommender_v4.py imported successfully.
+
+--- skill_similarity() ---
+def skill_similarity(candidate_skill, career_skill):
+
+    if not candidate_skill or not career_skill:
+        return 0.0
+
+    candidate_skill = normalize_skill(candidate_skill)
+    career_skill = normalize_skill(career_skill)
+
+    if not candidate_skill or not career_skill:
+        return 0.0
+
+    # ========================================================
+    # 1. EXACT MATCH
+    # ========================================================
+
+    if candidate_skill == career_skill:
+        return 1.0
+
+    # ========================================================
+    # 2. EXPLICIT DATASET EQUIVALENCE
+    # ========================================================
+
+    equivalents = DATASET_SKILL_EQUIVALENTS.get(
+        candidate_skill,
+        set()
+    )
+
+    if career_skill in equivalents:
+
+        if candidate_skill == "sql":
+            return 1.0
+
+        if candidate_skill == "python":
+            return 1.0
+
+        if candidate_skill == "machine learning":
+            return 0.60
+
+        if candidate_skill == "data analysis":
+            return 0.60
+
+        # Libraries are supporting skills.
+        # Do not treat them as direct Python matches.
+        if candidate_skill in {
+            "pandas",
+            "numpy",
+            "tensorflow",
+        }:
+            return 0.0
+
+    # ========================================================
+    # 3. DATA-SCIENCE / ML SEMANTIC GROUPS
+    # ========================================================
+
+    ml_terms = {
+        "machine learning",
+        "deep learning",
+        "predictive modeling",
+        "machine learning models",
+        "artificial intelligence",
+        "ai",
+    }
+
+    ml_dataset_terms = {
+        "computer modeling software",
+        "statistical analysis software",
+        "data analysis software",
+        "data mining software",
+        "predictive analytics software",
+        "statistical software",
+        "modeling software",
+        "data visualization software",
+    }
+
+    if candidate_skill in ml_terms:
+        if career_skill in ml_dataset_terms:
+            return 0.55
+
+    # ========================================================
+    # 4. DATA ANALYSIS GROUP
+    # ========================================================
+
+    data_analysis_terms = {
+        "data analysis",
+        "data analytics",
+        "data preprocessing",
+        "data visualization",
+        "statistical analysis",
+    }
+
+    data_dataset_terms = {
+        "statistical analysis software",
+        "data analysis software",
+        "data visualization software",
+        "statistical software",
+        "data mining software",
+        "business intelligence software",
+    }
+
+    if candidate_skill in data_analysis_terms:
+        if career_skill in data_dataset_terms:
+            return 0.60
+
+    # ========================================================
+    # 5. PYTHON ECOSYSTEM
+    # ========================================================
+
+    python_related = {
+        "python",
+        "pandas",
+        "numpy",
+        "tensorflow",
+    }
+
+    python_dataset_terms = {
+        "python",
+        "oracle java",
+        "software development tools",
+        "programming software",
+        "computer programming software",
+    }
+
+    if candidate_skill in python_related:
+
+        if career_skill == "python":
+            return 1.0
+
+        # Pandas / NumPy / TensorFlow should NOT become
+        # strong matches to generic programming skills.
+        if candidate_skill in {
+            "pandas",
+            "numpy",
+            "tensorflow",
+        }:
+            return 0.0
+
+    # ========================================================
+    # 6. SQL FAMILY
+    # ========================================================
+
+    sql_terms = {
+        "sql",
+        "structured query language",
+        "structured query language sql",
+    }
+
+    if candidate_skill in sql_terms:
+
+        if career_skill in {
+            "sql",
+            "structured query language",
+            "structured query language sql",
+            "database software",
+            "database management software",
+            "oracle database",
+        }:
+            return 0.85
+
+    # ========================================================
+    # 7. TOKEN OVERLAP
+    # ========================================================
+
+    candidate_tokens = set(
+        candidate_skill.split()
+    )
+
+    career_tokens = set(
+        career_skill.split()
+    )
+
+    if not candidate_tokens or not career_tokens:
+        return 0.0
+
+    intersection = (
+        candidate_tokens
+        &
+        career_tokens
+    )
+
+    if not intersection:
+        return 0.0
+
+    candidate_coverage = (
+        len(intersection)
+        /
+        len(candidate_tokens)
+    )
+
+    career_coverage = (
+        len(intersection)
+        /
+        len(career_tokens)
+    )
+
+    # Require meaningful overlap.
+    if candidate_coverage < 0.80:
+        return 0.0
+
+    score = (
+        0.70 * candidate_coverage
+        +
+        0.30 * career_coverage
+    )
+
+    return min(
+        1.0,
+        score
+    )
+
+
+--- calculate_skill_match() ---
+def calculate_skill_match(
+    candidate_skills,
+    career_skills,
+    idf
+):
+
+    if (
+        not candidate_skills
+        or not career_skills
+    ):
+
+        return 0.0, []
+
+    matched_details = []
+
+    # --------------------------------------------------------
+    # Find best career match for every candidate skill
+    # --------------------------------------------------------
+
+    for candidate_skill in (
+        candidate_skills
+    ):
+
+        best_score = 0.0
+
+        best_skill = None
+
+        for career_skill in (
+            career_skills
+        ):
+
+            similarity = (
+                skill_similarity(
+                    candidate_skill,
+                    career_skill
+                )
+            )
+
+            if similarity > best_score:
+
+                best_score = similarity
+
+                best_skill = career_skill
+
+        if (
+            best_skill is not None
+            and best_score >= 0.80
+        ):
+
+            matched_details.append(
+                (
+                    candidate_skill,
+                    best_skill,
+                    best_score
+                )
+            )
+
+    if not matched_details:
+
+        return 0.0, []
+
+    # --------------------------------------------------------
+    # Candidate skill weights
+    # --------------------------------------------------------
+
+    candidate_weights = {}
+
+    for skill in candidate_skills:
+
+        candidate_weights[
+            skill
+        ] = idf.get(
+            skill,
+            1.0
+        )
+
+    total_weight = sum(
+        candidate_weights.values()
+    )
+
+    if total_weight <= 0:
+
+        return 0.0, []
+
+    # --------------------------------------------------------
+    # Weighted coverage
+    # --------------------------------------------------------
+
+    matched_weight = 0.0
+
+    for (
+        candidate_skill,
+        career_skill,
+        match_strength
+    ) in matched_details:
+
+        matched_weight += (
+
+            candidate_weights[
+                candidate_skill
+            ]
+
+            *
+
+            match_strength
+        )
+
+    weighted_coverage = (
+
+        matched_weight
+        /
+        total_weight
+    )
+
+    # --------------------------------------------------------
+    # Simple coverage
+    # --------------------------------------------------------
+
+    simple_coverage = (
+
+        len(matched_details)
+        /
+        len(candidate_skills)
+    )
+
+    # --------------------------------------------------------
+    # Final score
+    # --------------------------------------------------------
+
+    score = (
+
+        0.70 * weighted_coverage
+
+        +
+
+        0.30 * simple_coverage
+    )
+
+    score = max(
+        0.0,
+        min(
+            1.0,
+            score
+        )
+    )
+
+    matched_skills = sorted(
+
+        [
+            item[0]
+
+            for item
+            in matched_details
+        ]
+    )
+
+    return (
+        score,
+        matched_skills
+    )
+
+
+--- robust_normalize() ---
+def robust_normalize(values):
+
+    values = np.asarray(
+        values,
+        dtype=np.float64
+    )
+
+    if len(values) == 0:
+
+        return values
+
+    low = np.percentile(
+        values,
+        5
+    )
+
+    high = np.percentile(
+        values,
+        95
+    )
+
+    if high - low < 1e-12:
+
+        return np.zeros_like(
+            values
+        )
+
+    clipped = np.clip(
+        values,
+        low,
+        high
+    )
+
+    normalized = (
+
+        clipped - low
+    ) / (
+
+        high - low
+    )
+
+    return normalized
+
+
+--- calculate_recommendation_confidence() ---
+def calculate_recommendation_confidence(
+    final_scores
+):
+
+    scores = np.asarray(
+        final_scores,
+        dtype=np.float64
+    )
+
+    if len(scores) == 0:
+        return np.array([])
+
+    # --------------------------------------------------------
+    # Convert the ranking scores into a relative confidence.
+    #
+    # This is NOT a probability.
+    # It measures how strong a recommendation is relative
+    # to the complete career ranking.
+    # --------------------------------------------------------
+
+    minimum = np.min(scores)
+    maximum = np.max(scores)
+
+    if maximum - minimum < 1e-12:
+
+        confidence = np.zeros_like(
+            scores
+        )
+
+    else:
+
+        confidence = (
+            (scores - minimum)
+            /
+            (maximum - minimum)
+        )
+
+    confidence = (
+        confidence * 100.0
+    )
+
+    return confidence
+
+    # --------------------------------------------------------
+    # Use percentile-normalized relative strength.
+    #
+    # This is NOT a probability.
+    # --------------------------------------------------------
+
+    low = np.percentile(
+        scores,
+        5
+    )
+
+    high = np.percentile(
+        scores,
+        95
+    )
+
+    if high - low < 1e-12:
+
+        confidence = np.zeros_like(
+            scores
+        )
+
+    else:
+
+        confidence = (
+
+            np.clip(
+                scores,
+                low,
+                high
+            )
+            -
+            low
+        ) / (
+
+            high - low
+        )
+
+    confidence = (
+        confidence * 100.0
+    )
+
+    return confidence
+
+
+--- calculate_confidence() NOT FOUND ---
+
+--- get_topk() NOT FOUND ---
+
+--- recommend() NOT FOUND ---
+
+======================================================================
+F. LATEST V4 OUTPUT
+======================================================================
+
+Latest run: v4_output\run_20260815_235208
+
+Columns:
+['rank', 'career', 'final_score', 'confidence_percentage', 'semantic_score', 'semantic_normalized', 'skill_match', 'skill_match_normalized', 'xgboost_probability', 'xgboost_normalized', 'matched_skills', 'skill_alignment']
+
+Rows: 15
+
+First 15 recommendations:
+ rank                                       career  final_score  confidence_percentage  semantic_score  semantic_normalized  skill_match  skill_match_normalized  xgboost_probability  xgboost_normalized matched_skills  skill_alignment
+    1                       Statistical Assistants     0.600000                  100.0        0.184637             1.000000          0.0                     0.0             0.004210            1.000000             []              0.0
+    2                Information Security Analysts     0.600000                  100.0        0.225730             1.000000          0.0                     0.0             0.004294            1.000000             []              0.0
+    3 Computer and Information Research Scientists     0.600000                  100.0        0.347594             1.000000          0.0                     0.0             0.004872            1.000000             []              0.0
+    4                                   Physicists     0.600000                  100.0        0.202181             1.000000          0.0                     0.0             0.003318            1.000000             []              0.0
+    5                          Database Architects     0.600000                  100.0        0.317457             1.000000          0.0                     0.0             0.003686            1.000000             []              0.0
+    6                      Database Administrators     0.600000                  100.0        0.232357             1.000000          0.0                     0.0             0.003552            1.000000             []              0.0
+    7                    Bioinformatics Scientists     0.600000                  100.0        0.254896             1.000000          0.0                     0.0             0.004408            1.000000             []              0.0
+    8                    Computer Systems Analysts     0.586027                  100.0        0.288412             1.000000          0.0                     0.0             0.002403            0.860272             []              0.0
+    9                 Data Warehousing Specialists     0.568472                  100.0        0.273437             1.000000          0.0                     0.0             0.002085            0.684720             []              0.0
+   10              Financial Quantitative Analysts     0.560763                  100.0        0.229140             1.000000          0.0                     0.0             0.001945            0.607633             []              0.0
+   11                 Operations Research Analysts     0.534320                  100.0        0.344637             1.000000          0.0                     0.0             0.001466            0.343197             []              0.0
+   12  Network and Computer Systems Administrators     0.527830                  100.0        0.257663             1.000000          0.0                     0.0             0.001349            0.278302             []              0.0
+   13                        Industrial Ecologists     0.523583                  100.0        0.134276             0.847166          0.0                     0.0             0.004031            1.000000             []              0.0
+   14                          Software Developers     0.516434                  100.0        0.276125             1.000000          0.0                     0.0             0.001142            0.164345             []              0.0
+   15  Remote Sensing Scientists and Technologists     0.513849                  100.0        0.216336             1.000000          0.0                     0.0             0.001095            0.138492             []              0.0
+
+Confidence statistics:
+count     15.0
+mean     100.0
+std        0.0
+min      100.0
+25%      100.0
+50%      100.0
+75%      100.0
+max      100.0
+Name: confidence_percentage, dtype: float64
+
+Unique confidence values:
+[100.]
+
+Skill match statistics:
+count    15.0
+mean      0.0
+std       0.0
+min       0.0
+25%       0.0
+50%       0.0
+75%       0.0
+max       0.0
+Name: skill_match, dtype: float64
+
+Skill alignment statistics:
+count    15.0
+mean      0.0
+std       0.0
+min       0.0
+25%       0.0
+50%       0.0
+75%       0.0
+max       0.0
+Name: skill_alignment, dtype: float64
+
+======================================================================
+AUDIT COMPLETE
+======================================================================

@@ -1,0 +1,23 @@
+{
+  "pretrained_sbert": {
+    "test_accuracy": 0.9982291666666666,
+    "macro_precision": 0.998400981393238,
+    "macro_recall": 0.9982291666666666,
+    "macro_f1": 0.9982232543038556
+  },
+  "finetuned_sbert": {
+    "test_accuracy": 0.9996875,
+    "macro_precision": 0.9996885313531353,
+    "macro_recall": 0.9996875,
+    "macro_f1": 0.9996874973957682
+  },
+  "improvement": {
+    "accuracy_difference": 0.0014583333333333393,
+    "accuracy_percentage_points": 0.14583333333333393,
+    "macro_f1_difference": 0.0014642430919126204
+  },
+  "winner": "Fine-tuned SBERT",
+  "classifier": "LogisticRegression",
+  "same_train_test_split": true,
+  "random_state": 42
+}

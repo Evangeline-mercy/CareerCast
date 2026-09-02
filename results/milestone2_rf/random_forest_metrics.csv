@@ -1,0 +1,2 @@
+model,accuracy,precision_weighted,recall_weighted,macro_f1,train_samples,test_samples,num_careers
+Random Forest,0.17166666666666666,0.17158503924267435,0.17166666666666666,0.44774766736301586,19200,4800,18

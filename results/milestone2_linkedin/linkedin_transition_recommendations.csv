@@ -1,0 +1,122 @@
+source_career,rank,recommended_destination,share_of_transitions,normalized_probability
+Analytics Analyst,1,Data Analyst,0.06,0.25
+Analytics Analyst,2,Data Scientist,0.04,0.16666666666666669
+Analytics Analyst,3,Analytics Manager,0.03,0.125
+Analytics Analyst,4,Analytics Consultant,0.03,0.125
+Analytics Analyst,5,Analytics Specialist,0.02,0.08333333333333334
+Analytics Consultant,1,Data Scientist,0.17,0.24285714285714285
+Analytics Consultant,2,Analytics Manager,0.15,0.21428571428571425
+Analytics Consultant,3,Data Analyst,0.13,0.1857142857142857
+Analytics Consultant,4,Data Engineer,0.07,0.1
+Analytics Consultant,5,Analytics Specialist,0.05,0.07142857142857142
+Analytics Manager,1,Data Scientist,0.19,0.3064516129032258
+Analytics Manager,2,Director of Analytics,0.09,0.14516129032258063
+Analytics Manager,3,Data Analyst,0.06,0.0967741935483871
+Analytics Manager,4,Analytics Specialist,0.06,0.0967741935483871
+Analytics Manager,5,Vice President of Analytics,0.06,0.0967741935483871
+Analytics Specialist,1,Data Analyst,0.15,0.26785714285714285
+Analytics Specialist,2,Data Scientist,0.12,0.21428571428571425
+Analytics Specialist,3,Analytics Manager,0.1,0.17857142857142858
+Analytics Specialist,4,Data Specialist,0.04,0.07142857142857142
+Analytics Specialist,5,Data Engineer,0.04,0.07142857142857142
+Artificial Intelligence Engineer,1,Data Scientist,0.41,0.271523178807947
+Artificial Intelligence Engineer,2,Machine Learning Expert,0.36,0.23841059602649006
+Artificial Intelligence Engineer,3,Artificial Intelligence Engineer,0.35,0.23178807947019867
+Artificial Intelligence Engineer,4,Data Analyst,0.1,0.06622516556291391
+Artificial Intelligence Engineer,5,Other,0.07,0.046357615894039736
+Artificial Intelligence Researcher,1,Data Scientist,0.05,0.5
+Artificial Intelligence Researcher,2,Artificial Intelligence Engineer,0.03,0.3
+Artificial Intelligence Researcher,3,Machine Learning Expert,0.02,0.19999999999999998
+Artificial Intelligence Researcher,4,Data Engineer,0.0,0.0
+Big Data Developer,1,Data Engineer,0.71,0.8658536585365854
+Big Data Developer,2,Data Analyst,0.02,0.024390243902439025
+Big Data Developer,3,Data Scientist,0.02,0.024390243902439025
+Big Data Developer,4,Data Specialist,0.02,0.024390243902439025
+Big Data Developer,5,Other,0.01,0.012195121951219513
+Business Intelligence Specialist,1,Data Engineer,0.1,0.5
+Business Intelligence Specialist,2,Data Analyst,0.05,0.25
+Business Intelligence Specialist,3,Data Scientist,0.02,0.09999999999999999
+Business Intelligence Specialist,4,Analytics Specialist,0.01,0.049999999999999996
+Business Intelligence Specialist,5,Analytics Manager,0.01,0.049999999999999996
+Computer Vision Engineer,1,Machine Learning Expert,0.06,0.3529411764705882
+Computer Vision Engineer,2,Artificial Intelligence Engineer,0.05,0.29411764705882354
+Computer Vision Engineer,3,Data Scientist,0.04,0.23529411764705882
+Computer Vision Engineer,4,Other,0.02,0.11764705882352941
+Computer Vision Engineer,5,Data Analyst,0.0,0.0
+Data Analyst,1,Data Scientist,2.53,0.3355437665782493
+Data Analyst,2,Data Engineer,1.95,0.25862068965517243
+Data Analyst,3,Data Specialist,0.57,0.07559681697612732
+Data Analyst,4,Machine Learning Expert,0.31,0.04111405835543767
+Data Analyst,5,Analytics Consultant,0.3,0.03978779840848806
+Data Annotator,1,Data Analyst,0.06,0.5454545454545454
+Data Annotator,2,Data Specialist,0.02,0.18181818181818182
+Data Annotator,3,Data Associate,0.01,0.09090909090909091
+Data Annotator,4,Other,0.01,0.09090909090909091
+Data Annotator,5,Data Engineer,0.01,0.09090909090909091
+Data Architect,1,Data Engineer,0.07,0.5833333333333334
+Data Architect,2,Data Specialist,0.03,0.24999999999999997
+Data Architect,3,Data Analyst,0.01,0.08333333333333333
+Data Architect,4,Data Scientist,0.01,0.08333333333333333
+Data Associate,1,Data Analyst,0.32,0.46376811594202894
+Data Associate,2,Data Scientist,0.12,0.17391304347826084
+Data Associate,3,Data Specialist,0.07,0.10144927536231885
+Data Associate,4,Data Consultant,0.05,0.07246376811594203
+Data Associate,5,Data Engineer,0.05,0.07246376811594203
+Data Consultant,1,Data Scientist,0.32,0.5614035087719298
+Data Consultant,2,Data Analyst,0.07,0.12280701754385964
+Data Consultant,3,Data Engineer,0.07,0.12280701754385964
+Data Consultant,4,Analytics Manager,0.02,0.03508771929824561
+Data Consultant,5,Machine Learning Expert,0.02,0.03508771929824561
+Data Engineer,1,Data Analyst,0.72,0.24489795918367346
+Data Engineer,2,Data Scientist,0.56,0.1904761904761905
+Data Engineer,3,Data Specialist,0.29,0.09863945578231292
+Data Engineer,4,Big Data Developer,0.26,0.08843537414965986
+Data Engineer,5,Data Architect,0.23,0.0782312925170068
+Data Scientist,1,Data Scientist,2.92,0.28131021194605005
+Data Scientist,2,Data Analyst,1.93,0.18593448940269747
+Data Scientist,3,Machine Learning Expert,1.51,0.14547206165703275
+Data Scientist,4,Artificial Intelligence Engineer,1.1,0.10597302504816956
+Data Scientist,5,Data Engineer,0.71,0.06840077071290944
+Data Specialist,1,Data Analyst,0.52,0.36111111111111116
+Data Specialist,2,Data Engineer,0.39,0.27083333333333337
+Data Specialist,3,Data Scientist,0.18,0.125
+Data Specialist,4,Data Associate,0.05,0.034722222222222224
+Data Specialist,5,Artificial Intelligence Engineer,0.04,0.02777777777777778
+Deep Learning Specialist,1,Artificial Intelligence Engineer,0.04,0.33333333333333337
+Deep Learning Specialist,2,Data Scientist,0.04,0.33333333333333337
+Deep Learning Specialist,3,Machine Learning Expert,0.03,0.25
+Deep Learning Specialist,4,Other,0.01,0.08333333333333334
+Deep Learning Specialist,5,Data Analyst,0.0,0.0
+Django Developer,1,Python Developer,0.1,0.8333333333333333
+Django Developer,2,Data Engineer,0.01,0.08333333333333333
+Django Developer,3,Data Analyst,0.01,0.08333333333333333
+Machine Learning Expert,1,Data Scientist,1.25,0.4045307443365696
+Machine Learning Expert,2,Artificial Intelligence Engineer,0.72,0.23300970873786409
+Machine Learning Expert,3,Machine Learning Expert,0.36,0.11650485436893204
+Machine Learning Expert,4,Data Analyst,0.21,0.06796116504854369
+Machine Learning Expert,5,Data Engineer,0.16,0.05177993527508091
+Other,1,Other,0.29,0.29896907216494845
+Other,2,Data Scientist,0.21,0.21649484536082475
+Other,3,Data Engineer,0.13,0.13402061855670103
+Other,4,Data Analyst,0.08,0.08247422680412371
+Other,5,Artificial Intelligence Engineer,0.05,0.051546391752577324
+Python Developer,1,Data Engineer,0.23,0.23
+Python Developer,2,Data Scientist,0.18,0.18
+Python Developer,3,Data Analyst,0.17,0.17
+Python Developer,4,Artificial Intelligence Engineer,0.15,0.15
+Python Developer,5,Other,0.11,0.11
+Quantitative Analyst,1,Other,0.06,0.5
+Quantitative Analyst,2,Data Analyst,0.02,0.16666666666666669
+Quantitative Analyst,3,Data Scientist,0.02,0.16666666666666669
+Quantitative Analyst,4,Vice President of Analytics,0.01,0.08333333333333334
+Quantitative Analyst,5,Analytics Specialist,0.01,0.08333333333333334
+Research Engineer,1,Data Scientist,0.06,0.4285714285714285
+Research Engineer,2,Machine Learning Expert,0.04,0.2857142857142857
+Research Engineer,3,Artificial Intelligence Engineer,0.02,0.14285714285714285
+Research Engineer,4,Data Engineer,0.01,0.07142857142857142
+Research Engineer,5,Applied Scientist,0.01,0.07142857142857142
+Robotics Specialist,1,Other,0.12,0.6
+Robotics Specialist,2,Artificial Intelligence Engineer,0.02,0.09999999999999999
+Robotics Specialist,3,Data Analyst,0.02,0.09999999999999999
+Robotics Specialist,4,Machine Learning Expert,0.01,0.049999999999999996
+Robotics Specialist,5,Data Scientist,0.01,0.049999999999999996

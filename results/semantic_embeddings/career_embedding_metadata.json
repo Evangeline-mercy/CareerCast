@@ -1,0 +1,10 @@
+{
+  "number_of_careers": 878,
+  "embedding_dimension": 384,
+  "source_profiles": 17560,
+  "model_name": "all-MiniLM-L6-v2",
+  "aggregation_method": "mean of all profile embeddings per career",
+  "normalized": true,
+  "normalization": "L2 (unit vectors)",
+  "note": "Career label was NOT included in candidate embedding input. Only Skills, Education, Experience, and Job Description are used."
+}

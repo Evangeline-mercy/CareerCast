@@ -1,0 +1,19 @@
+{
+  "model_name": "all-MiniLM-L6-v2",
+  "is_fine_tuned": false,
+  "embedding_type": "pretrained_sentence_transformer",
+  "fine_tuning_note": "The Sentence-BERT model was used as a pretrained embedding model. No fine-tuning was performed.",
+  "embedding_dimension": 384,
+  "n_samples": 48000,
+  "n_careers": 96,
+  "n_train": 38400,
+  "n_test": 9600,
+  "device_used": "cpu",
+  "batch_size": 128,
+  "normalize_embeddings": true,
+  "embedding_generation_time_seconds": 577.4189796447754,
+  "total_time_seconds": 592.1146409511566,
+  "random_state": 42,
+  "test_size": 0.2,
+  "source_dataset": "results\\milestone2_training\\career_profile_training_dataset.csv"
+}

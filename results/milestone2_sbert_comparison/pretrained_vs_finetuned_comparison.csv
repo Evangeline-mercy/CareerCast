@@ -1,0 +1,3 @@
+model,embedding_type,test_accuracy,macro_precision,macro_recall,macro_f1,training_time_seconds
+Pretrained SBERT + LogisticRegression,pretrained,0.9982291666666666,0.998400981393238,0.9982291666666666,0.9982232543038556,8.221015930175781
+Fine-tuned SBERT + LogisticRegression,fine-tuned,0.9996875,0.9996885313531353,0.9996875,0.9996874973957682,2.1662087440490723

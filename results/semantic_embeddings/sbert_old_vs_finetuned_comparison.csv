@@ -1,0 +1,16 @@
+rank,original_career,original_score,finetuned_career,finetuned_score
+1,Sales Engineers,0.65606,Statistical Assistants,0.459584
+2,Physicists,0.646078,Computer and Information Research Scientists,0.454944
+3,Tire Repairers and Changers,0.63355,Bioinformatics Scientists,0.453022
+4,Bioinformatics Scientists,0.633347,Operations Research Analysts,0.451985
+5,Chemical Technicians,0.628531,Statisticians,0.426106
+6,Computer Network Architects,0.626741,Computer Network Architects,0.425436
+7,Computer and Information Research Scientists,0.626032,Computer Systems Analysts,0.411161
+8,"Electric Motor, Power Tool, and Related Repairers",0.624747,Sales Engineers,0.40922
+9,Financial Quantitative Analysts,0.623279,Atmospheric and Space Scientists,0.406981
+10,Avionics Technicians,0.617012,Robotics Engineers,0.405678
+11,"Excavating and Loading Machine and Dragline Operators, Surface Mining",0.616824,Chemical Technicians,0.403141
+12,Agricultural Inspectors,0.613283,Physicists,0.391731
+13,Counter and Rental Clerks,0.612178,Aerospace Engineers,0.387214
+14,Photonics Engineers,0.611332,Software Developers,0.382642
+15,Operations Research Analysts,0.610309,Solar Energy Systems Engineers,0.379928

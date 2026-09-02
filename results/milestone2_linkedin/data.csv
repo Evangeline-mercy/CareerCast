@@ -1,0 +1,282 @@
+Country,Country_label,dst,Share_of_transitions,src
+IND,India,Vice President of Analytics,0.02,Data Scientist
+IND,India,Quantitative Analyst,0.04,Data Scientist
+IND,India,Python Developer,0.16,Data Scientist
+IND,India,Other,0.46,Data Scientist
+IND,India,Manager of Artificial Intelligence,0.1,Data Scientist
+IND,India,Machine Learning Expert,1.51,Data Scientist
+IND,India,Director of Analytics,0.03,Data Scientist
+IND,India,Data Specialist,0.19,Data Scientist
+IND,India,Data Scientist,2.92,Data Scientist
+IND,India,Data Engineer,0.71,Data Scientist
+IND,India,Data Consultant,0.26,Data Scientist
+IND,India,Data Associate,0.11,Data Scientist
+IND,India,Data Architect,0.02,Data Scientist
+IND,India,Data Annotator,0.02,Data Scientist
+IND,India,Data Analyst,1.93,Data Scientist
+IND,India,Business Intelligence Specialist,0.03,Data Scientist
+IND,India,Big Data Developer,0.01,Data Scientist
+IND,India,Artificial Intelligence Researcher,0.11,Data Scientist
+IND,India,Artificial Intelligence Engineer,1.1,Data Scientist
+IND,India,Artificial Intelligence Consultant,0.08,Data Scientist
+IND,India,Applied Scientist,0.09,Data Scientist
+IND,India,Analytics Specialist,0.1,Data Scientist
+IND,India,Analytics Manager,0.21,Data Scientist
+IND,India,Analytics Consultant,0.14,Data Scientist
+IND,India,Analytics Analyst,0.03,Data Scientist
+IND,India,Vice President of Analytics,0.01,Data Analyst
+IND,India,Quantitative Analyst,0.05,Data Analyst
+IND,India,Python Developer,0.14,Data Analyst
+IND,India,Other,0.18,Data Analyst
+IND,India,Manager of Artificial Intelligence,0.01,Data Analyst
+IND,India,Machine Learning Expert,0.31,Data Analyst
+IND,India,Director of Analytics,0,Data Analyst
+IND,India,Data Specialist,0.57,Data Analyst
+IND,India,Data Scientist,2.53,Data Analyst
+IND,India,Data Engineer,1.95,Data Analyst
+IND,India,Data Consultant,0.25,Data Analyst
+IND,India,Data Associate,0.22,Data Analyst
+IND,India,Data Architect,0.04,Data Analyst
+IND,India,Data Annotator,0.06,Data Analyst
+IND,India,Business Intelligence Specialist,0.1,Data Analyst
+IND,India,Big Data Developer,0.03,Data Analyst
+IND,India,Artificial Intelligence Researcher,0.01,Data Analyst
+IND,India,Artificial Intelligence Engineer,0.24,Data Analyst
+IND,India,Artificial Intelligence Consultant,0.02,Data Analyst
+IND,India,Analytics Specialist,0.17,Data Analyst
+IND,India,Analytics Manager,0.28,Data Analyst
+IND,India,Analytics Consultant,0.3,Data Analyst
+IND,India,Analytics Analyst,0.07,Data Analyst
+IND,India,Quantitative Analyst,0,Machine Learning Expert
+IND,India,Python Developer,0.07,Machine Learning Expert
+IND,India,Other,0.14,Machine Learning Expert
+IND,India,Manager of Artificial Intelligence,0.01,Machine Learning Expert
+IND,India,Machine Learning Expert,0.36,Machine Learning Expert
+IND,India,Data Specialist,0.03,Machine Learning Expert
+IND,India,Data Scientist,1.25,Machine Learning Expert
+IND,India,Data Engineer,0.16,Machine Learning Expert
+IND,India,Data Consultant,0.02,Machine Learning Expert
+IND,India,Data Associate,0.02,Machine Learning Expert
+IND,India,Data Analyst,0.21,Machine Learning Expert
+IND,India,Artificial Intelligence Researcher,0.02,Machine Learning Expert
+IND,India,Artificial Intelligence Engineer,0.72,Machine Learning Expert
+IND,India,Artificial Intelligence Consultant,0.02,Machine Learning Expert
+IND,India,Applied Scientist,0.04,Machine Learning Expert
+IND,India,Analytics Specialist,0.01,Machine Learning Expert
+IND,India,Analytics Manager,0,Machine Learning Expert
+IND,India,Analytics Consultant,0.01,Machine Learning Expert
+IND,India,Python Developer,0.05,Data Engineer
+IND,India,Other,0.06,Data Engineer
+IND,India,Manager of Artificial Intelligence,0.01,Data Engineer
+IND,India,Machine Learning Expert,0.2,Data Engineer
+IND,India,Data Specialist,0.29,Data Engineer
+IND,India,Data Scientist,0.56,Data Engineer
+IND,India,Data Consultant,0.11,Data Engineer
+IND,India,Data Associate,0.02,Data Engineer
+IND,India,Data Architect,0.23,Data Engineer
+IND,India,Data Annotator,0.01,Data Engineer
+IND,India,Data Analyst,0.72,Data Engineer
+IND,India,Business Intelligence Specialist,0.06,Data Engineer
+IND,India,Big Data Developer,0.26,Data Engineer
+IND,India,Artificial Intelligence Researcher,0.01,Data Engineer
+IND,India,Artificial Intelligence Engineer,0.21,Data Engineer
+IND,India,Artificial Intelligence Consultant,0.01,Data Engineer
+IND,India,Analytics Specialist,0.03,Data Engineer
+IND,India,Analytics Manager,0.03,Data Engineer
+IND,India,Analytics Consultant,0.06,Data Engineer
+IND,India,Analytics Analyst,0.01,Data Engineer
+IND,India,Python Developer,0.05,Artificial Intelligence Engineer
+IND,India,Other,0.07,Artificial Intelligence Engineer
+IND,India,Manager of Artificial Intelligence,0.01,Artificial Intelligence Engineer
+IND,India,Machine Learning Expert,0.36,Artificial Intelligence Engineer
+IND,India,Data Specialist,0.02,Artificial Intelligence Engineer
+IND,India,Data Scientist,0.41,Artificial Intelligence Engineer
+IND,India,Data Engineer,0.06,Artificial Intelligence Engineer
+IND,India,Data Consultant,0.01,Artificial Intelligence Engineer
+IND,India,Data Analyst,0.1,Artificial Intelligence Engineer
+IND,India,Artificial Intelligence Researcher,0.03,Artificial Intelligence Engineer
+IND,India,Artificial Intelligence Engineer,0.35,Artificial Intelligence Engineer
+IND,India,Artificial Intelligence Consultant,0.03,Artificial Intelligence Engineer
+IND,India,Applied Scientist,0.01,Artificial Intelligence Engineer
+IND,India,Vice President of Analytics,0.01,Data Specialist
+IND,India,Python Developer,0.01,Data Specialist
+IND,India,Other,0.03,Data Specialist
+IND,India,Machine Learning Expert,0.03,Data Specialist
+IND,India,Data Scientist,0.18,Data Specialist
+IND,India,Data Engineer,0.39,Data Specialist
+IND,India,Data Consultant,0.02,Data Specialist
+IND,India,Data Associate,0.05,Data Specialist
+IND,India,Data Architect,0.03,Data Specialist
+IND,India,Data Annotator,0.02,Data Specialist
+IND,India,Data Analyst,0.52,Data Specialist
+IND,India,Business Intelligence Specialist,0.01,Data Specialist
+IND,India,Big Data Developer,0.01,Data Specialist
+IND,India,Artificial Intelligence Engineer,0.04,Data Specialist
+IND,India,Analytics Specialist,0.03,Data Specialist
+IND,India,Analytics Manager,0.03,Data Specialist
+IND,India,Analytics Consultant,0.02,Data Specialist
+IND,India,Analytics Analyst,0.01,Data Specialist
+IND,India,Other,0.11,Python Developer
+IND,India,Machine Learning Expert,0.11,Python Developer
+IND,India,Data Specialist,0.02,Python Developer
+IND,India,Data Scientist,0.18,Python Developer
+IND,India,Data Engineer,0.23,Python Developer
+IND,India,Data Annotator,0.01,Python Developer
+IND,India,Data Analyst,0.17,Python Developer
+IND,India,Big Data Developer,0.01,Python Developer
+IND,India,Artificial Intelligence Engineer,0.15,Python Developer
+IND,India,Analytics Specialist,0.01,Python Developer
+IND,India,Vice President of Analytics,0.03,Other
+IND,India,Quantitative Analyst,0.03,Other
+IND,India,Python Developer,0.01,Other
+IND,India,Other,0.29,Other
+IND,India,Manager of Artificial Intelligence,0.01,Other
+IND,India,Machine Learning Expert,0.04,Other
+IND,India,Director of Analytics,0.03,Other
+IND,India,Data Specialist,0.02,Other
+IND,India,Data Scientist,0.21,Other
+IND,India,Data Engineer,0.13,Other
+IND,India,Data Analyst,0.08,Other
+IND,India,Big Data Developer,0.01,Other
+IND,India,Artificial Intelligence Engineer,0.05,Other
+IND,India,Analytics Specialist,0.01,Other
+IND,India,Analytics Manager,0.02,Other
+IND,India,Analytics Analyst,0,Other
+IND,India,Other,0.01,Big Data Developer
+IND,India,Machine Learning Expert,0.01,Big Data Developer
+IND,India,Data Specialist,0.02,Big Data Developer
+IND,India,Data Scientist,0.02,Big Data Developer
+IND,India,Data Engineer,0.71,Big Data Developer
+IND,India,Data Consultant,0.01,Big Data Developer
+IND,India,Data Architect,0.01,Big Data Developer
+IND,India,Data Analyst,0.02,Big Data Developer
+IND,India,Artificial Intelligence Engineer,0.01,Big Data Developer
+IND,India,Vice President of Analytics,0.01,Analytics Consultant
+IND,India,Quantitative Analyst,0,Analytics Consultant
+IND,India,Manager of Artificial Intelligence,0,Analytics Consultant
+IND,India,Machine Learning Expert,0.01,Analytics Consultant
+IND,India,Director of Analytics,0.01,Analytics Consultant
+IND,India,Data Specialist,0.02,Analytics Consultant
+IND,India,Data Scientist,0.17,Analytics Consultant
+IND,India,Data Engineer,0.07,Analytics Consultant
+IND,India,Data Consultant,0.03,Analytics Consultant
+IND,India,Data Architect,0.01,Analytics Consultant
+IND,India,Data Analyst,0.13,Analytics Consultant
+IND,India,Business Intelligence Specialist,0.01,Analytics Consultant
+IND,India,Artificial Intelligence Consultant,0.01,Analytics Consultant
+IND,India,Analytics Specialist,0.05,Analytics Consultant
+IND,India,Analytics Manager,0.15,Analytics Consultant
+IND,India,Analytics Analyst,0.02,Analytics Consultant
+IND,India,Vice President of Analytics,0.01,Data Associate
+IND,India,Machine Learning Expert,0.02,Data Associate
+IND,India,Data Specialist,0.07,Data Associate
+IND,India,Data Scientist,0.12,Data Associate
+IND,India,Data Engineer,0.05,Data Associate
+IND,India,Data Consultant,0.05,Data Associate
+IND,India,Data Annotator,0.02,Data Associate
+IND,India,Data Analyst,0.32,Data Associate
+IND,India,Artificial Intelligence Engineer,0.01,Data Associate
+IND,India,Analytics Specialist,0.01,Data Associate
+IND,India,Analytics Consultant,0.01,Data Associate
+IND,India,Analytics Analyst,0,Data Associate
+IND,India,Vice President of Analytics,0.06,Analytics Manager
+IND,India,Other,0.03,Analytics Manager
+IND,India,Manager of Artificial Intelligence,0.01,Analytics Manager
+IND,India,Machine Learning Expert,0,Analytics Manager
+IND,India,Director of Analytics,0.09,Analytics Manager
+IND,India,Data Specialist,0.02,Analytics Manager
+IND,India,Data Scientist,0.19,Analytics Manager
+IND,India,Data Engineer,0.03,Analytics Manager
+IND,India,Data Consultant,0.01,Analytics Manager
+IND,India,Data Architect,0.01,Analytics Manager
+IND,India,Data Analyst,0.06,Analytics Manager
+IND,India,Business Intelligence Specialist,0.01,Analytics Manager
+IND,India,Analytics Specialist,0.06,Analytics Manager
+IND,India,Analytics Consultant,0.04,Analytics Manager
+IND,India,Machine Learning Expert,0.02,Data Consultant
+IND,India,Data Specialist,0.01,Data Consultant
+IND,India,Data Scientist,0.32,Data Consultant
+IND,India,Data Engineer,0.07,Data Consultant
+IND,India,Data Associate,0.01,Data Consultant
+IND,India,Data Architect,0.01,Data Consultant
+IND,India,Data Analyst,0.07,Data Consultant
+IND,India,Artificial Intelligence Engineer,0.01,Data Consultant
+IND,India,Artificial Intelligence Consultant,0.01,Data Consultant
+IND,India,Analytics Specialist,0.01,Data Consultant
+IND,India,Analytics Manager,0.02,Data Consultant
+IND,India,Analytics Consultant,0.01,Data Consultant
+IND,India,Vice President of Analytics,0.01,Analytics Specialist
+IND,India,Quantitative Analyst,0,Analytics Specialist
+IND,India,Other,0.01,Analytics Specialist
+IND,India,Director of Analytics,0.01,Analytics Specialist
+IND,India,Data Specialist,0.04,Analytics Specialist
+IND,India,Data Scientist,0.12,Analytics Specialist
+IND,India,Data Engineer,0.04,Analytics Specialist
+IND,India,Data Associate,0.01,Analytics Specialist
+IND,India,Data Analyst,0.15,Analytics Specialist
+IND,India,Business Intelligence Specialist,0.01,Analytics Specialist
+IND,India,Artificial Intelligence Engineer,0.01,Analytics Specialist
+IND,India,Analytics Manager,0.1,Analytics Specialist
+IND,India,Analytics Consultant,0.04,Analytics Specialist
+IND,India,Analytics Analyst,0.01,Analytics Specialist
+IND,India,Quantitative Analyst,0.01,Analytics Analyst
+IND,India,Data Specialist,0.01,Analytics Analyst
+IND,India,Data Scientist,0.04,Analytics Analyst
+IND,India,Data Engineer,0.02,Analytics Analyst
+IND,India,Data Consultant,0.01,Analytics Analyst
+IND,India,Data Associate,0.01,Analytics Analyst
+IND,India,Data Analyst,0.06,Analytics Analyst
+IND,India,Analytics Specialist,0.02,Analytics Analyst
+IND,India,Analytics Manager,0.03,Analytics Analyst
+IND,India,Analytics Consultant,0.03,Analytics Analyst
+IND,India,Data Scientist,0.02,Business Intelligence Specialist
+IND,India,Data Engineer,0.1,Business Intelligence Specialist
+IND,India,Data Analyst,0.05,Business Intelligence Specialist
+IND,India,Analytics Specialist,0.01,Business Intelligence Specialist
+IND,India,Analytics Manager,0.01,Business Intelligence Specialist
+IND,India,Analytics Consultant,0.01,Business Intelligence Specialist
+IND,India,Python Developer,0.01,Robotics Specialist
+IND,India,Other,0.12,Robotics Specialist
+IND,India,Machine Learning Expert,0.01,Robotics Specialist
+IND,India,Data Scientist,0.01,Robotics Specialist
+IND,India,Data Engineer,0.01,Robotics Specialist
+IND,India,Data Analyst,0.02,Robotics Specialist
+IND,India,Artificial Intelligence Engineer,0.02,Robotics Specialist
+IND,India,Other,0.02,Computer Vision Engineer
+IND,India,Machine Learning Expert,0.06,Computer Vision Engineer
+IND,India,Data Scientist,0.04,Computer Vision Engineer
+IND,India,Data Analyst,0,Computer Vision Engineer
+IND,India,Artificial Intelligence Engineer,0.05,Computer Vision Engineer
+IND,India,Other,0,Research Engineer
+IND,India,Machine Learning Expert,0.04,Research Engineer
+IND,India,Data Scientist,0.06,Research Engineer
+IND,India,Data Engineer,0.01,Research Engineer
+IND,India,Data Analyst,0,Research Engineer
+IND,India,Artificial Intelligence Engineer,0.02,Research Engineer
+IND,India,Applied Scientist,0.01,Research Engineer
+IND,India,Python Developer,0.1,Django Developer
+IND,India,Other,0.01,Deep Learning Specialist
+IND,India,Machine Learning Expert,0.03,Deep Learning Specialist
+IND,India,Data Scientist,0.04,Deep Learning Specialist
+IND,India,Data Engineer,0.01,Django Developer
+IND,India,Data Analyst,0.01,Django Developer
+IND,India,Data Analyst,0,Deep Learning Specialist
+IND,India,Artificial Intelligence Engineer,0.04,Deep Learning Specialist
+IND,India,Vice President of Analytics,0.01,Quantitative Analyst
+IND,India,Other,0.06,Quantitative Analyst
+IND,India,Data Specialist,0.03,Data Architect
+IND,India,Data Scientist,0.02,Quantitative Analyst
+IND,India,Data Scientist,0.01,Data Architect
+IND,India,Data Engineer,0.07,Data Architect
+IND,India,Data Analyst,0.02,Quantitative Analyst
+IND,India,Data Analyst,0.01,Data Architect
+IND,India,Analytics Specialist,0.01,Quantitative Analyst
+IND,India,Other,0.01,Data Annotator
+IND,India,Data Specialist,0.02,Data Annotator
+IND,India,Data Engineer,0.01,Data Annotator
+IND,India,Data Associate,0.01,Data Annotator
+IND,India,Data Analyst,0.06,Data Annotator
+IND,India,Machine Learning Expert,0.02,Artificial Intelligence Researcher
+IND,India,Data Scientist,0.05,Artificial Intelligence Researcher
+IND,India,Data Engineer,0,Artificial Intelligence Researcher
+IND,India,Artificial Intelligence Engineer,0.03,Artificial Intelligence Researcher

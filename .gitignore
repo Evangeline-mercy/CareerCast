@@ -1,0 +1,68 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# Large datasets - do not commit
+job_skills.csv
+job_summary.csv
+linkedin_job_postings.csv
+postings.csv
+ai_job_dataset.csv
+DataAnalyst.csv
+data_science_job.csv
+job_dataset.csv
+
+# Large model files - use Git LFS or exclude
+results/milestone2_random_forest/random_forest_model.pkl
+results/milestone2_sentence_bert_finetuned/
+results/semantic_embeddings/profile_embeddings.npy
+results/semantic_embeddings/finetuned_career_embeddings.npy
+results/milestone2_sentence_bert/sentence_bert_embeddings.npy
+
+# Old/backup artifacts - not needed on GitHub
+v3_output/
+v4_output/
+checkpoints/
+results/tree_model/
+results/tree_features/
+results/xgboost_model/
+results/final_recommendations/
+results/final_recommendations_v2/
+results/hybrid_recommender/
+results/curated_v4_validation/
+results/corrected_candidate_test/
+results/corrected_final_recommendations/
+
+# Backup scripts
+*_backup*.py
+*_before_step*.py
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/
+
+# Environment
+.env
+*.env
+# Large model files - too big for GitHub
+results/milestone2_profile_model/logistic_model.pkl
+results/milestone2_sentence_bert_classifier/best_model.pkl
+results/milestone2_sentence_bert_classifier/logistic_regression_model.pkl
+results/milestone2_sentence_bert_classifier/random_forest_model.pkl
+results/milestone2_sentence_bert_classifier/xgboost_model.pkl
+results/milestone2_sentence_bert_classifier_v2/logistic_regression_model.pkl
+results/milestone2_sentence_bert_classifier_v2/random_forest_model.pkl
+results/milestone2_sentence_bert_classifier_v2/xgboost_model.pkl
+results/milestone2_xgboost/xgboost_model.pkl
+results/model/
+results/model_no_job_description/
+results/semantic_embeddings/career_embeddings.npy
+results/semantic_embeddings/model_info.joblib

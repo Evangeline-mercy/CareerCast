@@ -1,0 +1,2 @@
+model,accuracy,precision_macro,recall_macro,macro_f1,cv_accuracy,training_samples,testing_samples,careers,vocabulary_size,svd_components,best_params
+RandomForestClassifier,0.9992708333333333,0.9992951127819548,0.9992708333333334,0.9992703773191578,0.9988541666666666,38400,9600,96,975,100,"{""max_depth"": null, ""max_features"": ""sqrt"", ""n_estimators"": 100}"
