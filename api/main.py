@@ -72,9 +72,12 @@ async def load_models():
 
     try:
         from sentence_transformers import SentenceTransformer
+        allow_download = os.getenv("CAREERCAST_ALLOW_MODEL_DOWNLOAD", "0").lower() in {
+            "1", "true", "yes"
+        }
         _models["sbert"] = SentenceTransformer(
             EMBEDDING_MODEL_NAME,
-            local_files_only=True,
+            local_files_only=not allow_download,
         )
     except Exception as e:
         print(f"WARNING: Could not load SBERT: {e}")

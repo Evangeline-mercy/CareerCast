@@ -28,6 +28,20 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+
+@st.cache_resource(show_spinner="Preparing CareerCast models for the first launch...")
+def prepare_cloud_runtime() -> bool:
+    """Start the API inside Streamlit only when cloud deployment requests it."""
+    if os.getenv("CAREERCAST_EMBEDDED_API", "0").lower() not in {"1", "true", "yes"}:
+        return False
+    from deployment.bootstrap import start_embedded_api
+
+    start_embedded_api()
+    return True
+
+
+prepare_cloud_runtime()
+
 st.markdown(
     """
     <style>

@@ -1,0 +1,14 @@
+streamlit==1.62.0
+fastapi
+uvicorn
+sentence-transformers==6.0.0
+scikit-learn
+xgboost
+joblib
+numpy
+pandas
+plotly
+pypdf
+python-docx
+reportlab>=4.2,<5
+requests
