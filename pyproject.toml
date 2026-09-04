@@ -10,10 +10,22 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [{name = "CareerCast Team"}]
+keywords = ["career", "machine-learning", "skill-gap", "fastapi", "streamlit"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
 dependencies = ["requests>=2.31,<3"]
 
 [project.optional-dependencies]
 dev = ["build>=1.2,<2", "pytest>=8,<10"]
+
+[project.urls]
+Homepage = "https://github.com/Evangeline-mercy/CareerCast"
+Documentation = "https://github.com/Evangeline-mercy/CareerCast/tree/master/docs"
+Application = "https://careercast-milestone3.streamlit.app/"
 
 [project.scripts]
 careercast = "careercast.cli:main"
