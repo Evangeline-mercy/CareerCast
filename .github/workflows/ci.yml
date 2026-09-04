@@ -19,10 +19,10 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python 3.12
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
@@ -37,12 +37,17 @@ jobs:
         run: |
           python -m py_compile api/main.py
           python -m py_compile api/services/gap_analysis.py
+          python -m py_compile streamlit_app/app.py
+          python -m py_compile streamlit_app/report_builder.py
 
       - name: Run skill-gap tests
         run: python -m pytest tests/test_gap_analysis_ci.py -v --assert=plain
 
       - name: Run API contract tests
         run: python -m pytest tests/test_api_contract.py -v --assert=plain
+
+      - name: Run PDF report test
+        run: python -m pytest tests/test_pdf_report.py -v --assert=plain
 
       - name: Run genuine accuracy gate
         run: python -m pytest tests/test_accuracy_gate.py -v --assert=plain -s
