@@ -1,4 +1,4 @@
-name: CareerCast Milestone 3 CI
+name: CareerCast Milestone 4 CI
 
 on:
   push:
@@ -28,23 +28,38 @@ jobs:
           cache: pip
           cache-dependency-path: requirements-ci.txt
 
-      - name: Install CI dependencies
+      - name: Install CI dependencies and CareerCast package
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements-ci.txt
+          python -m pip install -e .
 
-      - name: Compile Milestone 3 source
+      - name: Compile source
         run: |
           python -m py_compile api/main.py
           python -m py_compile api/services/gap_analysis.py
           python -m py_compile streamlit_app/app.py
           python -m py_compile streamlit_app/report_builder.py
+          python -m py_compile src/careercast/client.py
+          python -m py_compile src/careercast/parsing.py
+          python -m py_compile src/careercast/cli.py
 
       - name: Run skill-gap tests
         run: python -m pytest tests/test_gap_analysis_ci.py -v --assert=plain
 
       - name: Run API contract tests
         run: python -m pytest tests/test_api_contract.py -v --assert=plain
+
+      - name: Run package and CLI tests
+        run: |
+          python -m pytest tests/test_package_parsing.py -v --assert=plain
+          python -m pytest tests/test_package_client.py -v --assert=plain
+          python -m pytest tests/test_cli.py -v --assert=plain
+
+      - name: Run integration and regression tests
+        run: |
+          python -m pytest tests/test_pipeline_integration.py -v --assert=plain
+          python -m pytest tests/test_pipeline_regression.py -v --assert=plain
 
       - name: Run PDF report test
         run: python -m pytest tests/test_pdf_report.py -v --assert=plain
