@@ -23,6 +23,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
+from api.services.gap_analysis import SkillGapAnalyzer, parse_skills
+
 # ---------------------------------------------------------------------------
 # Paths — all relative to project root (where uvicorn is launched from)
 # ---------------------------------------------------------------------------
@@ -58,17 +60,22 @@ app.add_middleware(
 # ---------------------------------------------------------------------------
 _models = {}
 _career_skill_profiles = {}
+_gap_analyzer = None
 
 
 @app.on_event("startup")
 async def load_models():
     """Load all models once at startup."""
+    global _gap_analyzer
     import json
     import pandas as pd
 
     try:
         from sentence_transformers import SentenceTransformer
-        _models["sbert"] = SentenceTransformer(EMBEDDING_MODEL_NAME)
+        _models["sbert"] = SentenceTransformer(
+            EMBEDDING_MODEL_NAME,
+            local_files_only=True,
+        )
     except Exception as e:
         print(f"WARNING: Could not load SBERT: {e}")
         _models["sbert"] = None
@@ -105,10 +112,17 @@ async def load_models():
     else:
         _models["metrics"] = {}
 
+    try:
+        _gap_analyzer = SkillGapAnalyzer()
+    except Exception as e:
+        print(f"WARNING: Could not initialize skill-gap analyzer: {e}")
+        _gap_analyzer = None
+
     print(f"Startup complete. SBERT: {_models['sbert'] is not None}, "
           f"LR: {_models['lr'] is not None}, RF: {_models['rf'] is not None}, "
           f"XGB: {_models['xgb'] is not None}, "
-          f"Career profiles: {len(_career_skill_profiles)}")
+          f"Career profiles: {len(_career_skill_profiles)}, "
+          f"Gap profiles: {_gap_analyzer.career_count if _gap_analyzer else 0}")
 
 
 # ---------------------------------------------------------------------------
@@ -159,67 +173,32 @@ class GapReportRequest(BaseModel):
     top_k_careers: Optional[int] = 5
 
 
+class MissingSkillItem(BaseModel):
+    skill: str
+    weight: float
+    priority: str
+    suggestion: str
+
+
 class SkillGapItem(BaseModel):
     career: str
+    profile_source: str
     matched_skills: List[str]
-    missing_skills: List[str]
+    missing_skills: List[MissingSkillItem]
     alignment_score: float
-    suggestions: List[str]
+    priority_summary: dict
 
 
 class GapReportResponse(BaseModel):
     candidate_skills: List[str]
     target_career: str
     gap_analysis: List[SkillGapItem]
-    top_missing_skills: List[str]
+    top_missing_skills: List[MissingSkillItem]
 
 
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
-ACTIONABLE_SUGGESTIONS = {
-    "python": "Complete Python for Data Science (Coursera / fast.ai)",
-    "machine learning": "Andrew Ng's ML Specialization (Coursera)",
-    "deep learning": "fast.ai Practical Deep Learning course",
-    "tensorflow": "TensorFlow Developer Certificate (Google)",
-    "pytorch": "PyTorch official tutorials (pytorch.org)",
-    "sql": "Mode Analytics SQL Tutorial (free)",
-    "docker": "Docker Getting Started tutorial (docs.docker.com)",
-    "kubernetes": "Kubernetes Fundamentals (CNCF free training)",
-    "aws": "AWS Cloud Practitioner certification",
-    "azure": "Microsoft Azure Fundamentals (AZ-900)",
-    "react": "React official tutorial (react.dev)",
-    "node.js": "The Odin Project Node.js track",
-    "spark": "Databricks Community Edition (free)",
-    "scala": "Scala Exercises (scala-exercises.org)",
-    "java": "MOOC.fi Java Programming (free, University of Helsinki)",
-    "git": "Git & GitHub Crash Course (freeCodeCamp YouTube)",
-    "linux": "The Linux Command Line (free book, linuxcommand.org)",
-    "networking": "CompTIA Network+ certification path",
-    "cybersecurity": "Google Cybersecurity Certificate (Coursera)",
-    "nlp": "Hugging Face NLP Course (free, huggingface.co/learn)",
-    "computer vision": "CS231n Stanford (free lecture videos)",
-    "data analysis": "Google Data Analytics Certificate (Coursera)",
-    "tableau": "Tableau Public free training videos",
-    "power bi": "Microsoft Learn: Power BI (free)",
-    "devops": "DevOps Foundations (LinkedIn Learning)",
-    "mlflow": "MLflow official quickstart (mlflow.org)",
-}
-
-
-def get_suggestion(skill: str) -> str:
-    for key, suggestion in ACTIONABLE_SUGGESTIONS.items():
-        if key in skill.lower():
-            return suggestion
-    return f"Search for '{skill}' tutorials on Coursera, Udemy, or freeCodeCamp"
-
-
-def parse_skills(text: str) -> List[str]:
-    """Normalize skills from comma/pipe/semicolon-separated text."""
-    text = text.replace("|", ",").replace(";", ",")
-    return [s.strip().lower() for s in text.split(",") if s.strip()]
-
-
 def get_embedding(text: str) -> np.ndarray:
     if _models.get("sbert") is None:
         raise HTTPException(status_code=503, detail="SBERT model not loaded")
@@ -251,6 +230,7 @@ async def health():
         "status": "ok",
         "models_loaded": {k: v is not None for k, v in _models.items() if k != "metrics"},
         "career_profiles_loaded": len(_career_skill_profiles),
+        "gap_profiles_loaded": _gap_analyzer.career_count if _gap_analyzer else 0,
     }
 
 
@@ -268,38 +248,39 @@ async def models_info():
 
 @app.post("/predict", response_model=PredictResponse)
 async def predict(request: PredictRequest):
-    """Return Top-K predictions from all three classifiers independently."""
+    """Return one clear Top-K prediction list from the selected best model."""
     if not request.skills_text.strip():
         raise HTTPException(status_code=400, detail="skills_text cannot be empty")
+    if request.top_k is None or not 1 <= request.top_k <= 20:
+        raise HTTPException(status_code=400, detail="top_k must be between 1 and 20")
 
     embedding = get_embedding(request.skills_text)
     le = _models.get("le")
     if le is None:
         raise HTTPException(status_code=503, detail="Label encoder not loaded")
 
-    all_predictions = []
-    for model_key, model_name in [("lr", "Logistic Regression"),
-                                   ("rf", "Random Forest"),
-                                   ("xgb", "XGBoost")]:
-        model = _models.get(model_key)
-        if model is None:
-            continue
-        proba = model.predict_proba(embedding)[0]
-        top_idx = np.argsort(proba)[::-1][:request.top_k]
-        careers = le.inverse_transform(top_idx)
-        for rank, (career, prob) in enumerate(zip(careers, proba[top_idx]), start=1):
-            all_predictions.append(CareerPrediction(
-                rank=rank,
-                career=str(career),
-                probability=float(prob),
-                model=model_name,
-            ))
+    model = _models.get("lr")
+    if model is None:
+        raise HTTPException(status_code=503, detail="Selected prediction model not loaded")
 
-    if not all_predictions:
-        raise HTTPException(status_code=503, detail="No classifiers available")
+    proba = model.predict_proba(embedding)[0]
+    top_idx = np.argsort(proba)[::-1][:request.top_k]
+    careers = le.inverse_transform(top_idx)
+    top_predictions = [
+        CareerPrediction(
+            rank=rank,
+            career=str(career),
+            probability=float(probability),
+            model="Logistic Regression",
+        )
+        for rank, (career, probability) in enumerate(
+            zip(careers, proba[top_idx]),
+            start=1,
+        )
+    ]
 
     return PredictResponse(
-        top_predictions=all_predictions,
+        top_predictions=top_predictions,
         embedding_model=EMBEDDING_MODEL_NAME,
         input_text=request.skills_text[:200],
     )
@@ -310,9 +291,19 @@ async def recommend(request: RecommendRequest):
     """Return ensemble Top-K recommendations with per-model breakdown."""
     if not request.skills_text.strip():
         raise HTTPException(status_code=400, detail="skills_text cannot be empty")
+    if request.top_k is None or not 1 <= request.top_k <= 20:
+        raise HTTPException(status_code=400, detail="top_k must be between 1 and 20")
 
     # Default weights: LR gets highest weight (best test accuracy: 99.82%)
     weights = request.ensemble_weights or {"lr": 0.40, "rf": 0.30, "xgb": 0.30}
+    if set(weights).difference({"lr", "rf", "xgb"}):
+        raise HTTPException(status_code=400, detail="Weights may contain only lr, rf and xgb")
+    if any(not isinstance(value, (int, float)) or value < 0 for value in weights.values()):
+        raise HTTPException(status_code=400, detail="Model weights must be non-negative numbers")
+    weight_total = sum(weights.values())
+    if weight_total <= 0:
+        raise HTTPException(status_code=400, detail="At least one model weight must be positive")
+    weights = {key: weights.get(key, 0) / weight_total for key in ("lr", "rf", "xgb")}
 
     embedding = get_embedding(request.skills_text)
     le = _models.get("le")
@@ -357,6 +348,10 @@ async def gap_report(request: GapReportRequest):
     """Skill gap analysis with actionable learning suggestions."""
     if not request.skills_text.strip():
         raise HTTPException(status_code=400, detail="skills_text cannot be empty")
+    if request.top_k_careers is None or not 1 <= request.top_k_careers <= 10:
+        raise HTTPException(status_code=400, detail="top_k_careers must be between 1 and 10")
+    if _gap_analyzer is None:
+        raise HTTPException(status_code=503, detail="Skill-gap analyzer not loaded")
 
     candidate_skills = set(parse_skills(request.skills_text))
 
@@ -383,36 +378,26 @@ async def gap_report(request: GapReportRequest):
         target_careers = [str(c) for c in le.inverse_transform(top_idx)]
 
     primary_target = target_careers[0]
-    all_missing = []
+    all_missing = {}
     gap_items = []
 
     for career in target_careers:
-        career_skills = _career_skill_profiles.get(career, set())
-        if not career_skills:
-            # Try case-insensitive match
-            for k in _career_skill_profiles:
-                if k.lower() == career.lower():
-                    career_skills = _career_skill_profiles[k]
-                    break
+        try:
+            result = _gap_analyzer.analyze(candidate_skills, career)
+        except ValueError as exc:
+            raise HTTPException(status_code=404, detail=str(exc)) from exc
 
-        matched = sorted(candidate_skills & career_skills)
-        missing = sorted(career_skills - candidate_skills)[:15]
-        all_missing.extend(missing)
+        gap_items.append(SkillGapItem(**result))
+        for item in result["missing_skills"]:
+            existing = all_missing.get(item["skill"])
+            if existing is None or item["weight"] > existing["weight"]:
+                all_missing[item["skill"]] = item
 
-        alignment = len(matched) / len(career_skills) * 100 if career_skills else 0.0
-        suggestions = [get_suggestion(s) for s in missing[:5]]
-
-        gap_items.append(SkillGapItem(
-            career=career,
-            matched_skills=matched,
-            missing_skills=missing,
-            alignment_score=round(alignment, 2),
-            suggestions=suggestions,
-        ))
-
-    # Global top missing across all target careers
-    from collections import Counter
-    top_missing = [s for s, _ in Counter(all_missing).most_common(10)]
+    priority_order = {"High": 0, "Medium": 1, "Low": 2}
+    top_missing = sorted(
+        all_missing.values(),
+        key=lambda item: (priority_order[item["priority"]], -item["weight"], item["skill"]),
+    )[:10]
 
     return GapReportResponse(
         candidate_skills=sorted(candidate_skills),

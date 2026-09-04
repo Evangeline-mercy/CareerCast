@@ -1,0 +1,31 @@
+split,text,career
+train,python pandas numpy statistics regression data analysis,Data Scientist
+train,python scikit-learn machine learning feature engineering,Data Scientist
+train,sql pandas data visualization predictive modeling,Data Scientist
+train,python numpy matplotlib seaborn statistics,Data Scientist
+train,machine learning classification clustering jupyter,Data Scientist
+train,data cleaning python sql hypothesis testing,Data Scientist
+train,pandas tensorflow model evaluation analytics,Data Scientist
+train,python xgboost regression data science,Data Scientist
+test,python pandas statistics machine learning,Data Scientist
+test,numpy sql predictive analytics data visualization,Data Scientist
+train,html css javascript react responsive design,Web Developer
+train,javascript node.js express rest api mongodb,Web Developer
+train,html css bootstrap frontend web accessibility,Web Developer
+train,react typescript javascript user interface,Web Developer
+train,node.js backend api database web development,Web Developer
+train,css javascript browser responsive layout,Web Developer
+train,react html frontend component testing,Web Developer
+train,javascript express server web application,Web Developer
+test,html css javascript react frontend,Web Developer
+test,node.js express api web backend,Web Developer
+train,network security firewalls linux threat detection,Cybersecurity Analyst
+train,cybersecurity vulnerability assessment incident response,Cybersecurity Analyst
+train,siem network monitoring risk analysis,Cybersecurity Analyst
+train,linux security penetration testing authentication,Cybersecurity Analyst
+train,threat intelligence malware analysis digital forensics,Cybersecurity Analyst
+train,security operations incident handling networking,Cybersecurity Analyst
+train,firewalls encryption access control cybersecurity,Cybersecurity Analyst
+train,vulnerability scanning network defense risk management,Cybersecurity Analyst
+test,cybersecurity network security threat detection linux,Cybersecurity Analyst
+test,incident response vulnerability assessment firewalls,Cybersecurity Analyst

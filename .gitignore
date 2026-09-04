@@ -66,3 +66,12 @@ results/model/
 results/model_no_job_description/
 results/semantic_embeddings/career_embeddings.npy
 results/semantic_embeddings/model_info.joblib
+
+# Milestone 3 local runtime artifacts
+.venv/
+.pytest_cache/
+mlflow.db
+mlruns/
+mlartifacts/
+mlflow_tracking/registration_complete.json
+api/main_before_gap_update.py
