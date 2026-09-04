@@ -39,6 +39,7 @@ jobs:
           python -m py_compile api/main.py
           python -m py_compile api/services/gap_analysis.py
           python -m py_compile streamlit_app/app.py
+          python -m py_compile streamlit_app/analytics.py
           python -m py_compile streamlit_app/report_builder.py
           python -m py_compile src/careercast/client.py
           python -m py_compile src/careercast/parsing.py
@@ -60,6 +61,9 @@ jobs:
         run: |
           python -m pytest tests/test_pipeline_integration.py -v --assert=plain
           python -m pytest tests/test_pipeline_regression.py -v --assert=plain
+
+      - name: Run cohort analytics tests
+        run: python -m pytest tests/test_cohort_analytics.py -v --assert=plain
 
       - name: Run PDF report test
         run: python -m pytest tests/test_pdf_report.py -v --assert=plain

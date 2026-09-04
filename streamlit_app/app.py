@@ -1,4 +1,4 @@
-"""CareerCast Milestone 3 Streamlit review UI.
+"""CareerCast Milestone 4 Streamlit review and cohort analytics UI.
 
 Run the FastAPI service first, then start this app from the project root:
     streamlit run streamlit_app/app.py
@@ -21,6 +21,7 @@ import requests
 import streamlit as st
 
 from streamlit_app.report_builder import build_career_report
+from streamlit_app.analytics import prepare_cohort, summarize_cohort
 
 
 API_BASE_URL = os.getenv("CAREERCAST_API_URL", "http://127.0.0.1:8000").rstrip("/")
@@ -119,9 +120,99 @@ def probability_chart(recommendations: list[dict[str, Any]]):
     return chart
 
 
+def render_cohort_workspace() -> None:
+    st.markdown("## Cohort Analytics")
+    st.caption(
+        "Upload a CSV containing a `skills` column and an optional `name` column. "
+        "CareerCast analyses up to 50 profiles per run."
+    )
+    template = pd.DataFrame(
+        [
+            {"name": "Candidate 1", "skills": "Python, SQL, pandas"},
+            {"name": "Candidate 2", "skills": "HTML, CSS, JavaScript"},
+        ]
+    )
+    st.download_button(
+        "Download cohort CSV template",
+        template.to_csv(index=False).encode("utf-8"),
+        "CareerCast_Cohort_Template.csv",
+        "text/csv",
+    )
+    cohort_file = st.file_uploader("Upload cohort CSV", type=["csv"], key="cohort_csv")
+    if cohort_file is not None:
+        try:
+            cohort = prepare_cohort(pd.read_csv(cohort_file))
+            st.dataframe(cohort, use_container_width=True, hide_index=True)
+        except ValueError as exc:
+            st.error(str(exc))
+            return
+
+        if st.button("Analyse Cohort", type="primary", use_container_width=True):
+            rows = []
+            progress = st.progress(0, text="Analysing cohort profiles...")
+            try:
+                for position, record in enumerate(cohort.to_dict("records"), start=1):
+                    recommendation = api_post(
+                        "/recommend", {"skills_text": record["skills"], "top_k": 1}
+                    )
+                    top = recommendation["recommendations"][0]
+                    gap = api_post(
+                        "/gap-report",
+                        {
+                            "skills_text": record["skills"],
+                            "target_career": top["career"],
+                            "top_k_careers": 1,
+                        },
+                    )["gap_analysis"][0]
+                    rows.append(
+                        {
+                            "Name": record["name"],
+                            "Predicted career": top["career"],
+                            "Career score (%)": round(top["ensemble_score"] * 100, 2),
+                            "Skill alignment (%)": round(gap["alignment_score"], 2),
+                            "High-priority gaps": gap["priority_summary"].get("High", 0),
+                        }
+                    )
+                    progress.progress(position / len(cohort), text=f"Analysed {position} of {len(cohort)}")
+                st.session_state["cohort_result"] = pd.DataFrame(rows)
+                progress.empty()
+            except (requests.RequestException, RuntimeError, KeyError, IndexError) as exc:
+                progress.empty()
+                st.error(f"Cohort analysis failed: {exc}")
+
+    result = st.session_state.get("cohort_result")
+    if result is not None and not result.empty:
+        summary = summarize_cohort(result)
+        m1, m2, m3 = st.columns(3)
+        m1.metric("Profiles analysed", summary["profile_count"])
+        m2.metric("Career paths identified", summary["career_count"])
+        m3.metric("Mean skill alignment", f"{summary['mean_alignment']:.2f}%")
+        career_counts = summary["career_distribution"]
+        chart = px.bar(
+            career_counts,
+            x="Profiles",
+            y="Predicted career",
+            orientation="h",
+            color="Profiles",
+            color_continuous_scale=["#0f766e", "#4338ca"],
+            title="Cohort career distribution",
+        )
+        chart.update_layout(coloraxis_showscale=False)
+        st.plotly_chart(chart, use_container_width=True)
+        st.dataframe(result, use_container_width=True, hide_index=True)
+        st.download_button(
+            "Download cohort results",
+            result.to_csv(index=False).encode("utf-8"),
+            "CareerCast_Cohort_Results.csv",
+            "text/csv",
+            type="primary",
+            use_container_width=True,
+        )
+
+
 st.sidebar.markdown("# CareerCast")
-st.sidebar.markdown("**Milestone 3 Review UI**")
-st.sidebar.caption("Prediction • Recommendation • Skill Gap • PDF")
+st.sidebar.markdown("**Milestone 4 Intelligence Suite**")
+st.sidebar.caption("Individual • Cohort • Comparison • PDF")
 st.sidebar.markdown("---")
 st.sidebar.code(API_BASE_URL, language=None)
 
@@ -140,6 +231,13 @@ st.markdown(
     '<div class="hero"><h1>CareerCast</h1><p>AI-powered career prediction and weighted skill-gap intelligence</p></div>',
     unsafe_allow_html=True,
 )
+
+workspace = st.sidebar.radio("Workspace", ["Individual Review", "Cohort Analytics"])
+if workspace == "Cohort Analytics":
+    render_cohort_workspace()
+    st.markdown("---")
+    st.caption("CareerCast | Milestone 4 | Cohort decision-support prototype")
+    st.stop()
 
 uploaded = st.file_uploader("Upload a resume", type=["pdf", "docx", "txt"], help="PDF, DOCX or TXT")
 uploaded_text = ""
@@ -206,7 +304,9 @@ if result:
     c3.metric("Skill alignment", f"{float(primary_gap.get('alignment_score', 0)):.2f}%")
     c4.metric("Prediction model", primary.get("model", "Unavailable"))
 
-    tab1, tab2, tab3, tab4 = st.tabs(["Top Careers", "Skill Gap", "Model Review", "Download Report"])
+    tab1, tab2, tab3, tab4, tab5 = st.tabs(
+        ["Top Careers", "Skill Gap", "Career Comparison", "Model Review", "Download Report"]
+    )
     with tab1:
         if recommendations:
             st.plotly_chart(probability_chart(recommendations), use_container_width=True)
@@ -241,6 +341,70 @@ if result:
             st.success("No missing skills were identified.")
 
     with tab3:
+        st.markdown("### Compare recommended careers")
+        career_options = [item["career"] for item in recommendations]
+        if len(career_options) < 2:
+            st.info("At least two recommendations are required for comparison.")
+        else:
+            left_choice, right_choice = st.columns(2)
+            with left_choice:
+                career_a = st.selectbox("Career A", career_options, index=0)
+            with right_choice:
+                career_b = st.selectbox("Career B", career_options, index=1)
+            if career_a == career_b:
+                st.warning("Select two different careers.")
+            elif st.button("Compare Careers", use_container_width=True):
+                try:
+                    with st.spinner("Comparing career skill requirements..."):
+                        comparison = []
+                        for career in (career_a, career_b):
+                            gap = api_post(
+                                "/gap-report",
+                                {
+                                    "skills_text": result["profile_text"],
+                                    "target_career": career,
+                                    "top_k_careers": 1,
+                                },
+                            )["gap_analysis"][0]
+                            comparison.append(gap)
+                    st.session_state["career_comparison"] = comparison
+                except (requests.RequestException, RuntimeError, KeyError, IndexError) as exc:
+                    st.error(f"Career comparison failed: {exc}")
+
+            comparison = st.session_state.get("career_comparison")
+            if comparison:
+                comparison_frame = pd.DataFrame(
+                    [
+                        {
+                            "Career": item["career"],
+                            "Skill alignment (%)": item["alignment_score"],
+                            "Matched skills": len(item["matched_skills"]),
+                            "Missing skills": len(item["missing_skills"]),
+                            "High-priority gaps": item["priority_summary"].get("High", 0),
+                        }
+                        for item in comparison
+                    ]
+                )
+                st.plotly_chart(
+                    px.bar(
+                        comparison_frame,
+                        x="Career",
+                        y="Skill alignment (%)",
+                        color="Career",
+                        range_y=[0, 100],
+                        title="Skill alignment comparison",
+                    ),
+                    use_container_width=True,
+                )
+                st.dataframe(comparison_frame, use_container_width=True, hide_index=True)
+                columns = st.columns(2)
+                for column, item in zip(columns, comparison):
+                    with column:
+                        st.markdown(f"#### {item['career']}")
+                        missing_names = [entry["skill"] for entry in item["missing_skills"][:10]]
+                        st.write("Top missing skills:", ", ".join(missing_names) or "None")
+
+    with tab4:
         st.json({
             "embedding_model": model_info.get("embedding_model"),
             "embedding_dimension": model_info.get("embedding_dimension"),
@@ -250,7 +414,7 @@ if result:
         })
         st.caption("The selected prediction model and metrics come from verified Milestone 2 artifacts; models are not retrained by this interface.")
 
-    with tab4:
+    with tab5:
         try:
             pdf_bytes = build_career_report(
                 result["profile_text"], prediction, recommendation, gap_report, model_info
@@ -268,4 +432,4 @@ if result:
             st.error(f"PDF generation failed: {exc}")
 
 st.markdown("---")
-st.caption("CareerCast | Milestone 3 | Decision-support prototype")
+st.caption("CareerCast | Milestone 4 | Decision-support prototype")

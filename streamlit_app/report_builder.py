@@ -110,7 +110,7 @@ def build_career_report(
     for item in recommendations:
         ranking_rows.append([
             item.get("rank", ""),
-            _text(item.get("career", "")),
+            Paragraph(_text(item.get("career", "")), styles["Small"]),
             f"{float(item.get('ensemble_score', 0)):.4f}",
             f"{float(item.get('lr_probability', 0)):.4f}",
             f"{float(item.get('rf_probability', 0)):.4f}",
