@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "careercast-ai"
+version = "4.0.0"
+description = "Python client and CLI for the CareerCast career intelligence API"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "CareerCast Team"}]
+dependencies = ["requests>=2.31,<3"]
+
+[project.optional-dependencies]
+dev = ["build>=1.2,<2", "pytest>=8,<10"]
+
+[project.scripts]
+careercast = "careercast.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
