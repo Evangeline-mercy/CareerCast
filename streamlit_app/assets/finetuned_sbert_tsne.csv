@@ -1,0 +1,961 @@
+row_index,career,tsne_x,tsne_y
+5776,.NET Developer,4.8016667,4.297684
+6371,.NET Developer,4.3305125,4.164324
+9626,.NET Developer,4.5163746,4.516644
+11697,.NET Developer,4.5760202,4.2720537
+14739,.NET Developer,4.770059,4.366737
+35026,.NET Developer,4.905646,4.467697
+36435,.NET Developer,4.692535,4.588969
+36534,.NET Developer,4.509123,4.2159414
+38152,.NET Developer,4.659398,4.279189
+42932,.NET Developer,4.637558,4.169642
+7013,AI Engineer,-6.663121,14.56431
+10698,AI Engineer,-6.8371654,14.833812
+16920,AI Engineer,-6.899139,14.743202
+21346,AI Engineer,-6.5679817,14.907959
+29510,AI Engineer,-6.451176,14.57044
+32976,AI Engineer,-6.6047454,14.712355
+38287,AI Engineer,-6.321645,14.659574
+41756,AI Engineer,-6.814414,15.06641
+43619,AI Engineer,-6.6272492,14.741813
+47937,AI Engineer,-6.723912,15.076386
+2570,AI Safety Engineer,-15.822891,11.782617
+10230,AI Safety Engineer,-15.900167,11.311818
+23725,AI Safety Engineer,-15.991543,11.397496
+24673,AI Safety Engineer,-15.555932,11.625076
+40013,AI Safety Engineer,-15.68575,11.800986
+41169,AI Safety Engineer,-15.729507,11.808895
+42998,AI Safety Engineer,-15.8430605,11.481031
+43469,AI Safety Engineer,-15.613438,11.429069
+44302,AI Safety Engineer,-15.58167,11.416898
+44758,AI Safety Engineer,-15.93058,11.563998
+4379,AR/VR Developer,-17.320147,-15.17153
+7363,AR/VR Developer,-17.409632,-15.266314
+16950,AR/VR Developer,-17.733683,-15.21419
+19630,AR/VR Developer,-17.591612,-15.460446
+27766,AR/VR Developer,-17.57568,-14.910219
+29233,AR/VR Developer,-17.438564,-15.186644
+30373,AR/VR Developer,-17.727839,-15.15769
+36763,AR/VR Developer,-17.551075,-15.105036
+39665,AR/VR Developer,-17.542278,-14.862171
+41683,AR/VR Developer,-17.680254,-15.330622
+2534,AWS Solutions Architect,13.240161,-5.2845173
+7465,AWS Solutions Architect,12.913173,-5.3307695
+8813,AWS Solutions Architect,13.137254,-5.5059137
+22450,AWS Solutions Architect,13.145843,-5.325179
+27836,AWS Solutions Architect,13.204351,-5.6120625
+29601,AWS Solutions Architect,13.001552,-5.302656
+31419,AWS Solutions Architect,12.898721,-5.230741
+36046,AWS Solutions Architect,13.294843,-5.351591
+38420,AWS Solutions Architect,13.402041,-5.666067
+44486,AWS Solutions Architect,13.119781,-5.1116834
+819,Android Developer,18.293491,21.658524
+6027,Android Developer,18.187737,21.617302
+13588,Android Developer,18.359013,21.600044
+18771,Android Developer,18.064713,21.911736
+20726,Android Developer,18.533598,21.564592
+22278,Android Developer,18.510654,21.914595
+25572,Android Developer,18.338017,21.89386
+33085,Android Developer,18.22396,21.522486
+40657,Android Developer,18.069891,21.600132
+43698,Android Developer,18.315863,21.8996
+1242,Application Security Engineer,22.43502,-23.312935
+15312,Application Security Engineer,22.163126,-23.455402
+18870,Application Security Engineer,22.387295,-23.494738
+19079,Application Security Engineer,22.261402,-23.066916
+19584,Application Security Engineer,22.30866,-23.106792
+27722,Application Security Engineer,22.095163,-23.123701
+29106,Application Security Engineer,22.401836,-23.187654
+40831,Application Security Engineer,22.394262,-23.203148
+45932,Application Security Engineer,22.15324,-23.580137
+46431,Application Security Engineer,22.49563,-23.207138
+11990,Automation Engineer,3.328873,-4.364436
+20124,Automation Engineer,3.2996018,-4.4215994
+25309,Automation Engineer,3.1350505,-4.462936
+26839,Automation Engineer,3.1036713,-4.0946555
+32467,Automation Engineer,3.0182638,-4.3272786
+35045,Automation Engineer,3.183388,-4.4694724
+36462,Automation Engineer,3.1770806,-4.0649276
+36647,Automation Engineer,3.2058454,-4.105863
+39198,Automation Engineer,2.9406166,-4.6736784
+42748,Automation Engineer,2.891534,-4.314689
+2322,Backend Developer,16.143282,6.302235
+4288,Backend Developer,16.037071,6.3598366
+11028,Backend Developer,15.894858,6.248414
+16735,Backend Developer,16.632202,6.559222
+17880,Backend Developer,16.589672,6.4226108
+22149,Backend Developer,16.353968,6.3513393
+24173,Backend Developer,16.790827,6.633789
+27828,Backend Developer,16.524641,6.4707103
+31602,Backend Developer,15.928524,6.294043
+43385,Backend Developer,15.88867,6.3385463
+1222,Big Data Engineer,7.417763,17.77551
+3043,Big Data Engineer,7.105136,17.647047
+10752,Big Data Engineer,7.5095453,17.648066
+16879,Big Data Engineer,7.059254,17.8914
+22692,Big Data Engineer,7.1490984,17.40337
+23470,Big Data Engineer,7.444919,17.745731
+24184,Big Data Engineer,7.3588,17.417913
+24874,Big Data Engineer,7.553787,17.512999
+36816,Big Data Engineer,7.09307,17.468044
+41713,Big Data Engineer,7.663743,17.48986
+7872,Blockchain Developer,20.769241,-18.89545
+8948,Blockchain Developer,20.54263,-19.416977
+11902,Blockchain Developer,20.563944,-19.18915
+12207,Blockchain Developer,20.685406,-19.272158
+14038,Blockchain Developer,20.825487,-19.310722
+16863,Blockchain Developer,20.490341,-19.28888
+31265,Blockchain Developer,20.82148,-19.252987
+34227,Blockchain Developer,20.489847,-19.511711
+44548,Blockchain Developer,20.43047,-19.391369
+45383,Blockchain Developer,20.62264,-19.417513
+9261,Business Analyst,-19.21957,3.651959
+9959,Business Analyst,-19.06267,3.692129
+16211,Business Analyst,-19.201982,3.5831048
+27953,Business Analyst,-18.973162,3.5708568
+28111,Business Analyst,-19.542557,3.8170862
+39304,Business Analyst,-19.391663,3.7092898
+42160,Business Analyst,-19.239544,3.7014823
+44477,Business Analyst,-19.059877,3.7282345
+46569,Business Analyst,-18.953453,3.942721
+47770,Business Analyst,-19.327253,3.5000105
+10391,Business Intelligence Developer,-23.960112,19.653103
+25014,Business Intelligence Developer,-23.75213,19.862318
+27949,Business Intelligence Developer,-23.748762,20.020887
+28400,Business Intelligence Developer,-23.64199,19.951128
+29524,Business Intelligence Developer,-23.539036,20.279867
+31919,Business Intelligence Developer,-24.019566,20.064274
+34307,Business Intelligence Developer,-23.760519,19.919363
+37678,Business Intelligence Developer,-23.773628,19.7101
+42090,Business Intelligence Developer,-23.671776,19.862482
+47574,Business Intelligence Developer,-23.978895,20.14141
+4935,COBOL Developer,-5.867309,-12.362157
+18767,COBOL Developer,-5.529458,-12.29299
+25523,COBOL Developer,-5.8975325,-12.554488
+26029,COBOL Developer,-5.6980133,-12.768508
+27728,COBOL Developer,-5.4715424,-12.473669
+31344,COBOL Developer,-5.542287,-12.574898
+37506,COBOL Developer,-5.954065,-12.295675
+41885,COBOL Developer,-5.771693,-12.276637
+43029,COBOL Developer,-5.8706965,-12.389802
+46834,COBOL Developer,-5.4746847,-12.382336
+5651,CTO,-30.728184,-4.75595
+7348,CTO,-30.430092,-4.804434
+8566,CTO,-30.507772,-4.9417644
+11537,CTO,-30.531813,-4.825881
+18806,CTO,-30.476446,-4.564824
+23061,CTO,-30.71388,-4.9234853
+25518,CTO,-30.745007,-4.780536
+26140,CTO,-30.278662,-4.448376
+28663,CTO,-30.523506,-4.4118466
+38630,CTO,-30.325455,-4.409652
+10063,Cloud Data Engineer,2.6426558,20.60525
+23318,Cloud Data Engineer,2.127238,20.782764
+25864,Cloud Data Engineer,2.4018743,20.805737
+25914,Cloud Data Engineer,2.2465072,20.869757
+26641,Cloud Data Engineer,2.3688068,20.26632
+29020,Cloud Data Engineer,2.4100842,20.846691
+33704,Cloud Data Engineer,2.4715827,20.84593
+35579,Cloud Data Engineer,2.5525768,20.72451
+38692,Cloud Data Engineer,2.1491773,20.706423
+39083,Cloud Data Engineer,2.2028522,20.60772
+3524,Cloud Engineer,15.116511,-8.754842
+4341,Cloud Engineer,14.7399435,-8.729121
+5543,Cloud Engineer,15.028595,-8.43146
+8866,Cloud Engineer,14.9424,-8.768836
+10936,Cloud Engineer,15.025831,-8.370891
+27258,Cloud Engineer,14.747524,-8.830683
+28443,Cloud Engineer,14.900837,-8.355262
+31531,Cloud Engineer,14.673784,-8.651273
+34412,Cloud Engineer,14.670835,-8.525906
+47486,Cloud Engineer,14.794312,-8.698908
+10883,Cloud Security Engineer,22.203058,-30.867544
+16139,Cloud Security Engineer,22.189304,-30.81834
+16760,Cloud Security Engineer,22.080671,-31.162395
+18500,Cloud Security Engineer,21.7744,-30.91921
+18546,Cloud Security Engineer,21.841982,-31.084679
+21617,Cloud Security Engineer,21.972261,-31.264973
+26505,Cloud Security Engineer,21.891434,-31.096151
+31182,Cloud Security Engineer,21.589907,-30.895393
+31248,Cloud Security Engineer,21.825708,-30.967672
+35402,Cloud Security Engineer,22.111526,-30.86175
+1976,Computer Hardware Engineer,-11.840068,-25.52638
+4939,Computer Hardware Engineer,-11.987833,-25.296602
+9196,Computer Hardware Engineer,-11.596753,-25.442665
+14991,Computer Hardware Engineer,-11.593931,-25.06547
+17151,Computer Hardware Engineer,-11.89635,-25.297588
+30929,Computer Hardware Engineer,-11.649648,-25.077002
+32709,Computer Hardware Engineer,-11.928052,-25.09412
+33584,Computer Hardware Engineer,-11.726027,-25.557898
+38370,Computer Hardware Engineer,-11.973166,-25.473907
+43488,Computer Hardware Engineer,-11.971343,-25.334702
+5889,Computer Vision Engineer,-10.031746,19.675947
+6287,Computer Vision Engineer,-9.911308,19.499445
+6352,Computer Vision Engineer,-9.72478,19.627405
+9336,Computer Vision Engineer,-9.858442,19.736053
+16945,Computer Vision Engineer,-9.784066,19.509785
+29135,Computer Vision Engineer,-10.202671,19.574446
+30984,Computer Vision Engineer,-9.865338,19.624754
+31895,Computer Vision Engineer,-10.0317,19.752111
+34642,Computer Vision Engineer,-9.898822,19.795023
+42669,Computer Vision Engineer,-10.001405,19.918331
+873,Computer and Information Research Scientist,-15.007216,18.986696
+942,Computer and Information Research Scientist,-15.101075,19.20718
+4076,Computer and Information Research Scientist,-14.734711,19.058397
+9050,Computer and Information Research Scientist,-15.186501,19.137842
+18632,Computer and Information Research Scientist,-15.012754,18.84499
+20848,Computer and Information Research Scientist,-14.953286,18.946146
+22132,Computer and Information Research Scientist,-15.230508,19.15355
+29010,Computer and Information Research Scientist,-14.979635,19.060669
+30731,Computer and Information Research Scientist,-15.395612,19.324558
+40694,Computer and Information Research Scientist,-15.270487,18.882376
+4737,Cybersecurity Analyst,15.292276,-28.823013
+7538,Cybersecurity Analyst,15.149461,-28.46949
+7597,Cybersecurity Analyst,15.516475,-28.669462
+13032,Cybersecurity Analyst,15.662649,-28.608229
+21434,Cybersecurity Analyst,15.480806,-28.942719
+24715,Cybersecurity Analyst,15.443456,-28.635496
+26855,Cybersecurity Analyst,15.561287,-28.443521
+28457,Cybersecurity Analyst,15.376679,-28.471113
+33498,Cybersecurity Analyst,15.692026,-28.887411
+44647,Cybersecurity Analyst,15.6942625,-28.644508
+983,Data Analyst,-21.891777,22.579422
+13550,Data Analyst,-22.106178,22.91843
+15090,Data Analyst,-21.868982,22.995914
+27628,Data Analyst,-22.178133,22.842108
+28119,Data Analyst,-21.703423,22.993206
+29625,Data Analyst,-21.691586,22.665245
+33301,Data Analyst,-21.896795,22.608923
+39574,Data Analyst,-21.816263,22.720942
+42171,Data Analyst,-21.672888,22.809114
+47941,Data Analyst,-22.09524,22.800339
+2090,Data Engineer,4.9404707,18.929605
+2985,Data Engineer,4.8432293,19.094515
+4452,Data Engineer,5.0133414,19.099028
+5030,Data Engineer,5.330235,18.902153
+16864,Data Engineer,4.964962,19.00898
+19354,Data Engineer,5.1097364,19.234602
+29484,Data Engineer,5.133001,19.078392
+32116,Data Engineer,4.8175983,19.432453
+42326,Data Engineer,4.6347957,19.400148
+45203,Data Engineer,4.776156,19.311304
+188,Data Governance Analyst,-30.073528,5.9738336
+10869,Data Governance Analyst,-30.125925,6.0785666
+12672,Data Governance Analyst,-30.204718,6.251737
+13024,Data Governance Analyst,-30.384604,6.191486
+23946,Data Governance Analyst,-30.373714,6.2264433
+24040,Data Governance Analyst,-30.266191,5.7180195
+31376,Data Governance Analyst,-30.336529,6.3291483
+32574,Data Governance Analyst,-30.524775,5.880786
+34466,Data Governance Analyst,-30.207005,5.80612
+44340,Data Governance Analyst,-30.27777,5.8048077
+1209,Data Scientist,-10.930043,24.672123
+5190,Data Scientist,-10.600668,24.41988
+9657,Data Scientist,-10.638022,24.66792
+10638,Data Scientist,-10.469858,24.464182
+26496,Data Scientist,-10.437232,24.314974
+27487,Data Scientist,-11.06858,24.722544
+39695,Data Scientist,-10.428386,24.693554
+39893,Data Scientist,-10.583961,24.212633
+41840,Data Scientist,-10.506211,24.712656
+47229,Data Scientist,-10.813089,24.515114
+1096,Database Administrator,12.178125,14.304036
+1481,Database Administrator,12.267362,14.091659
+3448,Database Administrator,11.799876,14.433409
+15282,Database Administrator,12.115615,14.26238
+15306,Database Administrator,12.026874,14.353343
+16328,Database Administrator,12.179636,14.160361
+26709,Database Administrator,12.49135,14.18702
+26730,Database Administrator,12.166446,14.39385
+27927,Database Administrator,12.113012,14.055487
+45225,Database Administrator,11.941194,14.324414
+3974,DevOps Engineer,21.914715,-8.425446
+14016,DevOps Engineer,21.98195,-8.359954
+14119,DevOps Engineer,22.036163,-8.421
+20331,DevOps Engineer,22.064548,-7.8826213
+25482,DevOps Engineer,22.137613,-7.9683657
+29115,DevOps Engineer,22.359638,-8.4447775
+30764,DevOps Engineer,22.194733,-8.042797
+41254,DevOps Engineer,22.26991,-8.383385
+44788,DevOps Engineer,22.462381,-8.100862
+45601,DevOps Engineer,22.267271,-8.191
+3605,DevSecOps Engineer,23.405558,-26.757578
+4789,DevSecOps Engineer,23.428968,-26.609879
+6866,DevSecOps Engineer,23.544525,-26.893532
+13255,DevSecOps Engineer,23.272947,-26.769508
+15339,DevSecOps Engineer,23.567257,-26.845732
+16343,DevSecOps Engineer,23.072369,-26.731144
+28095,DevSecOps Engineer,23.212154,-27.089247
+28381,DevSecOps Engineer,23.53276,-26.878334
+43755,DevSecOps Engineer,23.252522,-26.614119
+46089,DevSecOps Engineer,23.61689,-26.734901
+4046,Digital Marketing Tech,-24.386879,10.732572
+8177,Digital Marketing Tech,-24.3471,10.328165
+9965,Digital Marketing Tech,-24.290455,10.588307
+16780,Digital Marketing Tech,-24.03993,10.243172
+19319,Digital Marketing Tech,-24.457634,10.504272
+26139,Digital Marketing Tech,-24.157944,10.631672
+32763,Digital Marketing Tech,-24.39087,10.536888
+34184,Digital Marketing Tech,-24.07971,10.587187
+37286,Digital Marketing Tech,-24.036793,10.226971
+40174,Digital Marketing Tech,-24.441196,10.38122
+3965,ERP Developer,-11.392758,3.8610945
+7828,ERP Developer,-11.412073,3.916724
+13443,ERP Developer,-11.22186,3.7217135
+14814,ERP Developer,-11.364964,3.5652103
+17449,ERP Developer,-11.48489,3.7483513
+18358,ERP Developer,-11.06363,3.9609518
+24398,ERP Developer,-11.501272,3.8564243
+32477,ERP Developer,-11.512844,3.6848192
+40161,ERP Developer,-11.36183,3.7800221
+45716,ERP Developer,-10.963488,3.7735417
+5401,Electrical Engineer,-14.92511,-30.54179
+6827,Electrical Engineer,-14.801328,-31.175114
+8987,Electrical Engineer,-14.971407,-31.000095
+9018,Electrical Engineer,-14.931688,-31.09003
+14712,Electrical Engineer,-14.9472,-30.84541
+17733,Electrical Engineer,-14.938369,-30.593876
+18738,Electrical Engineer,-15.040223,-30.915945
+21229,Electrical Engineer,-14.861723,-31.168198
+33408,Electrical Engineer,-14.759036,-30.981829
+36994,Electrical Engineer,-14.703522,-30.904518
+2759,Electronics Engineer,-14.877996,-27.445267
+4443,Electronics Engineer,-15.181295,-27.630468
+6694,Electronics Engineer,-14.856571,-27.283262
+8529,Electronics Engineer,-14.973536,-27.911245
+9045,Electronics Engineer,-15.114435,-27.444023
+14938,Electronics Engineer,-15.087433,-27.859251
+23047,Electronics Engineer,-15.173589,-27.82787
+24945,Electronics Engineer,-15.202107,-27.631586
+30051,Electronics Engineer,-15.072979,-27.733526
+46723,Electronics Engineer,-14.93481,-27.64724
+1428,Embedded Systems Engineer,-8.526067,-23.375809
+10770,Embedded Systems Engineer,-8.695767,-23.72161
+15675,Embedded Systems Engineer,-8.867292,-23.609907
+17515,Embedded Systems Engineer,-8.934581,-23.287773
+21227,Embedded Systems Engineer,-8.527995,-23.367098
+27666,Embedded Systems Engineer,-8.969625,-23.628922
+31083,Embedded Systems Engineer,-8.670472,-23.89403
+38074,Embedded Systems Engineer,-8.490786,-23.583698
+40192,Embedded Systems Engineer,-9.2086,-23.517029
+45303,Embedded Systems Engineer,-9.06323,-23.784771
+3669,Enterprise Architect,-27.531647,-2.6850142
+4305,Enterprise Architect,-27.459211,-2.2745774
+18123,Enterprise Architect,-27.61485,-2.6444523
+19395,Enterprise Architect,-27.493305,-2.4417806
+22144,Enterprise Architect,-27.942902,-2.6104214
+24360,Enterprise Architect,-27.637527,-2.4299145
+37701,Enterprise Architect,-27.66547,-2.6796808
+38209,Enterprise Architect,-27.655966,-2.453016
+41146,Enterprise Architect,-27.343508,-2.5083644
+46400,Enterprise Architect,-27.219318,-2.601553
+3751,Fintech Developer,13.809738,2.4982615
+7671,Fintech Developer,14.123396,2.3588068
+16209,Fintech Developer,14.0012045,2.5587292
+20094,Fintech Developer,13.991064,2.6342642
+23125,Fintech Developer,14.282566,2.6650586
+31089,Fintech Developer,13.852121,2.4908023
+37993,Fintech Developer,13.999205,2.7245898
+38142,Fintech Developer,13.867352,2.6138644
+41179,Fintech Developer,14.072126,2.2873328
+42121,Fintech Developer,13.89664,2.3079166
+7346,Firmware Engineer,-6.385319,-22.511683
+8229,Firmware Engineer,-6.908454,-22.507755
+8556,Firmware Engineer,-7.0796566,-22.431467
+10267,Firmware Engineer,-6.819612,-22.211338
+18305,Firmware Engineer,-6.823633,-22.218826
+22800,Firmware Engineer,-6.560991,-22.485004
+23034,Firmware Engineer,-7.0633984,-22.220661
+29444,Firmware Engineer,-6.680559,-22.574286
+29910,Firmware Engineer,-6.7111406,-22.232254
+33200,Firmware Engineer,-6.6408525,-22.519049
+3678,Flutter Developer,21.635586,23.479336
+7122,Flutter Developer,21.476456,23.851036
+19324,Flutter Developer,21.21076,24.093151
+20588,Flutter Developer,21.093739,23.968641
+27030,Flutter Developer,21.446772,23.813683
+31572,Flutter Developer,21.25403,23.711287
+34329,Flutter Developer,21.425869,23.973396
+34472,Flutter Developer,21.140108,23.76717
+36939,Flutter Developer,21.457815,24.049814
+38694,Flutter Developer,21.52307,23.933182
+940,Frontend Developer,26.962545,12.853657
+2124,Frontend Developer,26.895145,12.961958
+4646,Frontend Developer,27.084541,13.047023
+7639,Frontend Developer,26.972864,13.075401
+15959,Frontend Developer,26.678009,12.593684
+16469,Frontend Developer,27.03107,12.882092
+21542,Frontend Developer,26.946468,12.728927
+24511,Frontend Developer,26.647104,13.3391695
+31733,Frontend Developer,26.770115,12.930436
+46018,Frontend Developer,27.115068,13.0512295
+8479,Full Stack Machine Learning Engineer,-0.65960884,13.020389
+9077,Full Stack Machine Learning Engineer,-0.95930916,12.968151
+13297,Full Stack Machine Learning Engineer,-0.83599603,13.148707
+14194,Full Stack Machine Learning Engineer,-0.8422878,12.966172
+16757,Full Stack Machine Learning Engineer,-0.9827727,13.153918
+31358,Full Stack Machine Learning Engineer,-1.004005,13.301594
+31489,Full Stack Machine Learning Engineer,-0.5852309,12.8578205
+40087,Full Stack Machine Learning Engineer,-0.86281866,12.883365
+42132,Full Stack Machine Learning Engineer,-0.66512805,12.750509
+45040,Full Stack Machine Learning Engineer,-0.84309405,12.744048
+2535,Fullstack Developer,23.161106,11.443337
+3580,Fullstack Developer,23.509232,11.922003
+18673,Fullstack Developer,23.303843,11.79389
+21013,Fullstack Developer,23.167679,11.625322
+26554,Fullstack Developer,22.784771,11.312982
+26865,Fullstack Developer,23.155102,11.554402
+31761,Fullstack Developer,22.877241,11.770112
+34141,Fullstack Developer,22.962727,11.528374
+36101,Fullstack Developer,23.043154,11.918367
+44779,Fullstack Developer,23.238455,11.300786
+8001,Game Developer,-17.386467,-12.441943
+10148,Game Developer,-17.435238,-12.336115
+13232,Game Developer,-17.385447,-11.76254
+16721,Game Developer,-17.26466,-11.994066
+17139,Game Developer,-17.14331,-12.002437
+20589,Game Developer,-17.437298,-12.021611
+24578,Game Developer,-17.428938,-11.836367
+27649,Game Developer,-17.342966,-11.8993
+35824,Game Developer,-17.156836,-11.984867
+46602,Game Developer,-17.480066,-12.236168
+2423,Go Developer,17.786373,-0.8867956
+2973,Go Developer,17.417904,-1.4845424
+3203,Go Developer,17.721956,-1.5148014
+3864,Go Developer,17.340343,-1.3035804
+7846,Go Developer,17.811352,-1.2850171
+12317,Go Developer,17.590746,-1.6533607
+15912,Go Developer,17.467728,-1.4982172
+21425,Go Developer,17.48606,-1.1949953
+27134,Go Developer,17.837606,-0.947195
+37551,Go Developer,17.733355,-1.2013794
+2977,GraphQL Developer,19.342323,11.160924
+6153,GraphQL Developer,19.064642,10.965677
+12554,GraphQL Developer,18.819834,10.9888935
+13456,GraphQL Developer,18.875246,11.174809
+18575,GraphQL Developer,19.007944,11.286216
+30394,GraphQL Developer,18.696667,11.023637
+33099,GraphQL Developer,18.978117,11.349064
+33506,GraphQL Developer,19.065517,11.133646
+36342,GraphQL Developer,18.852228,11.006838
+46858,GraphQL Developer,19.19492,11.135737
+198,Graphic Designer,-21.255371,-8.136016
+5565,Graphic Designer,-21.44753,-8.430185
+8938,Graphic Designer,-21.35473,-8.49976
+16574,Graphic Designer,-21.431868,-8.337814
+18973,Graphic Designer,-21.159153,-8.149834
+19853,Graphic Designer,-21.478603,-8.453519
+23897,Graphic Designer,-21.384344,-8.176949
+26698,Graphic Designer,-21.050821,-8.438545
+31643,Graphic Designer,-20.980457,-8.205279
+32569,Graphic Designer,-21.001162,-8.526097
+3640,Helpdesk Technician,2.2393184,-19.98402
+9761,Helpdesk Technician,2.66692,-20.208298
+17936,Helpdesk Technician,2.45503,-20.020277
+22970,Helpdesk Technician,3.300068,-20.783726
+23313,Helpdesk Technician,2.2408657,-19.940498
+24778,Helpdesk Technician,2.4188898,-19.75329
+37987,Helpdesk Technician,2.4948332,-19.895046
+38860,Helpdesk Technician,2.2167768,-19.594725
+40309,Helpdesk Technician,2.4311354,-19.683712
+42596,Helpdesk Technician,2.1703734,-19.87219
+3260,IT Auditor,-29.185598,3.8238127
+6434,IT Auditor,-29.32742,3.2124283
+6982,IT Auditor,-29.1813,3.2784724
+7924,IT Auditor,-29.57108,3.2365372
+18869,IT Auditor,-29.350002,3.077965
+26827,IT Auditor,-29.269207,3.0822184
+29539,IT Auditor,-29.18495,3.1616387
+29973,IT Auditor,-29.211433,3.4835114
+35430,IT Auditor,-29.238392,3.6350467
+43399,IT Auditor,-29.395607,3.0867453
+5862,IT Manager,-31.203318,-1.2275524
+6163,IT Manager,-31.303669,-1.1967187
+11320,IT Manager,-31.420637,-1.6679015
+13248,IT Manager,-31.509335,-1.3299661
+22519,IT Manager,-31.679373,-1.4985055
+25024,IT Manager,-31.607924,-1.6072917
+32135,IT Manager,-31.340836,-1.5194216
+32942,IT Manager,-31.355978,-1.4611276
+46224,IT Manager,-31.48465,-1.5085918
+47824,IT Manager,-31.310442,-1.695395
+5545,IT Support Specialist,4.3649793,-21.764505
+8497,IT Support Specialist,3.9393466,-21.26836
+9256,IT Support Specialist,4.0088105,-21.706726
+23648,IT Support Specialist,4.674314,-21.767744
+25520,IT Support Specialist,4.7206883,-21.783047
+25694,IT Support Specialist,4.510261,-21.612038
+34204,IT Support Specialist,4.5381346,-21.654602
+36749,IT Support Specialist,4.2522154,-21.420586
+41928,IT Support Specialist,4.282445,-21.467035
+46993,IT Support Specialist,3.8935418,-21.365026
+1441,IoT Developer,2.528912,-28.924181
+4863,IoT Developer,2.4515975,-28.479406
+9717,IoT Developer,2.6048472,-28.654613
+11363,IoT Developer,2.6566966,-28.42145
+18555,IoT Developer,2.3989682,-28.913204
+26876,IoT Developer,2.4966025,-28.523623
+28745,IoT Developer,2.2230299,-28.886616
+35295,IoT Developer,2.3994317,-28.333588
+42096,IoT Developer,2.2688541,-28.241116
+45412,IoT Developer,2.1299415,-28.695837
+6222,IoT Engineer,0.5682803,-29.697504
+14031,IoT Engineer,0.5154844,-30.033167
+14993,IoT Engineer,0.8167123,-30.044897
+15187,IoT Engineer,0.75971603,-29.574055
+15361,IoT Engineer,0.7379275,-29.643677
+16677,IoT Engineer,0.5387636,-30.077473
+20768,IoT Engineer,0.48588338,-29.751226
+28764,IoT Engineer,0.8444726,-30.20862
+39669,IoT Engineer,0.9907921,-29.914968
+45140,IoT Engineer,0.6396358,-30.021507
+6825,Java Developer,11.292775,6.3173313
+10662,Java Developer,11.199204,6.5441504
+12032,Java Developer,10.953786,6.7091894
+21657,Java Developer,10.870091,6.4630575
+22749,Java Developer,10.845609,6.718692
+39124,Java Developer,11.042141,6.5581393
+39913,Java Developer,11.327435,6.312851
+43627,Java Developer,10.956177,6.3740087
+44061,Java Developer,11.065352,6.530625
+46947,Java Developer,10.89766,6.455285
+911,Kubernetes Engineer,19.103369,-5.6864653
+4507,Kubernetes Engineer,19.52426,-5.7632
+11170,Kubernetes Engineer,19.209703,-5.605591
+11478,Kubernetes Engineer,19.486937,-6.188581
+12157,Kubernetes Engineer,19.332754,-5.911255
+15796,Kubernetes Engineer,19.276308,-5.946193
+15867,Kubernetes Engineer,19.174112,-5.770819
+27147,Kubernetes Engineer,19.339228,-5.651125
+38324,Kubernetes Engineer,19.341825,-6.240869
+38500,Kubernetes Engineer,19.539125,-5.9145336
+7077,Low Code Developer,-7.9434824,2.3539805
+16168,Low Code Developer,-7.65722,2.2890003
+17667,Low Code Developer,-8.036124,2.2448435
+18032,Low Code Developer,-7.7953553,2.4759772
+20337,Low Code Developer,-8.139005,2.6813412
+27347,Low Code Developer,-7.947944,2.3314865
+30463,Low Code Developer,-7.6726327,2.5252252
+31056,Low Code Developer,-7.341886,2.3429005
+38155,Low Code Developer,-7.73949,2.3798175
+41107,Low Code Developer,-7.8786254,2.4479356
+244,MLOps Engineer,-1.7343115,19.153883
+5940,MLOps Engineer,-2.0631435,19.217178
+10173,MLOps Engineer,-1.562997,19.364292
+10526,MLOps Engineer,-1.9870762,19.000284
+14418,MLOps Engineer,-1.5433193,18.92215
+14581,MLOps Engineer,-1.7328224,19.191816
+23327,MLOps Engineer,-2.1092143,19.433033
+32994,MLOps Engineer,-1.9639167,19.358255
+45194,MLOps Engineer,-1.6625744,19.399252
+46339,MLOps Engineer,-1.6474191,19.407589
+6014,Machine Learning Engineer,-6.9654937,22.260113
+8109,Machine Learning Engineer,-6.6937933,22.100937
+14574,Machine Learning Engineer,-6.4693317,22.362804
+20098,Machine Learning Engineer,-6.5900865,22.532148
+22736,Machine Learning Engineer,-6.5928965,22.476175
+25106,Machine Learning Engineer,-6.7948904,22.312553
+28544,Machine Learning Engineer,-6.539168,22.013117
+29578,Machine Learning Engineer,-6.9266243,22.14556
+36338,Machine Learning Engineer,-6.497644,22.28128
+42059,Machine Learning Engineer,-6.472778,22.02322
+8070,NLP Engineer,-9.701117,14.788129
+8998,NLP Engineer,-9.83946,15.115864
+10047,NLP Engineer,-9.516618,15.051783
+11008,NLP Engineer,-9.669047,15.071484
+11534,NLP Engineer,-10.06974,15.142054
+29754,NLP Engineer,-9.589472,15.124848
+36365,NLP Engineer,-9.892096,14.984193
+36417,NLP Engineer,-10.026089,14.875261
+37846,NLP Engineer,-9.850101,15.142748
+43820,NLP Engineer,-9.924897,14.843162
+3472,Network Engineer,7.607441,-27.296463
+7561,Network Engineer,7.5211887,-27.46203
+10419,Network Engineer,7.1942673,-27.27736
+11842,Network Engineer,7.0051193,-27.175894
+13633,Network Engineer,7.2232633,-27.586098
+21423,Network Engineer,7.272136,-27.492908
+21444,Network Engineer,7.163618,-27.661152
+39657,Network Engineer,6.9905777,-27.415028
+43050,Network Engineer,7.41607,-27.547758
+43191,Network Engineer,7.270153,-27.483282
+6451,Network Security Engineer,10.315914,-28.523098
+9255,Network Security Engineer,10.031512,-28.169231
+13610,Network Security Engineer,10.479204,-28.356394
+16497,Network Security Engineer,10.474347,-28.128479
+21195,Network Security Engineer,10.452366,-28.637821
+28149,Network Security Engineer,10.549483,-28.424221
+28169,Network Security Engineer,10.179113,-28.333143
+29732,Network Security Engineer,10.057879,-28.27921
+32463,Network Security Engineer,10.21312,-28.359812
+46047,Network Security Engineer,10.628239,-28.292606
+230,Operations Research Analyst,-18.753435,27.611563
+1230,Operations Research Analyst,-19.251606,27.912289
+8309,Operations Research Analyst,-19.283283,27.829863
+24421,Operations Research Analyst,-19.037022,27.808172
+28369,Operations Research Analyst,-19.013187,27.448498
+30010,Operations Research Analyst,-19.08368,27.517954
+30212,Operations Research Analyst,-19.185038,27.619518
+33091,Operations Research Analyst,-19.148094,27.562563
+43337,Operations Research Analyst,-18.983171,27.717113
+43625,Operations Research Analyst,-19.347233,27.59035
+1614,PHP Developer,28.668991,7.7468934
+2568,PHP Developer,28.668585,7.508596
+18674,PHP Developer,28.903507,7.7092767
+21867,PHP Developer,28.695917,7.855038
+23119,PHP Developer,28.848145,7.903152
+26596,PHP Developer,28.9163,7.9150004
+32657,PHP Developer,28.968838,7.672952
+37083,PHP Developer,28.794876,8.025062
+42697,PHP Developer,28.724146,7.7554064
+44402,PHP Developer,29.17641,7.8547425
+5649,Penetration Tester,18.5649,-24.368788
+16111,Penetration Tester,18.679308,-23.97598
+23825,Penetration Tester,18.384953,-23.994453
+24930,Penetration Tester,18.96003,-24.149265
+28430,Penetration Tester,18.321737,-24.36803
+34239,Penetration Tester,18.530397,-24.239618
+41219,Penetration Tester,18.650696,-24.39852
+42577,Penetration Tester,18.857351,-24.221308
+44860,Penetration Tester,18.807287,-24.375095
+45718,Penetration Tester,18.55939,-24.277126
+4478,Platform Engineer,18.606695,-10.158456
+14445,Platform Engineer,18.995296,-10.010085
+17885,Platform Engineer,18.73523,-10.087777
+18676,Platform Engineer,18.815054,-9.653849
+21829,Platform Engineer,18.457205,-10.310442
+30119,Platform Engineer,18.623299,-10.125344
+40908,Platform Engineer,18.578892,-10.367267
+43108,Platform Engineer,18.96441,-9.850928
+44738,Platform Engineer,18.886965,-10.217386
+45597,Platform Engineer,18.925726,-10.048901
+3019,Product Designer,-20.886993,-2.3533998
+19987,Product Designer,-20.90416,-1.9647983
+21511,Product Designer,-20.683079,-2.4681282
+24074,Product Designer,-21.031864,-2.338953
+28088,Product Designer,-20.530302,-2.2352457
+30913,Product Designer,-20.722584,-2.692139
+31165,Product Designer,-20.717518,-2.3136606
+35170,Product Designer,-21.044258,-2.0811944
+36191,Product Designer,-20.711178,-2.1008267
+41864,Product Designer,-20.98417,-1.9909921
+34,Product Manager,-21.893766,1.3184209
+3450,Product Manager,-22.072792,0.99213046
+4597,Product Manager,-22.085861,0.85774547
+5193,Product Manager,-21.716164,1.0383077
+11940,Product Manager,-21.88088,0.92462367
+12251,Product Manager,-22.242361,0.80602074
+32007,Product Manager,-21.871868,1.1577038
+40903,Product Manager,-22.093206,1.1269786
+43764,Product Manager,-22.144457,1.2010231
+44773,Product Manager,-22.197086,1.0243514
+4345,Prompt Engineer,-11.95853,10.509517
+6021,Prompt Engineer,-11.904936,10.405554
+7416,Prompt Engineer,-11.825229,10.621899
+7745,Prompt Engineer,-12.076886,10.404428
+14692,Prompt Engineer,-11.636497,10.946635
+14764,Prompt Engineer,-12.225138,10.8704
+28135,Prompt Engineer,-12.0504675,10.970347
+36988,Prompt Engineer,-12.223245,10.641404
+41930,Prompt Engineer,-11.965952,10.488875
+46501,Prompt Engineer,-11.970304,10.597835
+6127,Python Developer,-3.836641,25.309076
+10937,Python Developer,-3.7346568,25.597168
+11288,Python Developer,-4.1900706,25.313185
+14800,Python Developer,-4.2063293,25.642063
+16601,Python Developer,-4.0207715,25.38476
+19949,Python Developer,-3.922532,25.508331
+21921,Python Developer,-4.2542243,25.514553
+26246,Python Developer,-4.0319233,25.683748
+32573,Python Developer,-4.1839285,25.306353
+34096,Python Developer,-4.128111,25.660433
+13046,QA Engineer,0.8423883,-3.707079
+18672,QA Engineer,0.52289444,-3.7219245
+20323,QA Engineer,1.0886096,-3.8495395
+21856,QA Engineer,0.45617285,-3.8452048
+24116,QA Engineer,0.78289795,-4.0515895
+26919,QA Engineer,0.71679914,-4.06273
+28766,QA Engineer,0.6783642,-3.6994286
+29107,QA Engineer,0.7790881,-3.7210908
+46009,QA Engineer,0.5531636,-3.9380283
+47609,QA Engineer,0.936363,-4.0202174
+5,Quantitative Analyst,-16.337511,27.462257
+3443,Quantitative Analyst,-16.538616,27.316618
+5489,Quantitative Analyst,-16.329763,27.179585
+6325,Quantitative Analyst,-16.230515,27.631065
+8726,Quantitative Analyst,-16.145157,27.51662
+13733,Quantitative Analyst,-15.972556,27.261297
+14022,Quantitative Analyst,-16.212046,27.579424
+15201,Quantitative Analyst,-16.379416,27.581041
+19385,Quantitative Analyst,-16.570848,27.228758
+38459,Quantitative Analyst,-16.347866,27.556835
+1073,R Developer,-18.464838,23.743277
+2528,R Developer,-18.865107,23.686968
+8226,R Developer,-18.826761,23.989227
+9269,R Developer,-19.005514,23.732319
+10439,R Developer,-18.417154,23.624376
+11695,R Developer,-18.457705,23.817078
+25173,R Developer,-18.517435,23.668125
+28911,R Developer,-18.768707,23.917831
+41173,R Developer,-18.670343,23.525993
+45429,R Developer,-18.711927,23.588678
+8558,React Developer,26.156713,15.740504
+10353,React Developer,25.873993,15.6156225
+18561,React Developer,26.250246,15.722209
+23254,React Developer,26.402086,15.900691
+25242,React Developer,26.29657,15.33037
+30976,React Developer,26.241722,16.027016
+32678,React Developer,26.444704,15.731778
+37197,React Developer,25.928362,15.858608
+37854,React Developer,26.097012,15.48018
+46295,React Developer,26.297436,15.63781
+5239,React Native Developer,24.595139,19.45937
+6419,React Native Developer,25.041128,18.790337
+9517,React Native Developer,24.96078,19.24028
+15469,React Native Developer,24.650063,19.320831
+22589,React Native Developer,25.032434,19.072224
+22615,React Native Developer,24.786053,19.048426
+29235,React Native Developer,24.974604,19.231197
+29256,React Native Developer,24.68786,19.05538
+35560,React Native Developer,24.752747,19.548704
+42335,React Native Developer,24.851152,19.41966
+17390,Research Scientist (AI),-14.400945,15.716542
+18041,Research Scientist (AI),-14.387481,15.474005
+28748,Research Scientist (AI),-14.721743,15.584951
+29123,Research Scientist (AI),-14.60584,15.953636
+31951,Research Scientist (AI),-14.359774,15.490682
+38999,Research Scientist (AI),-14.2845125,15.684118
+40288,Research Scientist (AI),-14.318238,15.552456
+41631,Research Scientist (AI),-14.068458,16.057556
+44127,Research Scientist (AI),-14.224111,15.811333
+46687,Research Scientist (AI),-14.190179,15.663105
+319,Robotics Engineer,-16.339693,-20.883879
+4711,Robotics Engineer,-16.542513,-20.689892
+6327,Robotics Engineer,-16.588778,-20.353838
+12628,Robotics Engineer,-16.151659,-20.909447
+19578,Robotics Engineer,-16.239864,-20.656694
+21859,Robotics Engineer,-16.451305,-20.533081
+26360,Robotics Engineer,-16.326643,-20.5232
+28557,Robotics Engineer,-16.32261,-20.808846
+31872,Robotics Engineer,-16.319864,-21.014368
+43476,Robotics Engineer,-16.290499,-21.006466
+5603,Ruby Developer,24.820858,7.8232
+7014,Ruby Developer,25.278393,7.460634
+9819,Ruby Developer,25.332607,7.8892956
+10805,Ruby Developer,25.084396,7.476832
+11672,Ruby Developer,25.04961,7.8430796
+17457,Ruby Developer,25.223228,7.784264
+26960,Ruby Developer,24.634403,7.410416
+34187,Ruby Developer,25.0688,7.667106
+37012,Ruby Developer,25.027533,7.5947747
+46772,Ruby Developer,25.013897,7.5129514
+1343,Rust Developer,-6.8941994,-17.51652
+4622,Rust Developer,-7.040672,-17.232473
+6646,Rust Developer,-6.74238,-17.480955
+7759,Rust Developer,-6.868181,-17.633068
+8592,Rust Developer,-6.979981,-17.223976
+13795,Rust Developer,-6.998823,-17.382154
+16387,Rust Developer,-6.7534986,-17.360374
+35545,Rust Developer,-6.771874,-17.104454
+36620,Rust Developer,-6.605692,-17.3566
+36684,Rust Developer,-6.641391,-17.178083
+17249,SEO Specialist,-26.011187,12.253044
+21999,SEO Specialist,-26.022612,12.24908
+24090,SEO Specialist,-25.79974,12.321578
+27446,SEO Specialist,-25.567856,12.43834
+29175,SEO Specialist,-25.791685,12.050721
+30264,SEO Specialist,-25.6114,12.064742
+32064,SEO Specialist,-25.655485,12.254487
+34966,SEO Specialist,-25.88359,11.999664
+44429,SEO Specialist,-25.900824,12.44768
+47667,SEO Specialist,-26.084648,12.309733
+8907,SOC Analyst,14.351366,-26.081532
+15211,SOC Analyst,14.259938,-26.059425
+22810,SOC Analyst,14.195825,-25.973011
+24536,SOC Analyst,14.441876,-25.863354
+24712,SOC Analyst,14.300828,-26.305317
+26754,SOC Analyst,14.390813,-26.329687
+32940,SOC Analyst,14.648334,-26.134481
+33990,SOC Analyst,14.498827,-25.977907
+34793,SOC Analyst,14.469934,-25.873402
+44978,SOC Analyst,14.147984,-25.785547
+5863,Salesforce Developer,-3.8414078,3.525246
+7405,Salesforce Developer,-3.5573153,3.5883467
+9268,Salesforce Developer,-3.3128302,3.503272
+12574,Salesforce Developer,-3.3004973,3.4948907
+20671,Salesforce Developer,-3.4677706,3.3327978
+24307,Salesforce Developer,-3.7931488,3.6431365
+25695,Salesforce Developer,-3.3938775,3.4803574
+29721,Salesforce Developer,-3.837676,3.411407
+42993,Salesforce Developer,-3.7388327,3.7168107
+47726,Salesforce Developer,-3.7211962,3.4151719
+1701,Scala Developer,9.368148,9.99813
+3790,Scala Developer,9.438789,9.779821
+19863,Scala Developer,9.597761,9.715254
+22625,Scala Developer,9.398824,10.060153
+26601,Scala Developer,9.689383,10.124726
+28671,Scala Developer,9.653159,10.020704
+32335,Scala Developer,9.644202,9.624465
+33182,Scala Developer,9.499775,10.135013
+34536,Scala Developer,9.379863,9.789592
+46287,Scala Developer,9.7043,10.065422
+5780,Scrum Master,-36.652306,-2.4055483
+5856,Scrum Master,-36.26531,-2.447922
+11624,Scrum Master,-36.41899,-2.7356558
+19255,Scrum Master,-36.292267,-2.532668
+22212,Scrum Master,-36.213078,-2.6742172
+27845,Scrum Master,-36.624245,-2.6055243
+37725,Scrum Master,-36.59948,-2.3522162
+39416,Scrum Master,-36.490433,-2.2844625
+44989,Scrum Master,-36.622578,-2.6212215
+47741,Scrum Master,-36.34403,-2.6952684
+4186,Security Engineer,19.838518,-28.663425
+10610,Security Engineer,20.002125,-28.816204
+26187,Security Engineer,19.304117,-28.769484
+29606,Security Engineer,19.650948,-29.145483
+35005,Security Engineer,19.538282,-29.216993
+35924,Security Engineer,19.64542,-28.857878
+40198,Security Engineer,19.809761,-29.093252
+41336,Security Engineer,19.928352,-29.047401
+45582,Security Engineer,19.536295,-28.681496
+45683,Security Engineer,19.556122,-28.796297
+690,Signal Processing Engineer,-20.099388,-24.716297
+2911,Signal Processing Engineer,-20.233423,-24.963156
+9768,Signal Processing Engineer,-19.89267,-24.804413
+13957,Signal Processing Engineer,-20.271961,-24.635893
+14999,Signal Processing Engineer,-20.15707,-24.544794
+20999,Signal Processing Engineer,-19.945263,-24.728682
+27335,Signal Processing Engineer,-20.308563,-24.815882
+29016,Signal Processing Engineer,-20.026627,-24.669651
+30700,Signal Processing Engineer,-20.13193,-24.883125
+41470,Signal Processing Engineer,-20.007452,-24.912586
+3238,Site Reliability Engineer,27.398565,-9.164568
+4527,Site Reliability Engineer,27.306448,-8.937394
+8278,Site Reliability Engineer,27.524126,-9.30795
+15543,Site Reliability Engineer,26.89141,-9.029058
+16792,Site Reliability Engineer,27.090885,-9.290806
+17155,Site Reliability Engineer,27.388784,-8.913018
+22879,Site Reliability Engineer,26.937973,-9.349474
+23729,Site Reliability Engineer,27.482641,-9.058466
+30255,Site Reliability Engineer,26.907555,-9.09958
+33615,Site Reliability Engineer,27.011824,-9.072318
+2713,Site Reliability Engineer (SRE),26.846905,-7.655355
+11793,Site Reliability Engineer (SRE),26.762308,-7.5376096
+19303,Site Reliability Engineer (SRE),27.125977,-6.9540434
+22717,Site Reliability Engineer (SRE),26.866669,-7.2592044
+24129,Site Reliability Engineer (SRE),27.193546,-7.4346533
+24808,Site Reliability Engineer (SRE),27.120516,-7.583774
+25297,Site Reliability Engineer (SRE),27.070507,-7.074696
+26272,Site Reliability Engineer (SRE),27.111969,-7.217783
+39879,Site Reliability Engineer (SRE),26.583559,-7.2997837
+40616,Site Reliability Engineer (SRE),27.160473,-7.110555
+6095,Software Architect,8.717469,1.2615161
+13191,Software Architect,8.455735,1.0900701
+26165,Software Architect,8.868169,1.4122878
+28087,Software Architect,8.454122,1.459691
+28110,Software Architect,8.316547,1.1576285
+28683,Software Architect,8.594864,1.2150971
+35997,Software Architect,8.837759,1.3894004
+38060,Software Architect,8.509579,1.3975241
+41319,Software Architect,8.420266,0.8987614
+42825,Software Architect,8.661073,1.2848463
+4567,Solutions Engineer,-14.136071,1.2088344
+9503,Solutions Engineer,-14.128845,0.8912172
+18536,Solutions Engineer,-14.265461,0.76547873
+24358,Solutions Engineer,-14.185587,1.1340327
+27144,Solutions Engineer,-14.308675,0.9131801
+33851,Solutions Engineer,-13.894601,0.79235196
+39335,Solutions Engineer,-14.3228855,0.9158295
+42624,Solutions Engineer,-14.024541,0.73683316
+44139,Solutions Engineer,-13.956106,1.0142053
+46080,Solutions Engineer,-13.823233,1.0760889
+5775,Swift Developer,21.444273,29.760876
+5815,Swift Developer,21.748077,29.507643
+6906,Swift Developer,21.459433,29.599228
+9849,Swift Developer,21.878145,29.814594
+11546,Swift Developer,21.416416,29.533978
+21256,Swift Developer,21.936588,29.444809
+27330,Swift Developer,21.64508,29.801575
+28792,Swift Developer,21.811617,29.404482
+37917,Swift Developer,21.72743,29.455242
+47212,Swift Developer,21.655474,29.83702
+12432,Systems Administrator,7.1627197,-22.266867
+15851,Systems Administrator,7.1692963,-22.558132
+19297,Systems Administrator,7.3489556,-22.673336
+20395,Systems Administrator,7.557913,-22.632528
+24429,Systems Administrator,6.9536653,-22.476887
+37640,Systems Administrator,7.258583,-22.754045
+40434,Systems Administrator,7.345422,-22.302742
+42759,Systems Administrator,7.234989,-22.504868
+42897,Systems Administrator,7.30703,-22.3934
+43674,Systems Administrator,6.9532113,-22.428446
+5170,Technical Project Manager,-34.67824,-0.6342752
+7439,Technical Project Manager,-34.609997,-0.6474978
+10021,Technical Project Manager,-34.66255,-0.2395178
+13388,Technical Project Manager,-34.862076,-0.5895644
+14870,Technical Project Manager,-35.07051,-0.6953177
+15996,Technical Project Manager,-34.533127,-0.5060836
+20705,Technical Project Manager,-34.872578,-0.66717905
+25843,Technical Project Manager,-34.87294,-0.42244208
+26673,Technical Project Manager,-34.808887,-0.3115197
+27895,Technical Project Manager,-34.861485,-0.3800474
+218,Technical Writer,-13.798565,-3.9046388
+13760,Technical Writer,-13.740072,-4.0053463
+20473,Technical Writer,-13.605471,-4.1468983
+22977,Technical Writer,-13.702279,-4.235446
+37090,Technical Writer,-13.587149,-4.113853
+38761,Technical Writer,-13.363882,-3.9369924
+42883,Technical Writer,-13.462281,-3.8016202
+44282,Technical Writer,-13.490726,-4.190036
+44334,Technical Writer,-13.650299,-4.010621
+44638,Technical Writer,-13.500752,-4.0817347
+1609,UI/UX Designer,-19.495092,-6.5187306
+3462,UI/UX Designer,-19.573982,-6.675001
+10160,UI/UX Designer,-19.494764,-6.673367
+19643,UI/UX Designer,-19.474121,-6.198957
+19712,UI/UX Designer,-19.155893,-6.281657
+25270,UI/UX Designer,-19.435404,-6.0426383
+34533,UI/UX Designer,-19.694721,-6.334819
+34777,UI/UX Designer,-19.488298,-6.565754
+44800,UI/UX Designer,-19.736311,-6.5617747
+45294,UI/UX Designer,-19.530422,-6.6313047
+2,VLSI Engineer,-13.259771,-22.797855
+6901,VLSI Engineer,-12.995899,-22.737873
+7357,VLSI Engineer,-13.04597,-22.640274
+26511,VLSI Engineer,-13.078089,-22.750776
+28253,VLSI Engineer,-13.029708,-22.95883
+29954,VLSI Engineer,-13.358843,-22.921192
+36078,VLSI Engineer,-13.412615,-22.98182
+38992,VLSI Engineer,-13.290031,-22.98891
+41527,VLSI Engineer,-13.276165,-22.71943
+42434,VLSI Engineer,-13.102954,-23.066824
+2976,WordPress Developer,28.141386,4.689399
+3641,WordPress Developer,28.274338,4.5353336
+6793,WordPress Developer,28.187151,4.448708
+7364,WordPress Developer,27.872206,4.456801
+8821,WordPress Developer,27.854681,4.364398
+9002,WordPress Developer,28.400206,4.5085497
+24518,WordPress Developer,28.304213,4.6152964
+26620,WordPress Developer,28.251219,4.368883
+32553,WordPress Developer,27.945742,4.4043894
+45297,WordPress Developer,28.174364,4.644847
+2134,iOS Developer,23.791504,28.472036
+4544,iOS Developer,23.755152,28.984035
+7557,iOS Developer,23.843412,28.724653
+9035,iOS Developer,23.682688,28.610264
+18843,iOS Developer,23.760098,28.53201
+20644,iOS Developer,23.496685,28.457567
+22517,iOS Developer,23.378609,28.588007
+24405,iOS Developer,23.47389,28.61886
+36627,iOS Developer,23.749723,28.450695
+45402,iOS Developer,23.183313,28.552563
+1785,iOS/Android Cross Platform Developer,23.726921,21.535564
+1901,iOS/Android Cross Platform Developer,23.500368,22.063234
+6062,iOS/Android Cross Platform Developer,23.850681,21.580517
+7451,iOS/Android Cross Platform Developer,23.659105,22.067694
+12857,iOS/Android Cross Platform Developer,23.366068,21.741375
+15475,iOS/Android Cross Platform Developer,23.317871,21.680395
+17216,iOS/Android Cross Platform Developer,23.623852,22.083176
+22567,iOS/Android Cross Platform Developer,23.756702,21.821619
+42627,iOS/Android Cross Platform Developer,23.152203,21.76697
+46792,iOS/Android Cross Platform Developer,23.360853,21.815619

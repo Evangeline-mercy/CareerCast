@@ -22,6 +22,7 @@ import streamlit as st
 
 from streamlit_app.report_builder import build_career_report
 from streamlit_app.analytics import prepare_cohort, summarize_cohort
+from streamlit_app.milestone2_dashboard import render_milestone2_dashboard
 
 
 API_BASE_URL = os.getenv("CAREERCAST_API_URL", "http://127.0.0.1:8000").rstrip("/")
@@ -232,7 +233,17 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-workspace = st.sidebar.radio("Workspace", ["Individual Review", "Cohort Analytics"])
+workspace = st.sidebar.radio(
+    "Workspace", ["Individual Review", "Milestone 2 Analytics", "Cohort Analytics"]
+)
+if workspace == "Milestone 2 Analytics":
+    try:
+        render_milestone2_dashboard(api_get, api_post)
+    except (requests.RequestException, RuntimeError) as exc:
+        st.error(f"Milestone 2 analytics could not be loaded: {exc}")
+    st.markdown("---")
+    st.caption("CareerCast | Milestone 2 | Verified analytics and recommendation engine")
+    st.stop()
 if workspace == "Cohort Analytics":
     render_cohort_workspace()
     st.markdown("---")
