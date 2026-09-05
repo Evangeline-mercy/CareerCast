@@ -40,8 +40,9 @@ def test_cards_match_recorded_training_summary():
     assert "48,000" in dataset_card
     assert "96" in dataset_card
     assert "all-MiniLM-L6-v2" in model_card
-    assert "0.9982292" in model_card
-    assert "not fine-tuned" in model_card
+    assert "0.9996875" in model_card
+    assert "career-domain fine-tuned" in model_card
+    assert "finetuned_classifier_summary.json" in model_card
 
 
 def test_package_metadata_matches_documented_release():

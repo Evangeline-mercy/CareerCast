@@ -2,11 +2,12 @@
 
 ## Model overview
 
-CareerCast embeds skill-profile text with pretrained `all-MiniLM-L6-v2`
-Sentence-BERT embeddings and compares three supervised classifiers across 96
-career classes. Sentence-BERT was not fine-tuned. The embedding dimension is
-384. The selected single prediction model is Logistic Regression; the
-recommendation endpoint uses a weighted three-model ensemble.
+CareerCast embeds skill-profile text with a career-domain fine-tuned
+`all-MiniLM-L6-v2` Sentence-BERT model and compares three supervised
+classifiers across 96 career classes. The embedding dimension is 384. The
+selected single prediction model is Logistic Regression; the recommendation
+endpoint uses a weighted three-model ensemble. Runtime selection is atomic: it
+does not combine a fine-tuned encoder with legacy classifiers.
 
 ## Training and selection
 
@@ -15,6 +16,8 @@ recommendation endpoint uses a weighted three-model ensemble.
 - Held-out testing samples: 9,600
 - Random state: 42
 - Cross-validation folds: 2
+- Balanced CV tuning subset: 3,840 training-only samples (40 per class)
+- Final estimator refit: all 38,400 training samples
 - Selection metric: cross-validation accuracy
 - Test set used for model selection: no
 
@@ -22,12 +25,19 @@ recommendation endpoint uses a weighted three-model ensemble.
 
 | Classifier | CV accuracy | Test accuracy | Macro precision | Macro recall | Macro F1 | Parameters |
 |---|---:|---:|---:|---:|---:|---|
-| Logistic Regression | 0.9978125 | 0.9982292 | 0.9984010 | 0.9982292 | 0.9982233 | `C=10.0` |
-| Random Forest | 0.9961719 | 0.9972917 | 0.9974095 | 0.9972917 | 0.9972849 | `n_estimators=100`, `max_depth=None` |
-| XGBoost | 0.9963281 | 0.9970833 | 0.9971153 | 0.9970833 | 0.9970784 | `n_estimators=100`, `max_depth=5` |
+| Logistic Regression | 0.9986979 | 0.9996875 | 0.9996885 | 0.9996875 | 0.9996875 | `C=10.0` |
+| Random Forest | 0.9986979 | 0.9995833 | 0.9995854 | 0.9995833 | 0.9995833 | `n_estimators=100`, `max_depth=None`, `max_features=sqrt` |
+| XGBoost | 0.9966146 | 0.9996875 | 0.9996885 | 0.9996875 | 0.9996875 | `n_estimators=100`, `max_depth=3` |
 
 Metrics are read from
-`results/milestone2_sentence_bert_classifier/sbert_classifier_summary.json`.
+`results/milestone2_finetuned_sbert_classifiers/finetuned_classifier_summary.json`.
+
+On the same saved split, fine-tuned SBERT plus Logistic Regression improved
+test accuracy from `0.9982292` to `0.9996875` and macro F1 from `0.9982233`
+to `0.9996875`. SemEval-2017 STS track 5 evaluation produced Pearson
+`0.8808883` and Spearman `0.8793690` for the fine-tuned encoder. This benchmark
+contains general English sentence pairs and does not establish career-domain
+prediction accuracy.
 
 ## Runtime behavior
 
@@ -35,6 +45,8 @@ Metrics are read from
 - `/recommend` defaults to LR `0.40`, RF `0.30`, and XGBoost `0.30`.
 - `/gap-report` compares normalized candidate skills with weighted career
   requirements and returns priorities and learning actions.
+- `/models/info` discloses the active pipeline and whether its encoder is
+  fine-tuned.
 
 ## Intended use
 
@@ -47,6 +59,8 @@ Metrics are read from
 
 - Near-perfect prepared-dataset results may reflect strongly separable or
   generated profiles and must not be interpreted as real-world accuracy.
+- Held-out accuracy is an aggregate evaluation metric; it is not the same as
+  the confidence score for an individual profile.
 - Probabilities are model scores, not guarantees of aptitude, employability, or
   success.
 - Skills alone cannot represent motivation, experience, opportunity, location,

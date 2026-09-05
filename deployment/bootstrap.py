@@ -9,20 +9,19 @@ import urllib.request
 from pathlib import Path
 
 
-RELEASE_BASE_URL = (
-    "https://github.com/Evangeline-mercy/CareerCast/releases/download/v1.0.0"
-)
+LEGACY_RELEASE_BASE_URL = "https://github.com/Evangeline-mercy/CareerCast/releases/download/v1.0.0"
+FINETUNED_RELEASE_BASE_URL = "https://github.com/Evangeline-mercy/CareerCast/releases/download/v4.0.0"
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-CLASSIFIER_DIR = PROJECT_ROOT / "results" / "milestone2_sentence_bert_classifier"
+CLASSIFIER_DIR = PROJECT_ROOT / "results" / "milestone2_finetuned_sbert_classifiers"
 TRAINING_DIR = PROJECT_ROOT / "results" / "milestone2_training"
 
 ARTIFACTS = {
-    CLASSIFIER_DIR / "logistic_regression_model.pkl": "logistic_regression_model.pkl",
-    CLASSIFIER_DIR / "random_forest_model.pkl": "random_forest_model.pkl",
-    CLASSIFIER_DIR / "xgboost_model.pkl": "xgboost_model.pkl",
-    CLASSIFIER_DIR / "label_encoder.pkl": "label_encoder.pkl",
-    CLASSIFIER_DIR / "sbert_classifier_summary.json": "sbert_classifier_summary.json",
-    TRAINING_DIR / "career_profile_training_dataset.csv": "career_profile_training_dataset.csv",
+    CLASSIFIER_DIR / "logistic_regression_model.pkl": f"{FINETUNED_RELEASE_BASE_URL}/logistic_regression_model.pkl",
+    CLASSIFIER_DIR / "random_forest_model.pkl": f"{FINETUNED_RELEASE_BASE_URL}/random_forest_model.pkl",
+    CLASSIFIER_DIR / "xgboost_model.pkl": f"{FINETUNED_RELEASE_BASE_URL}/xgboost_model.pkl",
+    CLASSIFIER_DIR / "label_encoder.pkl": f"{FINETUNED_RELEASE_BASE_URL}/label_encoder.pkl",
+    CLASSIFIER_DIR / "finetuned_classifier_summary.json": f"{FINETUNED_RELEASE_BASE_URL}/finetuned_classifier_summary.json",
+    TRAINING_DIR / "career_profile_training_dataset.csv": f"{LEGACY_RELEASE_BASE_URL}/career_profile_training_dataset.csv",
 }
 
 _server_thread: threading.Thread | None = None
@@ -44,10 +43,10 @@ def _download(url: str, destination: Path) -> None:
 
 def ensure_artifacts() -> None:
     """Download only artifacts that are absent from the deployment filesystem."""
-    for destination, filename in ARTIFACTS.items():
+    for destination, url in ARTIFACTS.items():
         if destination.exists() and destination.stat().st_size > 0:
             continue
-        _download(f"{RELEASE_BASE_URL}/{filename}", destination)
+        _download(url, destination)
 
 
 def start_embedded_api(host: str = "127.0.0.1", port: int = 8000) -> None:

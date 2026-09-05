@@ -44,6 +44,7 @@ jobs:
           python -m py_compile src/careercast/client.py
           python -m py_compile src/careercast/parsing.py
           python -m py_compile src/careercast/cli.py
+          python -m py_compile tests/test_finetuned_pipeline.py
 
       - name: Run skill-gap tests
         run: python -m pytest tests/test_gap_analysis_ci.py -v --assert=plain
@@ -59,6 +60,7 @@ jobs:
 
       - name: Run integration and regression tests
         run: |
+          python -m pytest tests/test_finetuned_pipeline.py -v --assert=plain
           python -m pytest tests/test_pipeline_integration.py -v --assert=plain
           python -m pytest tests/test_pipeline_regression.py -v --assert=plain
 

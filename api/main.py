@@ -26,18 +26,50 @@ from pydantic import BaseModel
 from api.services.gap_analysis import SkillGapAnalyzer, parse_skills
 
 # ---------------------------------------------------------------------------
-# Paths — all relative to project root (where uvicorn is launched from)
+# Paths — anchored to the repository so startup is independent of cwd.
 # ---------------------------------------------------------------------------
-CLASSIFIER_DIR = Path("results/milestone2_sentence_bert_classifier")
-TRAINING_DATA = Path("results/milestone2_training/career_profile_training_dataset.csv")
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+TRAINING_DATA = PROJECT_ROOT / "results/milestone2_training/career_profile_training_dataset.csv"
+LEGACY_CLASSIFIER_DIR = PROJECT_ROOT / "results/milestone2_sentence_bert_classifier"
+FINETUNED_CLASSIFIER_DIR = PROJECT_ROOT / "results/milestone2_finetuned_sbert_classifiers"
+FINETUNED_EMBEDDING_DIR = PROJECT_ROOT / "results/semantic_embeddings/sbert_finetuned"
+LEGACY_EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 
-LR_PATH = CLASSIFIER_DIR / "logistic_regression_model.pkl"
-RF_PATH = CLASSIFIER_DIR / "random_forest_model.pkl"
-XGB_PATH = CLASSIFIER_DIR / "xgboost_model.pkl"
-LE_PATH = CLASSIFIER_DIR / "label_encoder.pkl"
-METRICS_PATH = CLASSIFIER_DIR / "sbert_classifier_summary.json"
 
-EMBEDDING_MODEL_NAME = "all-MiniLM-L6-v2"
+def resolve_pipeline(project_root: Path = PROJECT_ROOT) -> dict:
+    """Select one complete pipeline; never mix embeddings and classifiers."""
+    fine_classifier_dir = project_root / "results/milestone2_finetuned_sbert_classifiers"
+    fine_embedding_dir = project_root / "results/semantic_embeddings/sbert_finetuned"
+    required = [
+        fine_classifier_dir / "logistic_regression_model.pkl",
+        fine_classifier_dir / "random_forest_model.pkl",
+        fine_classifier_dir / "xgboost_model.pkl",
+        fine_classifier_dir / "label_encoder.pkl",
+        fine_classifier_dir / "finetuned_classifier_summary.json",
+        fine_embedding_dir / "modules.json",
+        fine_embedding_dir / "model.safetensors",
+    ]
+    if all(path.is_file() and path.stat().st_size > 0 for path in required):
+        return {
+            "name": "finetuned_sbert",
+            "embedding_source": fine_embedding_dir,
+            "embedding_display_name": "CareerCast fine-tuned all-MiniLM-L6-v2",
+            "classifier_dir": fine_classifier_dir,
+            "metrics_filename": "finetuned_classifier_summary.json",
+            "fine_tuned": True,
+        }
+
+    return {
+        "name": "pretrained_sbert_legacy",
+        "embedding_source": LEGACY_EMBEDDING_MODEL,
+        "embedding_display_name": LEGACY_EMBEDDING_MODEL,
+        "classifier_dir": project_root / "results/milestone2_sentence_bert_classifier",
+        "metrics_filename": "sbert_classifier_summary.json",
+        "fine_tuned": False,
+    }
+
+
+_pipeline_info = resolve_pipeline()
 
 # ---------------------------------------------------------------------------
 # App
@@ -66,24 +98,36 @@ _gap_analyzer = None
 @app.on_event("startup")
 async def load_models():
     """Load all models once at startup."""
-    global _gap_analyzer
+    global _gap_analyzer, _pipeline_info
     import json
     import pandas as pd
+
+    _models.clear()
+    _career_skill_profiles.clear()
+    _pipeline_info = resolve_pipeline()
+    classifier_dir = _pipeline_info["classifier_dir"]
+    model_paths = {
+        "lr": classifier_dir / "logistic_regression_model.pkl",
+        "rf": classifier_dir / "random_forest_model.pkl",
+        "xgb": classifier_dir / "xgboost_model.pkl",
+        "le": classifier_dir / "label_encoder.pkl",
+    }
 
     try:
         from sentence_transformers import SentenceTransformer
         allow_download = os.getenv("CAREERCAST_ALLOW_MODEL_DOWNLOAD", "0").lower() in {
             "1", "true", "yes"
         }
-        _models["sbert"] = SentenceTransformer(
-            EMBEDDING_MODEL_NAME,
-            local_files_only=not allow_download,
-        )
+        embedding_source = _pipeline_info["embedding_source"]
+        load_options = {"local_files_only": True}
+        if isinstance(embedding_source, str):
+            load_options["local_files_only"] = not allow_download
+        _models["sbert"] = SentenceTransformer(str(embedding_source), **load_options)
     except Exception as e:
         print(f"WARNING: Could not load SBERT: {e}")
         _models["sbert"] = None
 
-    for key, path in [("lr", LR_PATH), ("rf", RF_PATH), ("xgb", XGB_PATH), ("le", LE_PATH)]:
+    for key, path in model_paths.items():
         try:
             _models[key] = joblib.load(path)
         except Exception as e:
@@ -109,8 +153,9 @@ async def load_models():
             print(f"WARNING: Could not build career profiles: {e}")
 
     # Load model metrics for /models/info
-    if METRICS_PATH.exists():
-        with open(METRICS_PATH) as f:
+    metrics_path = classifier_dir / _pipeline_info["metrics_filename"]
+    if metrics_path.exists():
+        with open(metrics_path, encoding="utf-8") as f:
             _models["metrics"] = json.load(f)
     else:
         _models["metrics"] = {}
@@ -121,7 +166,8 @@ async def load_models():
         print(f"WARNING: Could not initialize skill-gap analyzer: {e}")
         _gap_analyzer = None
 
-    print(f"Startup complete. SBERT: {_models['sbert'] is not None}, "
+    print(f"Startup complete. Pipeline: {_pipeline_info['name']}, "
+          f"SBERT: {_models['sbert'] is not None}, "
           f"LR: {_models['lr'] is not None}, RF: {_models['rf'] is not None}, "
           f"XGB: {_models['xgb'] is not None}, "
           f"Career profiles: {len(_career_skill_profiles)}, "
@@ -231,6 +277,8 @@ def get_topk_from_model(model_key: str, embedding: np.ndarray, top_k: int):
 async def health():
     return {
         "status": "ok",
+        "pipeline": _pipeline_info["name"],
+        "embedding_fine_tuned": _pipeline_info["fine_tuned"],
         "models_loaded": {k: v is not None for k, v in _models.items() if k != "metrics"},
         "career_profiles_loaded": len(_career_skill_profiles),
         "gap_profiles_loaded": _gap_analyzer.career_count if _gap_analyzer else 0,
@@ -240,7 +288,9 @@ async def health():
 @app.get("/models/info")
 async def models_info():
     return {
-        "embedding_model": EMBEDDING_MODEL_NAME,
+        "pipeline": _pipeline_info["name"],
+        "embedding_model": _pipeline_info["embedding_display_name"],
+        "embedding_fine_tuned": _pipeline_info["fine_tuned"],
         "embedding_dimension": 384,
         "n_classes": len(_models["le"].classes_) if _models.get("le") is not None else 0,
         "classifiers": ["logistic_regression", "random_forest", "xgboost"],
@@ -284,7 +334,7 @@ async def predict(request: PredictRequest):
 
     return PredictResponse(
         top_predictions=top_predictions,
-        embedding_model=EMBEDDING_MODEL_NAME,
+        embedding_model=_pipeline_info["embedding_display_name"],
         input_text=request.skills_text[:200],
     )
 
