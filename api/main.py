@@ -19,11 +19,12 @@ from typing import List, Optional
 
 import joblib
 import numpy as np
-from fastapi import FastAPI, HTTPException
+from fastapi import Depends, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from api.services.gap_analysis import SkillGapAnalyzer, parse_skills
+from api.auth import require_authenticated_user
 
 # ---------------------------------------------------------------------------
 # Paths — anchored to the repository so startup is independent of cwd.
@@ -300,7 +301,10 @@ async def models_info():
 
 
 @app.post("/predict", response_model=PredictResponse)
-async def predict(request: PredictRequest):
+async def predict(
+    request: PredictRequest,
+    _user: dict | None = Depends(require_authenticated_user),
+):
     """Return one clear Top-K prediction list from the selected best model."""
     if not request.skills_text.strip():
         raise HTTPException(status_code=400, detail="skills_text cannot be empty")
@@ -340,7 +344,10 @@ async def predict(request: PredictRequest):
 
 
 @app.post("/recommend", response_model=RecommendResponse)
-async def recommend(request: RecommendRequest):
+async def recommend(
+    request: RecommendRequest,
+    _user: dict | None = Depends(require_authenticated_user),
+):
     """Return ensemble Top-K recommendations with per-model breakdown."""
     if not request.skills_text.strip():
         raise HTTPException(status_code=400, detail="skills_text cannot be empty")
@@ -397,7 +404,10 @@ async def recommend(request: RecommendRequest):
 
 
 @app.post("/gap-report", response_model=GapReportResponse)
-async def gap_report(request: GapReportRequest):
+async def gap_report(
+    request: GapReportRequest,
+    _user: dict | None = Depends(require_authenticated_user),
+):
     """Skill gap analysis with actionable learning suggestions."""
     if not request.skills_text.strip():
         raise HTTPException(status_code=400, detail="skills_text cannot be empty")

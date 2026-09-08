@@ -23,6 +23,7 @@ import streamlit as st
 from streamlit_app.report_builder import build_career_report
 from streamlit_app.analytics import prepare_cohort, summarize_cohort
 from streamlit_app.milestone2_dashboard import render_milestone2_dashboard
+from streamlit_app.auth import access_token, clear_session, configure_auth_environment, render_auth_gate
 
 
 API_BASE_URL = os.getenv("CAREERCAST_API_URL", "http://127.0.0.1:8000").rstrip("/")
@@ -34,6 +35,8 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
+configure_auth_environment()
 
 
 @st.cache_resource(show_spinner="Preparing CareerCast models for the first launch...")
@@ -72,13 +75,23 @@ st.markdown(
 
 
 def api_get(path: str) -> dict[str, Any]:
-    response = requests.get(f"{API_BASE_URL}{path}", timeout=15)
+    headers = {"Authorization": f"Bearer {access_token()}"} if access_token() else {}
+    response = requests.get(f"{API_BASE_URL}{path}", headers=headers, timeout=15)
+    if response.status_code == 401:
+        clear_session()
+        raise RuntimeError("Your session expired. Please sign in again.")
     response.raise_for_status()
     return response.json()
 
 
 def api_post(path: str, payload: dict[str, Any]) -> dict[str, Any]:
-    response = requests.post(f"{API_BASE_URL}{path}", json=payload, timeout=REQUEST_TIMEOUT)
+    headers = {"Authorization": f"Bearer {access_token()}"} if access_token() else {}
+    response = requests.post(
+        f"{API_BASE_URL}{path}", json=payload, headers=headers, timeout=REQUEST_TIMEOUT
+    )
+    if response.status_code == 401:
+        clear_session()
+        raise RuntimeError("Your session expired. Please sign in again.")
     if response.ok:
         return response.json()
     try:
@@ -215,6 +228,10 @@ st.sidebar.markdown("# CareerCast")
 st.sidebar.markdown("**Milestone 4 Intelligence Suite**")
 st.sidebar.caption("Individual • Cohort • Comparison • PDF")
 st.sidebar.markdown("---")
+
+if not render_auth_gate():
+    st.stop()
+
 st.sidebar.code(API_BASE_URL, language=None)
 
 try:
