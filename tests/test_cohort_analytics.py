@@ -1,7 +1,13 @@
 import pandas as pd
 import pytest
 
-from streamlit_app.analytics import MAX_COHORT_SIZE, prepare_cohort, summarize_cohort
+from streamlit_app.analytics import (
+    MAX_COHORT_SIZE,
+    build_cohort_result_row,
+    confidence_level,
+    prepare_cohort,
+    summarize_cohort,
+)
 
 
 def test_prepare_cohort_normalizes_columns_and_drops_empty_profiles():
@@ -40,3 +46,33 @@ def test_summarize_cohort_calculates_distribution_and_mean():
         "Predicted career": "Data Scientist",
         "Profiles": 2,
     }
+
+
+def test_confidence_level_uses_documented_percentage_bands():
+    assert confidence_level(60) == "High"
+    assert confidence_level(35) == "Moderate"
+    assert confidence_level(34.99) == "Low"
+
+
+def test_detailed_cohort_row_preserves_input_and_ranked_results():
+    row = build_cohort_result_row(
+        {"name": "Mercy", "skills": "Python, SQL"},
+        [
+            {"career": "Data Scientist", "ensemble_score": 0.62},
+            {"career": "Data Analyst", "ensemble_score": 0.41},
+        ],
+        {
+            "alignment_score": 50,
+            "matched_skills": ["python"],
+            "missing_skills": [
+                {"skill": "statistics", "priority": "High"},
+                {"skill": "communication", "priority": "Medium"},
+            ],
+        },
+        "2026-09-09 12:00 UTC",
+    )
+    assert row["Input skills"] == "Python, SQL"
+    assert row["Predicted career"] == "Data Scientist"
+    assert row["Confidence level"] == "High"
+    assert row["Matched skills"] == "python"
+    assert row["High-priority missing skills"] == "statistics"

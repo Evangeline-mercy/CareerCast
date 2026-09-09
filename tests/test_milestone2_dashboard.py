@@ -14,6 +14,14 @@ def test_model_metrics_frame_uses_verified_values():
     assert frame.iloc[0]["Macro F1"] == pytest.approx(0.93)
 
 
+def test_model_metrics_frame_accepts_api_list_shape():
+    frame = build_model_metrics_frame(
+        [{"model": "random_forest", "test_accuracy": 0.88, "macro_f1": 0.87}]
+    )
+    assert frame.iloc[0]["Model"] == "Random Forest"
+    assert frame.iloc[0]["Test accuracy"] == pytest.approx(0.88)
+
+
 def test_tsne_projection_requires_expected_columns(tmp_path: Path):
     valid = tmp_path / "valid.csv"
     pd.DataFrame({"career": ["Data Scientist"], "tsne_x": [1.0], "tsne_y": [2.0]}).to_csv(valid, index=False)

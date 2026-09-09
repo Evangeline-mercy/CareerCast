@@ -1,4 +1,4 @@
-"""Milestone 2 analytics view built from verified artifacts and live API output."""
+"""Professional model-insights view built from verified artifacts and live API output."""
 
 from __future__ import annotations
 
@@ -17,14 +17,33 @@ SEMEVAL_PATH = PROJECT_ROOT / "results/milestone2_semeval/semeval_sts_results.js
 LINKEDIN_PATH = PROJECT_ROOT / "results/milestone2_linkedin/linkedin_transition_validation_summary.json"
 
 
-def build_model_metrics_frame(metrics_summary: dict[str, Any]) -> pd.DataFrame:
+def build_model_metrics_frame(metrics_summary: dict[str, Any] | list[dict[str, Any]]) -> pd.DataFrame:
     rows = []
     display_names = {
         "logistic_regression": "Logistic Regression",
         "random_forest": "Random Forest",
         "xgboost": "XGBoost",
     }
-    for key, values in metrics_summary.get("all_models", {}).items():
+    if isinstance(metrics_summary, list):
+        model_entries = [
+            (str(values.get("model") or values.get("name") or values.get("classifier") or "model"), values)
+            for values in metrics_summary
+            if isinstance(values, dict)
+        ]
+    else:
+        all_models = metrics_summary.get("all_models", metrics_summary)
+        if isinstance(all_models, list):
+            model_entries = [
+                (str(values.get("model") or values.get("name") or values.get("classifier") or "model"), values)
+                for values in all_models
+                if isinstance(values, dict)
+            ]
+        elif isinstance(all_models, dict):
+            model_entries = list(all_models.items())
+        else:
+            model_entries = []
+
+    for key, values in model_entries:
         rows.append(
             {
                 "Model": display_names.get(key, key.replace("_", " ").title()),
@@ -58,7 +77,7 @@ def render_milestone2_dashboard(
     api_get: Callable[[str], dict[str, Any]],
     api_post: Callable[[str, dict[str, Any]], dict[str, Any]],
 ) -> None:
-    st.markdown("## Milestone 2 – Advanced ML & Recommendation Engine")
+    st.markdown("## 📊 Model Insights")
     st.caption("Verified model evaluation, live Top-K ranking and fine-tuned SBERT embedding analysis.")
 
     model_info = api_get("/models/info")
@@ -82,16 +101,16 @@ def render_milestone2_dashboard(
             color="Model",
             text=metrics["Macro F1"].map(lambda value: f"{value:.4f}"),
             range_y=[0, 1.02],
-            color_discrete_sequence=["#4f46e5", "#0f766e", "#d97706"],
+            color_discrete_sequence=["#0b63e5", "#0f9f6e", "#ef8b2c"],
         )
         chart.add_hline(y=0.80, line_dash="dash", line_color="#dc2626", annotation_text="Required threshold: 0.80")
         chart.update_layout(showlegend=False, height=390, margin=dict(l=10, r=20, t=20, b=10))
         chart.update_traces(textposition="outside")
-        st.plotly_chart(chart, use_container_width=True)
+        st.plotly_chart(chart, width="stretch")
         formatted = metrics.copy()
         for column in formatted.columns[1:]:
             formatted[column] = formatted[column].map(lambda value: f"{value * 100:.3f}%")
-        st.dataframe(formatted, use_container_width=True, hide_index=True)
+        st.dataframe(formatted, width="stretch", hide_index=True)
         st.caption("These are held-out aggregate evaluation metrics, not confidence guarantees for every resume.")
 
     st.markdown("### Live Top-5 career recommendations")
@@ -101,7 +120,7 @@ def render_milestone2_dashboard(
         height=120,
         key="m2_profile_text",
     )
-    if st.button("Generate Top-5 Recommendations", type="primary", use_container_width=True, key="m2_recommend"):
+    if st.button("Generate Top-5 Recommendations", type="primary", width="stretch", key="m2_recommend"):
         if not profile.strip():
             st.warning("Enter skills or profile text first.")
         else:
@@ -131,13 +150,13 @@ def render_milestone2_dashboard(
             plot_frame["Confidence (%)"] = plot_frame["Ensemble"] * 100
             rank_chart = px.bar(
                 plot_frame.sort_values("Confidence (%)"), x="Confidence (%)", y="Career",
-                orientation="h", color="Confidence (%)", color_continuous_scale=["#0f766e", "#4f46e5"],
+                orientation="h", color="Confidence (%)", color_continuous_scale=["#9bd9c4", "#0b63e5"],
                 text=plot_frame.sort_values("Confidence (%)")["Confidence (%)"].map(lambda value: f"{value:.2f}%"),
             )
             rank_chart.update_layout(coloraxis_showscale=False, height=360, margin=dict(l=10, r=20, t=20, b=10))
             rank_chart.update_traces(textposition="outside")
-            st.plotly_chart(rank_chart, use_container_width=True)
-            st.dataframe(frame, use_container_width=True, hide_index=True)
+            st.plotly_chart(rank_chart, width="stretch")
+            st.dataframe(frame, width="stretch", hide_index=True)
             gap_rows = (live.get("gap") or {}).get("gap_analysis", [])
             if gap_rows:
                 st.metric("Top-career skill alignment", f"{float(gap_rows[0].get('alignment_score', 0)):.2f}%")
@@ -156,7 +175,7 @@ def render_milestone2_dashboard(
         )
         scatter.update_traces(marker={"size": 7})
         scatter.update_layout(height=540, margin=dict(l=10, r=20, t=20, b=10))
-        st.plotly_chart(scatter, use_container_width=True)
+        st.plotly_chart(scatter, width="stretch")
         st.caption(f"Balanced projection: {len(projection)} samples across {projection['career'].nunique()} careers. t-SNE is for visual exploration, not an accuracy metric.")
     except (FileNotFoundError, ValueError, pd.errors.ParserError) as exc:
         st.info(f"Generate the t-SNE visualization CSV before deployment: {exc}")

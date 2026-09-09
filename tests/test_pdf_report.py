@@ -1,4 +1,6 @@
 from streamlit_app.report_builder import build_career_report
+from pypdf import PdfReader
+from io import BytesIO
 
 
 def test_pdf_uses_current_prediction_and_gap_data():
@@ -42,3 +44,20 @@ def test_pdf_uses_current_prediction_and_gap_data():
 
     assert pdf.startswith(b"%PDF-")
     assert len(pdf) > 1500
+    text = "\n".join(page.extract_text() or "" for page in PdfReader(BytesIO(pdf)).pages)
+    assert "Primary Career Recommendation" in text
+    assert "Data Scientist" in text
+    assert "88.00%" in text
+    assert "LR + RF + XGBoost" in text
+
+
+def test_pdf_uses_ensemble_primary_and_sanitizes_unsupported_symbols():
+    prediction = {"top_predictions": [{"career": "Web Developer", "probability": 0.9}]}
+    recommendation = {"recommendations": [{"career": "NLP Engineer", "ensemble_score": 0.72}]}
+    gap = {"target_career": "NLP Engineer", "gap_analysis": [{"alignment_score": 20, "missing_skills": []}]}
+    pdf = build_career_report("Engineer \U0001f680 with Python \u2022 NLP", prediction, recommendation, gap, {})
+    text = "\n".join(page.extract_text() or "" for page in PdfReader(BytesIO(pdf)).pages)
+    assert "NLP Engineer" in text
+    assert "72.00%" in text
+    assert "Engineer with Python - NLP" in text
+    assert "Web Developer" not in text

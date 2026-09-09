@@ -127,7 +127,7 @@ def render_auth_gate() -> bool:
 
     if access_token():
         st.sidebar.caption(f"Signed in as {st.session_state.get('auth_user_email', 'CareerCast user')}")
-        if st.sidebar.button("Secure logout", use_container_width=True):
+        if st.sidebar.button("Secure logout", width="stretch"):
             sign_out()
             st.rerun()
         return True
@@ -140,7 +140,7 @@ def render_auth_gate() -> bool:
         with st.form("careercast_login"):
             email = st.text_input("Email", key="login_email")
             password = st.text_input("Password", type="password", key="login_password")
-            submitted = st.form_submit_button("Sign in", type="primary", use_container_width=True)
+            submitted = st.form_submit_button("Sign in", type="primary", width="stretch")
         if submitted:
             if not email.strip() or not password:
                 st.warning("Enter your email and password.")
@@ -156,7 +156,7 @@ def render_auth_gate() -> bool:
             new_email = st.text_input("Email", key="register_email")
             new_password = st.text_input("Password", type="password", key="register_password")
             confirm = st.text_input("Confirm password", type="password", key="register_confirm")
-            registered = st.form_submit_button("Create account", use_container_width=True)
+            registered = st.form_submit_button("Create account", width="stretch")
         if registered:
             if not new_email.strip() or not new_password:
                 st.warning("Enter an email and password.")

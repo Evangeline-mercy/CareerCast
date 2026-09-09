@@ -6,6 +6,8 @@ from datetime import datetime, timezone
 from io import BytesIO
 from pathlib import Path
 from typing import Any
+import re
+import unicodedata
 
 import reportlab
 from reportlab.lib import colors
@@ -30,8 +32,34 @@ pdfmetrics.registerFont(TTFont("CareerSans", _FONT_DIR / "Vera.ttf"))
 pdfmetrics.registerFont(TTFont("CareerSansBold", _FONT_DIR / "VeraBd.ttf"))
 
 
+def _safe_string(value: Any) -> str:
+    """Return printable ASCII text supported by the bundled PDF font."""
+    raw = str(value if value is not None else "")
+    raw = unicodedata.normalize("NFKD", raw)
+    raw = raw.replace("\u2013", "-").replace("\u2014", "-").replace("\u2022", "-")
+    return re.sub(r"\s+", " ", raw.encode("ascii", "ignore").decode("ascii")).strip()
+
+
 def _text(value: Any) -> str:
-    return escape(str(value if value is not None else ""))
+    return escape(_safe_string(value))
+
+
+def _profile_summary(profile_text: str, limit: int = 520) -> str:
+    """Create a compact excerpt without splitting the final word."""
+    compact = _safe_string(profile_text)
+    if len(compact) <= limit:
+        return compact or "No profile text was supplied."
+    shortened = compact[:limit].rsplit(" ", 1)[0].rstrip(" ,;:-")
+    return f"{shortened}..."
+
+
+def _page_footer(canvas: Any, doc: Any) -> None:
+    canvas.saveState()
+    canvas.setFont("CareerSans", 7.5)
+    canvas.setFillColor(colors.HexColor("#64748B"))
+    canvas.drawString(18 * mm, 9 * mm, "CareerCast | Decision-support report")
+    canvas.drawRightString(A4[0] - 18 * mm, 9 * mm, f"Page {doc.page}")
+    canvas.restoreState()
 
 
 def _skill_names(items: list[Any]) -> str:
@@ -70,7 +98,9 @@ def build_career_report(
     gaps = gap_report.get("gap_analysis", [])
     primary_gap = gaps[0] if gaps else {}
     top_prediction = predictions[0] if predictions else {}
-    target = gap_report.get("target_career") or top_prediction.get("career", "Unavailable")
+    top_recommendation = recommendations[0] if recommendations else {}
+    primary_career = top_recommendation.get("career") or top_prediction.get("career", "Unavailable")
+    target = gap_report.get("target_career") or primary_career
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
     story = [
@@ -78,18 +108,18 @@ def build_career_report(
         Paragraph("AI-Powered Career Path Prediction & Skill Intelligence", styles["Subtitle"]),
         Spacer(1, 6),
         Paragraph(f"Generated: {_text(generated)}", styles["Small"]),
-        Paragraph("Profile Summary", styles["Section"]),
-        Paragraph(_text(profile_text[:1200]), styles["BodyText"]),
-        Paragraph("Primary Prediction", styles["Section"]),
+        Paragraph("Profile Input Summary", styles["Section"]),
+        Paragraph(_text(_profile_summary(profile_text)), styles["BodyText"]),
+        Paragraph("Primary Career Recommendation", styles["Section"]),
     ]
 
-    probability = float(top_prediction.get("probability", 0.0))
+    probability = float(top_recommendation.get("ensemble_score", top_prediction.get("probability", 0.0)))
     primary_data = [
-        ["Career", "Probability", "Model", "Skill alignment"],
+        ["Career", "Confidence", "Source", "Target alignment"],
         [
-            _text(target),
+            _text(primary_career),
             f"{probability * 100:.2f}%",
-            _text(top_prediction.get("model", "Unavailable")),
+            "LR + RF + XGBoost",
             f"{float(primary_gap.get('alignment_score', 0.0)):.2f}%",
         ],
     ]
@@ -105,16 +135,21 @@ def build_career_report(
         ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#F8FAFC")]),
     ]))
     story.extend([primary_table, Paragraph("Top-K Careers", styles["Section"])])
+    if target != primary_career:
+        story.append(Paragraph(
+            f"Skill-gap target: <b>{_text(target)}</b>. Target alignment is calculated for this selected career, not for the primary recommendation.",
+            styles["Small"],
+        ))
 
     ranking_rows = [["Rank", "Career", "Ensemble score", "LR", "RF", "XGB"]]
     for item in recommendations:
         ranking_rows.append([
             item.get("rank", ""),
             Paragraph(_text(item.get("career", "")), styles["Small"]),
-            f"{float(item.get('ensemble_score', 0)):.4f}",
-            f"{float(item.get('lr_probability', 0)):.4f}",
-            f"{float(item.get('rf_probability', 0)):.4f}",
-            f"{float(item.get('xgb_probability', 0)):.4f}",
+            f"{float(item.get('ensemble_score', 0)) * 100:.2f}%",
+            f"{float(item.get('lr_probability', 0)) * 100:.2f}%",
+            f"{float(item.get('rf_probability', 0)) * 100:.2f}%",
+            f"{float(item.get('xgb_probability', 0)) * 100:.2f}%",
         ])
     ranking_table = Table(ranking_rows, repeatRows=1, colWidths=[13 * mm, 61 * mm, 27 * mm, 23 * mm, 23 * mm, 23 * mm])
     ranking_table.setStyle(TableStyle([
@@ -177,5 +212,5 @@ def build_career_report(
         Paragraph("This report is generated from the current user input and live CareerCast API responses. Model probabilities are decision-support scores, not guaranteed career outcomes.", styles["Small"]),
     ])
 
-    doc.build(story)
+    doc.build(story, onFirstPage=_page_footer, onLaterPages=_page_footer)
     return output.getvalue()
